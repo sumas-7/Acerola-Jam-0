@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj3a2qm8ovryu"]
+[gd_scene load_steps=4 format=3 uid="uid://cj3a2qm8ovryu"]
 
 [ext_resource type="Script" path="res://Assets/Player/Player.cs" id="1_5x1b1"]
 [ext_resource type="Texture2D" uid="uid://dny7t7yj3qghy" path="res://icon.svg" id="1_e6r4q"]
-[ext_resource type="PackedScene" uid="uid://c1p52aekp13hl" path="res://Assets/Player/StateMachine/StateMachine.tscn" id="3_4edxt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yh1g"]
 size = Vector2(132, 134)
@@ -15,5 +14,3 @@ shape = SubResource("RectangleShape2D_5yh1g")
 
 [node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
 texture = ExtResource("1_e6r4q")
-
-[node name="StateMachine" parent="." instance=ExtResource("3_4edxt")]
