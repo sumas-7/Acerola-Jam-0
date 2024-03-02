@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1p52aekp13hl"]
+
+[ext_resource type="Script" path="res://Assets/Player/StateMachine/StateMachine.cs" id="1_n7yvc"]
+[ext_resource type="Script" path="res://Assets/Player/StateMachine/States/Idle.cs" id="2_y5yu0"]
+[ext_resource type="Script" path="res://Assets/Player/StateMachine/States/Move.cs" id="3_w2h58"]
+[ext_resource type="Script" path="res://Assets/Player/StateMachine/States/Jump.cs" id="4_qyhx4"]
+
+[node name="StateMachine" type="Node" node_paths=PackedStringArray("initialState")]
+script = ExtResource("1_n7yvc")
+initialState = NodePath("idle")
+speed = 300.0
+JumpStrength = 350.0
+
+[node name="idle" type="Node" parent="."]
+script = ExtResource("2_y5yu0")
+
+[node name="move" type="Node" parent="."]
+script = ExtResource("3_w2h58")
+
+[node name="jump" type="Node" parent="."]
+script = ExtResource("4_qyhx4")

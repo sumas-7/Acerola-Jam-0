@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://clibqj16ptkcv"]
+
+[ext_resource type="Texture2D" uid="uid://deoi4uhhd0yh1" path="res://Assets/wall test.png" id="1_62txm"]
+[ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="2_m8d7f"]
+[ext_resource type="PackedScene" uid="uid://bihyrsirmk4ej" path="res://Assets/DebugUI/DebugUI.tscn" id="3_83jwk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
+size = Vector2(522.5, 523)
+
+[node name="MainNode" type="Node2D"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="box" type="StaticBody2D" parent="Environment"]
+position = Vector2(337, 642)
+scale = Vector2(1.3544, 0.259359)
+
+[node name="collision" type="CollisionShape2D" parent="Environment/box"]
+shape = SubResource("RectangleShape2D_6kwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/box/collision"]
+texture = ExtResource("1_62txm")
+
+[node name="Player" parent="." instance=ExtResource("2_m8d7f")]
+position = Vector2(443, 499)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+position_smoothing_enabled = true
+
+[node name="DebugUI" parent="." instance=ExtResource("3_83jwk")]

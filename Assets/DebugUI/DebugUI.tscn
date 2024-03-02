@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bihyrsirmk4ej"]
+
+[ext_resource type="Script" path="res://Assets/DebugUI/DebugUI.cs" id="1_86m5t"]
+
+[node name="DebugUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 459.0
+offset_bottom = 96.0
+script = ExtResource("1_86m5t")
+
+[node name="Text" type="Label" parent="."]
+layout_mode = 0
+offset_right = 282.0
+offset_bottom = 137.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
