@@ -15,8 +15,8 @@ JUMP_STRENGTH = 1000.0
 DASH_SPEED = 2200.0
 DASH_DURATION = 0.12
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5yh1g")
 
-[node name="Icon" type="Sprite2D" parent="CollisionShape2D"]
+[node name="Sprite" type="Sprite2D" parent="Collision"]
 texture = ExtResource("1_e6r4q")

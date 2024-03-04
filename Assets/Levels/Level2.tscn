@@ -1,0 +1,66 @@
+[gd_scene load_steps=8 format=3 uid="uid://b3jy3b0bjtj2y"]
+
+[ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/HUD/HUD+Debug.tscn" id="1_lcuct"]
+[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/EndGoal/EndGoal.tscn" id="2_lo1e4"]
+[ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_fikqq"]
+[ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Camera/Camera.tscn" id="4_c42xy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
+size = Vector2(522.5, 523)
+
+[sub_resource type="Gradient" id="Gradient_fnv23"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w2wgu"]
+gradient = SubResource("Gradient_fnv23")
+width = 131
+
+[node name="2" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_lcuct")]
+process_mode = 3
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="EndGoal" parent="Environment" instance=ExtResource("2_lo1e4")]
+position = Vector2(-479, -273)
+
+[node name="box" type="StaticBody2D" parent="Environment"]
+position = Vector2(337, 642)
+scale = Vector2(2.94289, 0.419561)
+
+[node name="collision" type="CollisionShape2D" parent="Environment/box"]
+shape = SubResource("RectangleShape2D_6kwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/box/collision"]
+rotation = 1.5708
+scale = Vector2(3.939, 515.065)
+texture = SubResource("GradientTexture1D_w2wgu")
+
+[node name="box2" type="StaticBody2D" parent="Environment"]
+position = Vector2(421, 389)
+scale = Vector2(0.385601, -0.35587)
+
+[node name="collision" type="CollisionShape2D" parent="Environment/box2"]
+shape = SubResource("RectangleShape2D_6kwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/box2/collision"]
+rotation = -1.5708
+scale = Vector2(3.939, 515.065)
+texture = SubResource("GradientTexture1D_w2wgu")
+
+[node name="box3" type="StaticBody2D" parent="Environment"]
+position = Vector2(-152, 105)
+scale = Vector2(0.203495, 0.226716)
+
+[node name="collision" type="CollisionShape2D" parent="Environment/box3"]
+shape = SubResource("RectangleShape2D_6kwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/box3/collision"]
+rotation = 1.5708
+scale = Vector2(3.939, 515.065)
+texture = SubResource("GradientTexture1D_w2wgu")
+
+[node name="Player" parent="." instance=ExtResource("3_fikqq")]
+position = Vector2(-307, 446)
+
+[node name="Camera" parent="." instance=ExtResource("4_c42xy")]

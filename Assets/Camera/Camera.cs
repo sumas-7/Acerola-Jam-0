@@ -8,13 +8,12 @@ public partial class Camera : Camera2D
 	public override void _Ready()
 	{
 		player = (CharacterBody2D)GetParent().GetNode("Player");
-		GD.Print(player);
 	}
 
 	public override void _Process(double delta)
 	{
-		position.X = Position.Lerp(player.Position, 0.1f).X;
-		position.Y = Position.Lerp(player.Position, 0.02f).Y;
+		position.X = Position.Lerp(player.Position, (float)delta * 6.1f).X;
+		position.Y = Position.Lerp(player.Position, (float)delta * 1.3f).Y;
 
 		Position = position;
 	}

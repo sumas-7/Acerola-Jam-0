@@ -40,7 +40,7 @@ public partial class Player : CharacterBody2D
 			if(dashTimer <= 0) // if ifnisched dashing
 			{
 				dashing = false; // exit dashing state
-				velocity = Vector2.Zero; // reset velocity
+				velocity.Y = 0; // reset vertical velocity
 				dashTimer = DASH_DURATION; // reset timer for the next dash
 			}
 			else // else decrease timer
@@ -49,17 +49,18 @@ public partial class Player : CharacterBody2D
 		}
 		else
 		{
+			velocity.X += inputDir.X * ACCELERATION; // accelerate
+			velocity.X = Mathf.Clamp(velocity.X, -MAX_SPEED, MAX_SPEED); // stop at max speed
+
 			if(inputDir != Vector2.Zero) // if moving change last dir
 				lastDir = inputDir;
 			
 			if(inputDir.X == 0)// if not moving horizontally decelerate
 				velocity.X *= DAMPING;
 
-			if(Input.IsActionJustPressed("dash") && !IsOnFloor()) // if press dash on air enter dashing state
+			// if press dash on air enter dashing state
+			if(Input.IsActionJustPressed("dash") && !IsOnFloor())
 				dashing = true;
-
-			velocity.X += inputDir.X * ACCELERATION; // accelerate
-			velocity.X = Mathf.Clamp(velocity.X, -MAX_SPEED, MAX_SPEED); // stop at max speed
 
 			// jump
 			if(Input.IsActionJustPressed("jump") && IsOnFloor())
