@@ -15,5 +15,8 @@ public partial class Jump : State
 				EmitSignal(machine.TRANSITION_STRING, this, "move");
 			else
 				EmitSignal(machine.TRANSITION_STRING, this, "idle");
+		
+		if(Input.IsActionJustPressed("dash"))
+			EmitSignal(machine.TRANSITION_STRING, this, "dash");
 	}
 }

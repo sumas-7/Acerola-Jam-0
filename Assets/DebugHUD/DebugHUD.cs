@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class DebugUI : Control
+public partial class DebugHUD : Control
 {
 	public static Label Instance;
 

@@ -14,5 +14,7 @@ public partial class Move : State
 		// idle tran
         if(machine.inputDir.Length() == 0)
             EmitSignal(machine.TRANSITION_STRING, this, "idle");
+		if(Input.IsActionJustPressed("dash"))
+			EmitSignal(machine.TRANSITION_STRING, this, "dash");
 	}
 }

@@ -51,7 +51,7 @@ public partial class StateMachine : Node
     {
         // gets horizontal and vertical input
         inputX = Input.GetAxis("left", "right");
-        inputY = Input.GetAxis("down", "up");
+        inputY = -Input.GetAxis("down", "up");
         
         // uses a single vec2 var to store that input, not normalized by choice otherwise going diagonal would slow down the character
         inputDir = new Vector2(inputX, inputY);
@@ -66,7 +66,7 @@ public partial class StateMachine : Node
         if(currentState != null) // if there's a current state, call its physics process function
 			currentState.StatePhysicsProcess(delta);
 
-        DebugUI.Instance.Text = velocity.ToString() + "\n" + currentState.Name;
+        DebugHUD.Instance.Text = velocity.ToString() + "\n" + currentState.Name;
 
         player.Velocity = velocity;
         player.MoveAndSlide();
