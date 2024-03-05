@@ -62,7 +62,7 @@ curve = SubResource("Curve2D_afrbh")
 [node name="MovingSaw" parent="Environment/Saw0" instance=ExtResource("5_u3fti")]
 position = Vector2(313, 494)
 scale = Vector2(1.10389, 1.10389)
-PATH_FOLLOW_START = 0.2
+PATH_FOLLOW_START = 0.5
 
 [node name="Saw1" type="Path2D" parent="Environment"]
 position = Vector2(-24, -108)
@@ -71,7 +71,6 @@ curve = SubResource("Curve2D_afrbh")
 [node name="MovingSaw" parent="Environment/Saw1" instance=ExtResource("5_u3fti")]
 position = Vector2(313, 494)
 scale = Vector2(1.10389, 1.10389)
-PATH_FOLLOW_START = 0.5
 
 [node name="Player" parent="." instance=ExtResource("3_gjpj7")]
 position = Vector2(-307, 446)
