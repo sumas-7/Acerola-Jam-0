@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddfugaqmvqea"]
 
-[ext_resource type="PackedScene" uid="uid://bihyrsirmk4ej" path="res://Assets/DebugHUD/DebugHUD.tscn" id="1_4olbv"]
+[ext_resource type="PackedScene" uid="uid://bihyrsirmk4ej" path="res://Assets/HUD/DebugHUD/DebugHUD.tscn" id="1_4olbv"]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
