@@ -2,12 +2,12 @@ using Godot;
 
 public partial class Player : CharacterBody2D
 {
-	[Export] public float ACCELERATION;
-	[Export] public float MAX_SPEED;
-	[Export] public float DAMPING;
-	[Export] public float JUMP_STRENGTH;
-	[Export] public float DASH_SPEED;
-	[Export] public float DASH_DURATION;
+	[Export] private float ACCELERATION = 150;
+	[Export] private float DECELERATION = 0.78f;
+	[Export] private float MAX_SPEED = 700;
+	[Export] private float JUMP_STRENGTH = 1000;
+	[Export] private float DASH_SPEED = 2200;
+	[Export] private float DASH_DURATION = 0.12f;
 
  	private Vector2 velocity = Vector2.Zero;
 	private Vector2 inputDir = Vector2.Zero;
@@ -56,7 +56,7 @@ public partial class Player : CharacterBody2D
 				lastDir = inputDir;
 			
 			if(inputDir.X == 0)// if not moving horizontally decelerate
-				velocity.X *= DAMPING;
+				velocity.X *= DECELERATION;
 
 			// if press dash on air enter dashing state
 			if(Input.IsActionJustPressed("dash") && !IsOnFloor())
@@ -72,7 +72,7 @@ public partial class Player : CharacterBody2D
 		}
 
 		Velocity = velocity;
-		DebugHUD.Instance.Text = velocity.ToString() + "\n" + inputDir;
+		// DebugHUD.Instance.Text = velocity.ToString() + "\n" + inputDir;
 		MoveAndSlide();
 		
 		// changes fps with tab press

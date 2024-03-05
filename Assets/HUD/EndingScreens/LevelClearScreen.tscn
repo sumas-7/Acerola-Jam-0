@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://csw4e7c1f4ebt"]
 
-[ext_resource type="Script" path="res://Assets/HUD/LevelClearScreen/RestartLevelButton.cs" id="1_8pgu8"]
-[ext_resource type="Script" path="res://Assets/HUD/LevelClearScreen/NextLevelButton.cs" id="1_v0hip"]
+[ext_resource type="Script" path="res://Assets/HUD/EndingScreens/RestartLevelButton.cs" id="1_8pgu8"]
+[ext_resource type="Script" path="res://Assets/HUD/EndingScreens/NextLevelButton.cs" id="1_v0hip"]
 
 [node name="LevelClearScreen" type="Control"]
 layout_mode = 3

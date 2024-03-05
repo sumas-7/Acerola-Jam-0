@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="1_2y2ej"]
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/HUD/HUD+Debug.tscn" id="3_mj24n"]
-[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="4_dj2cr"]
+[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="4_dj2cr"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Camera/Camera.tscn" id="4_t8u6s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]

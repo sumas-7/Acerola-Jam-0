@@ -1,10 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bpbi7ekmubbp6"]
+[gd_scene load_steps=10 format=3 uid="uid://bpbi7ekmubbp6"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/HUD/HUD+Debug.tscn" id="1_h8dx1"]
-[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_obbpf"]
+[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="2_obbpf"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_gjpj7"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Camera/Camera.tscn" id="4_c7xp7"]
-[ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/CircularSaw/CircularSaw.tscn" id="5_wqai7"]
+[ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/MovingSaw.tscn" id="5_u3fti"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
 size = Vector2(522.5, 523)
@@ -14,6 +14,12 @@ size = Vector2(522.5, 523)
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_w2wgu"]
 gradient = SubResource("Gradient_fnv23")
 width = 131
+
+[sub_resource type="Curve2D" id="Curve2D_afrbh"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 136, 498, 0, 0, 0, 0, 555, 498, 0, 0, 0, 0, 136, 498)
+}
+point_count = 3
 
 [node name="0" type="Node2D"]
 
@@ -49,11 +55,25 @@ rotation = -1.5708
 scale = Vector2(3.939, 515.065)
 texture = SubResource("GradientTexture1D_w2wgu")
 
+[node name="Saw0" type="Path2D" parent="Environment"]
+position = Vector2(-30, 36)
+curve = SubResource("Curve2D_afrbh")
+
+[node name="MovingSaw" parent="Environment/Saw0" instance=ExtResource("5_u3fti")]
+position = Vector2(313, 494)
+scale = Vector2(1.10389, 1.10389)
+PATH_FOLLOW_START = 0.2
+
+[node name="Saw1" type="Path2D" parent="Environment"]
+position = Vector2(-24, -108)
+curve = SubResource("Curve2D_afrbh")
+
+[node name="MovingSaw" parent="Environment/Saw1" instance=ExtResource("5_u3fti")]
+position = Vector2(313, 494)
+scale = Vector2(1.10389, 1.10389)
+PATH_FOLLOW_START = 0.5
+
 [node name="Player" parent="." instance=ExtResource("3_gjpj7")]
 position = Vector2(-307, 446)
 
 [node name="Camera" parent="." instance=ExtResource("4_c7xp7")]
-
-[node name="CircularSaw" parent="." instance=ExtResource("5_wqai7")]
-position = Vector2(296, 496)
-scale = Vector2(1.13811, 1.13811)

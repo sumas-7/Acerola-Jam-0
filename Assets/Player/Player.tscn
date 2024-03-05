@@ -8,12 +8,6 @@ size = Vector2(126, 126)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_5x1b1")
-ACCELERATION = 150.0
-MAX_SPEED = 700.0
-DAMPING = 0.78
-JUMP_STRENGTH = 1000.0
-DASH_SPEED = 2200.0
-DASH_DURATION = 0.12
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_5yh1g")
