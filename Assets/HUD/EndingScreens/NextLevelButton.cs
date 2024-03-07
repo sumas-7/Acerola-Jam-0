@@ -8,8 +8,8 @@ public partial class NextLevelButton : Button
     }
     private void OnPress()
 	{
-        string currentLevelIndex = GetTree().CurrentScene.Name;
-        int nextLevelIndex = currentLevelIndex.ToInt() + 1;
+        string currentLevelName = GetTree().CurrentScene.Name;
+        int nextLevelIndex = currentLevelName.ToInt() + 1;
 
 		GetTree().Paused = false;
 		GetTree().ChangeSceneToFile("res://Assets/Levels/Level" + nextLevelIndex + ".tscn");

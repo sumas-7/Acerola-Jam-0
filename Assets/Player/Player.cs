@@ -74,11 +74,5 @@ public partial class Player : CharacterBody2D
 		Velocity = velocity;
 		// DebugHUD.Instance.Text = velocity.ToString() + "\n" + inputDir;
 		MoveAndSlide();
-		
-		// changes fps with tab press
-		if(Input.IsActionPressed("test"))
-            Engine.MaxFps = 20;
-        else
-            Engine.MaxFps = 60;
 	}
 }

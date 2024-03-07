@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpbi7ekmubbp6"]
+[gd_scene load_steps=11 format=3 uid="uid://bpbi7ekmubbp6"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/HUD/HUD+Debug.tscn" id="1_h8dx1"]
+[ext_resource type="PackedScene" uid="uid://d4ammlxe8xqfa" path="res://Assets/Aberrator/Aberrator.tscn" id="2_nfdk8"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="2_obbpf"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_gjpj7"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Camera/Camera.tscn" id="4_c7xp7"]
@@ -25,6 +26,8 @@ point_count = 3
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_h8dx1")]
 process_mode = 3
+
+[node name="Aberrator" parent="." instance=ExtResource("2_nfdk8")]
 
 [node name="Environment" type="Node2D" parent="."]
 

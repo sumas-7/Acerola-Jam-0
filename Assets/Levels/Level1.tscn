@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dikr7tmc1a6os"]
+[gd_scene load_steps=9 format=3 uid="uid://dikr7tmc1a6os"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/HUD/HUD+Debug.tscn" id="1_425vu"]
+[ext_resource type="PackedScene" uid="uid://d4ammlxe8xqfa" path="res://Assets/Aberrator/Aberrator.tscn" id="2_kfp70"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="2_ofa4n"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_mquhf"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Camera/Camera.tscn" id="4_nbr0r"]
@@ -18,6 +19,8 @@ width = 131
 
 [node name="CanvasLayer" parent="." instance=ExtResource("1_425vu")]
 process_mode = 3
+
+[node name="Aberrator" parent="." instance=ExtResource("2_kfp70")]
 
 [node name="Environment" type="Node2D" parent="."]
 

@@ -17,8 +17,8 @@ public partial class Dash : State
 		// transitions
 		if(timer <= 0)
 		{
-            EmitSignal(machine.TRANSITION_STRING, this, "idle");
-			timer = 0.1f;
+			timer = 0.1f; // resets timer
+            EmitSignal(machine.TRANSITION_STRING, this, "idle"); // return to idle
 		}
 		else
 			timer -= (float)delta;
