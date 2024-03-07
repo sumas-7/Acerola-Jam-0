@@ -48,7 +48,7 @@ public partial class Aberrator : Node
 		
 		foreach(int key in usedKeys)
 		{
-			GD.Print(key);
+			GD.Print((Key)key);
 		}
 	}
 
@@ -56,40 +56,39 @@ public partial class Aberrator : Node
 	{
 		// from 65 to 90 = from A to Z
 		// higher than 90 is a special case
-		int num = GD.RandRange(65, 102);
+		int num = GD.RandRange(65, 98);
 
-		GD.Print(!usedKeys.Contains((Key)num));
-
-		if(!usedKeys.Contains((Key)num)) // only add the key if it hasn't been already used
+		if(!usedKeys.Contains(GetKey(num))) // only add the key if it hasn't been already used
 			switch(num)
 			{
-				case 91: usedKeys.Add(Key.Up); return Key.Up;
-
-				case 92: usedKeys.Add(Key.Down); return Key.Down;
-
-				case 93: usedKeys.Add(Key.Left); return Key.Left;
-				
-				case 94: usedKeys.Add(Key.Right); return Key.Right;
-				
-				case 95: usedKeys.Add(Key.Space); return Key.Space;
-				
-				case 96: usedKeys.Add(Key.Alt); return Key.Alt;
-				
-				case 97: usedKeys.Add(Key.Ctrl); return Key.Ctrl;
-				
-				case 98: usedKeys.Add(Key.Shift); return Key.Shift;
-				
-				case 99: usedKeys.Add(Key.Capslock); return Key.Capslock;
-				
-				case 100: usedKeys.Add(Key.Tab); return Key.Tab;
-				
-				case 101: usedKeys.Add(Key.Enter); return Key.Enter;
-				
-				case 102: usedKeys.Add(Key.Backspace); return Key.Backspace;
-				
+				case 91: usedKeys.Add(Key.Space); return Key.Space;
+				case 92: usedKeys.Add(Key.Alt); return Key.Alt;
+				case 93: usedKeys.Add(Key.Ctrl); return Key.Ctrl;
+				case 94: usedKeys.Add(Key.Shift); return Key.Shift;
+				case 95: usedKeys.Add(Key.Capslock); return Key.Capslock;
+				case 96: usedKeys.Add(Key.Tab); return Key.Tab;
+				case 97: usedKeys.Add(Key.Enter); return Key.Enter;
+				case 98: usedKeys.Add(Key.Backspace); return Key.Backspace;
 				default: usedKeys.Add((Key)num); return (Key)num;
 			}
 		else // else call itself again
 			return GetRandomKeyCode();
 	}
+
+	// get a key based on a number so that i can choose a special key without having to use 4mil as number in the rnd num generator
+	public Key GetKey(int num)
+	{
+        return num switch
+        {
+            91 => Key.Space,
+            92 => Key.Alt,
+            93 => Key.Ctrl,
+            94 => Key.Shift,
+            95 => Key.Capslock,
+            96 => Key.Tab,
+            97 => Key.Enter,
+            98 => Key.Backspace,
+            _ => (Key)num,
+        };
+    }
 }
