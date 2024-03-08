@@ -15,9 +15,9 @@ public partial class Tutorial : Control
 		dashLabel = (Label)GetChild(2);
 
 		moveLabel.Text += 
-			GameManager.Instance.currentControls[0].ToString() +
-			GameManager.Instance.currentControls[1].ToString() +
-			GameManager.Instance.currentControls[2].ToString() +
+			GameManager.Instance.currentControls[0].ToString() + " " +
+			GameManager.Instance.currentControls[1].ToString() + " " +
+			GameManager.Instance.currentControls[2].ToString() + " " +
 			GameManager.Instance.currentControls[3].ToString();
 			
 		jumpLabel.Text += GameManager.Instance.currentControls[4].ToString();

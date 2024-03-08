@@ -11,14 +11,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_562kg")
 
-[node name="Label" type="Label" parent="."]
+[node name="Move" type="Label" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 theme_override_font_sizes/font_size = 71
-text = "Move with "
+text = "Move with  "
 
-[node name="Label2" type="Label" parent="."]
+[node name="Jump" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1102.0
 offset_right = 1655.0
@@ -26,7 +26,7 @@ offset_bottom = 97.0
 theme_override_font_sizes/font_size = 71
 text = "Jump with "
 
-[node name="Label3" type="Label" parent="."]
+[node name="Dash" type="Label" parent="."]
 layout_mode = 0
 offset_left = 2088.0
 offset_right = 2641.0

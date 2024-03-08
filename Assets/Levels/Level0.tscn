@@ -1,10 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bpbi7ekmubbp6"]
+[gd_scene load_steps=13 format=3 uid="uid://bpbi7ekmubbp6"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_h8dx1"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="2_obbpf"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_gjpj7"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="4_c7xp7"]
 [ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/MovingSaw.tscn" id="5_u3fti"]
+[ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="6_kuou0"]
+[ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="7_70pwa"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8vu3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
 size = Vector2(522.5, 523)
@@ -28,19 +32,15 @@ process_mode = 3
 
 [node name="ControlScheme" type="Node" parent="."]
 
-[node name="W" type="Node" parent="ControlScheme"]
-
-[node name="S" type="Node" parent="ControlScheme"]
-
-[node name="A" type="Node" parent="ControlScheme"]
-
-[node name="D" type="Node" parent="ControlScheme"]
-
-[node name="K" type="Node" parent="ControlScheme"]
-
-[node name="J" type="Node" parent="ControlScheme"]
-
 [node name="Environment" type="Node2D" parent="."]
+
+[node name="YLimit" type="Area2D" parent="Environment"]
+position = Vector2(0, 1174)
+script = ExtResource("6_kuou0")
+spawnatedScreen_scene = ExtResource("7_70pwa")
+
+[node name="WorldBoundary" type="CollisionShape2D" parent="Environment/YLimit"]
+shape = SubResource("WorldBoundaryShape2D_8vu3d")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_obbpf")]
 position = Vector2(1452, 450)
