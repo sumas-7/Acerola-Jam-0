@@ -18,7 +18,7 @@ public partial class GameManager : Node2D
 	{
 		GetChild(0).QueueFree();
 
-		if(loadNext)
+		if(loadNext) // if true, loads the next level in order
 			level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level" + ++levelIndex + ".tscn");
 
 		if(levelIndex <= lastLevelIndex)
@@ -28,6 +28,5 @@ public partial class GameManager : Node2D
 		}
 
 		GetTree().Paused = false;
-		GD.Print(levelIndex);
 	}
 }

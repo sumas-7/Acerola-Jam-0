@@ -72,7 +72,7 @@ public partial class Player : CharacterBody2D
 		}
 
 		Velocity = velocity;
-		// DebugHUD.Instance.Text = velocity.ToString() + "\n" + inputDir;
+		DebugHUD.Instance.Text = Position.ToString();
 		MoveAndSlide();
 	}
 }
