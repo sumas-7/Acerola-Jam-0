@@ -2,18 +2,19 @@ using Godot;
 
 public partial class Camera : Camera2D
 {
-	Vector2 position = Vector2.Zero;
-	private CharacterBody2D player;
+	[Export] private Node2D target = new();
 
-	public override void _Ready()
-	{
-		player = (CharacterBody2D)GetParent().GetNode("Player");
-	}
+	private Vector2 position = Vector2.Zero;
 
-	public override void _Process(double delta)
+    public override void _Ready()
+    {
+        target.Position = Position;
+    }
+
+    public override void _Process(double delta)
 	{
-		position.X = Position.Lerp(player.Position, (float)delta * 6.1f).X;
-		position.Y = Position.Lerp(player.Position, (float)delta * 1.3f).Y;
+		position.X = Position.Lerp(target.Position, (float)delta * 6.1f).X;
+		position.Y = Position.Lerp(target.Position, (float)delta * 1.3f).Y;
 
 		Position = position;
 	}
