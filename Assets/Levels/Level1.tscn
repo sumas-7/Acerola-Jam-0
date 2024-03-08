@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dikr7tmc1a6os"]
 
-[ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/HUD/HUD+Debug.tscn" id="1_425vu"]
+[ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_425vu"]
 [ext_resource type="PackedScene" uid="uid://d4ammlxe8xqfa" path="res://Assets/Aberrator/Aberrator.tscn" id="2_kfp70"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="2_ofa4n"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_mquhf"]
@@ -66,4 +66,5 @@ texture = SubResource("GradientTexture1D_w2wgu")
 [node name="Player" parent="." instance=ExtResource("3_mquhf")]
 position = Vector2(-307, 446)
 
-[node name="Camera" parent="." instance=ExtResource("4_nbr0r")]
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_nbr0r")]
+target = NodePath("../Player")

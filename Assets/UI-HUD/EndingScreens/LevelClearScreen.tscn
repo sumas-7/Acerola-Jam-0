@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://csw4e7c1f4ebt"]
+[gd_scene load_steps=2 format=3 uid="uid://csw4e7c1f4ebt"]
 
-[ext_resource type="Script" path="res://Assets/HUD/EndingScreens/RestartLevelButton.cs" id="1_8pgu8"]
-[ext_resource type="Script" path="res://Assets/HUD/EndingScreens/NextLevelButton.cs" id="1_v0hip"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="1_ya1jb"]
 
 [node name="LevelClearScreen" type="Control"]
 layout_mode = 3
@@ -42,7 +41,8 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 23
 text = "Next level"
-script = ExtResource("1_v0hip")
+script = ExtResource("1_ya1jb")
+loadNext = true
 
 [node name="RestartLevelButton" type="Button" parent="."]
 layout_mode = 1
@@ -59,4 +59,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 23
 text = "Restart level"
-script = ExtResource("1_8pgu8")
+script = ExtResource("1_ya1jb")

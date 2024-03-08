@@ -9,6 +9,11 @@ public partial class Aberrator : Node
 
     public override void _Ready()
 	{
+		
+	}
+	
+	public void Aberrate()
+	{
 		// erases all events from all actions
 		InputMap.ActionEraseEvents("up");
 		InputMap.ActionEraseEvents("down");
@@ -51,7 +56,6 @@ public partial class Aberrator : Node
 			GD.Print((Key)key);
 		}
 	}
-
 	private Key GetRandomKeyCode()
 	{
 		// from 65 to 90 = from A to Z

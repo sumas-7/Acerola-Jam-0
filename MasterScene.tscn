@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://clibqj16ptkcv"]
+
+[ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/QuitButton.cs" id="2_nfe7g"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="2_tu0q2"]
+
+[sub_resource type="Gradient" id="Gradient_m6hbu"]
+offsets = PackedFloat32Array(0.167421, 0.823529)
+colors = PackedColorArray(0, 0.0705882, 1, 1, 0.00925489, 0.0762928, 0.223154, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_33xho"]
+gradient = SubResource("Gradient_m6hbu")
+fill_from = Vector2(0.333333, 1)
+fill_to = Vector2(0.888889, 0)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0co26"]
+texture = SubResource("GradientTexture2D_33xho")
+
+[node name="MasterNode" type="Node2D"]
+script = ExtResource("1_pvv0a")
+
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Panel" type="Panel" parent="MainMenu"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_0co26")
+
+[node name="Label" type="Label" parent="MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -151.0
+offset_right = 116.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 91
+text = "TITLE"
+
+[node name="StartGameButton" type="Button" parent="MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -29.5
+offset_right = 72.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Play"
+script = ExtResource("2_tu0q2")
+
+[node name="QuitButton" type="Button" parent="MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = 54.0
+offset_right = 45.0
+offset_bottom = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Quit"
+script = ExtResource("2_nfe7g")

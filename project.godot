@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Acerola-Jam-0"
-run/main_scene="res://Assets/Levels/Level0.tscn"
+run/main_scene="res://MasterScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
 
 [dotnet]
 

@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Prop : Area2D
 {
-	[Export] private PackedScene spawnatedScreen_Scene;
+	[Export] private PackedScene spawnatedScreen_scene;
 
 	public override void _Ready()
 	{
@@ -16,7 +16,7 @@ public partial class Prop : Area2D
 			GetTree().Paused = true; // stops the game
 
 			// spawns the selected screen
-			Control spawnatedScreen = (Control)spawnatedScreen_Scene.Instantiate();
+			Control spawnatedScreen = (Control)spawnatedScreen_scene.Instantiate();
 			GetOwner<Node2D>().GetChild(0).AddChild(spawnatedScreen);
 		}
 	}

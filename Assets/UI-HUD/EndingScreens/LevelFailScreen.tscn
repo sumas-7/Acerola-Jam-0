@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3l2ivl53dyjk"]
+[gd_scene load_steps=2 format=3 uid="uid://cccah2q435md4"]
 
-[ext_resource type="Script" path="res://Assets/HUD/EndingScreens/RestartLevelButton.cs" id="1_20pfw"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="1_cq75l"]
 
 [node name="LevelClearScreen" type="Control"]
 layout_mode = 3
@@ -41,4 +41,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 23
 text = "Restart level"
-script = ExtResource("1_20pfw")
+script = ExtResource("1_cq75l")
