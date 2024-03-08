@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3jy3b0bjtj2y"]
+[gd_scene load_steps=8 format=3 uid="uid://b3jy3b0bjtj2y"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_lcuct"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="2_lo1e4"]
-[ext_resource type="PackedScene" uid="uid://d4ammlxe8xqfa" path="res://Assets/Aberrator/Aberrator.tscn" id="2_y5xe5"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_fikqq"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="5_w3xl3"]
 
@@ -20,7 +19,7 @@ width = 131
 [node name="CanvasLayer" parent="." instance=ExtResource("1_lcuct")]
 process_mode = 3
 
-[node name="Aberrator" parent="." instance=ExtResource("2_y5xe5")]
+[node name="ControlScheme" type="Node" parent="."]
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -64,6 +63,7 @@ scale = Vector2(3.939, 515.065)
 texture = SubResource("GradientTexture1D_w2wgu")
 
 [node name="Player" parent="." instance=ExtResource("3_fikqq")]
+position = Vector2(-308, 433)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_w3xl3")]
 target = NodePath("../Player")
