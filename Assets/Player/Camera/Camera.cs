@@ -13,10 +13,8 @@ public partial class Camera : Camera2D
 
     public override void _Process(double delta)
 	{
-		Vector2 targetPos = target.Position;
-
-		position.X = Position.Lerp(targetPos, (float)delta * 6.1f).X;
-		position.Y = Position.Lerp(targetPos, (float)delta * 1.3f).Y;
+		position.X = Position.Lerp(target.Position, (float)delta * 6.1f).X;
+		position.Y = Position.Lerp(target.Position, (float)delta * 1.3f).Y;
 
 		Position = position;
 	}
