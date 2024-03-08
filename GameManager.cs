@@ -8,12 +8,14 @@ public partial class GameManager : Node2D
 	private int levelIndex = 0;
 	private int lastLevelIndex = 2;
 	private Node2D level;
+	private Control tutorial;
 	private PackedScene level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level0.tscn");
+	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/Tutorial.tscn");
 
 	private Node levelControls; // node in the level that contains control scheme
 	// create the objects of the InputEventKeys. Using only one object ended up assigning the same key to everything
 	private InputEventKey upKey = new(), downKey = new(), leftKey = new(), rightKey = new(), jumpKey = new(), dashKey = new();
-	private List<Key> currentControls = new();
+	public List<Key> currentControls = new();
 
 	public override void _Ready()
 	{
@@ -27,16 +29,19 @@ public partial class GameManager : Node2D
 		if(loadNext) // if true, loads the next level in order
 			level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level" + ++levelIndex + ".tscn");
 
-		if(levelIndex <= lastLevelIndex)
-		{
-			level = (Node2D)level_scene.Instantiate();
-			AddChild(level);
-		}
+		// instantiate the new level
+		level = (Node2D)level_scene.Instantiate();
+		AddChild(level);
 
+		// get the controls of the level and change the InputMap
 		levelControls = level.GetChild(1);
 		AberrateInput();
 
-		GetTree().Paused = false;
+		// add the tutorial scene to the level
+		tutorial = (Control)tutorial_scene.Instantiate();
+		level.AddChild(tutorial);	
+
+		GetTree().Paused = false; // resume the game
 	}
 
 	public void AberrateInput()
@@ -73,7 +78,7 @@ public partial class GameManager : Node2D
 			currentControls.Add(key);
 			rightKey.Keycode = key;
 			
-			
+
 			key = (Key)levelControls.GetChild(4).Name.ToString()[0];
 			currentControls.Add(key);
 			jumpKey.Keycode = key;
