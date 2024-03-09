@@ -21,15 +21,17 @@ text = "Move with  "
 [node name="Jump" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1102.0
+offset_top = -184.0
 offset_right = 1655.0
-offset_bottom = 97.0
+offset_bottom = -87.0
 theme_override_font_sizes/font_size = 71
 text = "Jump with "
 
 [node name="Dash" type="Label" parent="."]
 layout_mode = 0
-offset_left = 2088.0
-offset_right = 2641.0
-offset_bottom = 97.0
+offset_left = 2260.0
+offset_top = -429.0
+offset_right = 2813.0
+offset_bottom = -332.0
 theme_override_font_sizes/font_size = 71
 text = "Dash with "
