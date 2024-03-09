@@ -14,10 +14,13 @@ public partial class StateMachine : Node
 	[Export] public float MAX_SPEED = 700;
 	[Export] public float JUMP_STRENGTH = 1000;
 	[Export] public float JUMP_BUFFER_TIME = 0.14f;
+	[Export] public float COYOTE_TIME = 0.1f;
 	[Export] public float DASH_SPEED = 2200;
 	[Export] public float DASH_DURATION = 0.12f;
     public float gravity = 2500;
     public float jumpBuffer = 0;
+    public float coyoteTime = 0;
+    public bool canJump = true;
     public bool canDash = true;
     public Vector2 velocity;
     public Vector2 lastDir = Vector2.Right;
@@ -64,7 +67,9 @@ public partial class StateMachine : Node
         // uses a single vec2 var to store that input, not normalized by choice otherwise going diagonal would slow down the character
         inputDir = new Vector2(inputX, inputY);
 
+        // decrease various timers
         jumpBuffer -= (float)delta;
+        coyoteTime -= (float)delta;
 
         if(currentState != null) // if there's a current state, call its process function
 			currentState.StateProcess(delta);
@@ -73,19 +78,20 @@ public partial class StateMachine : Node
     {
         velocity = player.Velocity;
 
-        // jump buffer logic
+        // jump logic
 		if(Input.IsActionJustPressed("jump"))
 			jumpBuffer = JUMP_BUFFER_TIME;
 
-        if(jumpBuffer > 0 && player.IsOnFloor()) // if you press jump
+        if(canJump && jumpBuffer > 0 && (coyoteTime >= 0 || player.IsOnFloor()))
         {
 			velocity.Y = -JUMP_STRENGTH; // changes Y velocity making the player jump
+            canJump = false; // remove the ability of jumping again
         }
 
         if(currentState != null) // if there's a current state, call its physics process function
 			currentState.StatePhysicsProcess(delta);
 
-        DebugHUD.Instance.Text = jumpBuffer + "\n" + currentState.Name;
+        DebugHUD.Instance.Text = coyoteTime + "\n" + currentState.Name;
 
         player.Velocity = velocity;
         player.MoveAndSlide();

@@ -5,6 +5,8 @@ public partial class Ground : State
 {
 	public override void StateEnter()
 	{
+		// after getting to the ground, recover the ability of jump and dash
+		machine.canJump = true;
 		machine.canDash = true;
 	}
 

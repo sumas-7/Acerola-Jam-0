@@ -3,7 +3,11 @@ using Godot;
 [GlobalClass]
 public partial class Air : State
 {
-	public override void StatePhysicsProcess(double delta)
+    public override void StateEnter()
+    {
+        machine.coyoteTime = machine.COYOTE_TIME;
+    }
+    public override void StatePhysicsProcess(double delta)
 	{
 		// movement
 		machine.ApplyVerticalMovement(delta);
