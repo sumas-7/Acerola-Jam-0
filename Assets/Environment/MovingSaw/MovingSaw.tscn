@@ -8,6 +8,7 @@
 radius = 64.0078
 
 [node name="MovingSaw" type="Area2D"]
+z_index = -1
 script = ExtResource("1_yvnq7")
 spawnatedScreen_scene = ExtResource("2_qgdax")
 

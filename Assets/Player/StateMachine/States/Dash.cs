@@ -13,7 +13,7 @@ public partial class Dash : State
 
     public override void StateExit()
     {
-        machine.velocity = Vector2.Zero;
+        machine.velocity.Y = 0;
     }
     public override void StatePhysicsProcess(double delta)
 	{

@@ -3,13 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://c1p52aekp13hl" path="res://Assets/Player/StateMachine/StateMachine.tscn" id="2_yn78o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yh1g"]
-size = Vector2(126, 126)
+size = Vector2(126, 123)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jpeme"]
 
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_5yh1g")
 
 [node name="Sprite" type="Sprite2D" parent="Collision"]
@@ -18,3 +19,6 @@ scale = Vector2(124, 124)
 texture = SubResource("CanvasTexture_jpeme")
 
 [node name="StateMachine" parent="." instance=ExtResource("2_yn78o")]
+MAX_SPEED = 750.0
+DASH_SPEED = 2300.0
+DASH_DURATION = 0.13
