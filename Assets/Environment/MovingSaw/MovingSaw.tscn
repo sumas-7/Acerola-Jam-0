@@ -1,14 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://u0axm6l3pb3d"]
+[gd_scene load_steps=5 format=3 uid="uid://u0axm6l3pb3d"]
 
-[ext_resource type="Texture2D" uid="uid://dny7t7yj3qghy" path="res://icon.svg" id="1_v8hkt"]
 [ext_resource type="Script" path="res://Assets/Environment/MovingSaw/MovingSaw.cs" id="1_yvnq7"]
 [ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="2_qgdax"]
+[ext_resource type="Texture2D" uid="uid://bmjf2k7b3rjm2" path="res://Assets/Environment/MovingSaw/cirucular saw.svg" id="3_833iv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o0e0n"]
 radius = 64.0078
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1el4t"]
-blend_mode = 2
 
 [node name="MovingSaw" type="Area2D"]
 script = ExtResource("1_yvnq7")
@@ -18,5 +15,5 @@ spawnatedScreen_scene = ExtResource("2_qgdax")
 shape = SubResource("CircleShape2D_o0e0n")
 
 [node name="Sprite" type="Sprite2D" parent="Collision"]
-material = SubResource("CanvasItemMaterial_1el4t")
-texture = ExtResource("1_v8hkt")
+scale = Vector2(0.152264, 0.152264)
+texture = ExtResource("3_833iv")

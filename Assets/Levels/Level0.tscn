@@ -32,6 +32,18 @@ process_mode = 3
 
 [node name="ControlScheme" type="Node" parent="."]
 
+[node name="W" type="Node" parent="ControlScheme"]
+
+[node name="S" type="Node" parent="ControlScheme"]
+
+[node name="A" type="Node" parent="ControlScheme"]
+
+[node name="D" type="Node" parent="ControlScheme"]
+
+[node name="K" type="Node" parent="ControlScheme"]
+
+[node name="J" type="Node" parent="ControlScheme"]
+
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="YLimit" type="Area2D" parent="Environment"]
@@ -53,7 +65,7 @@ scale = Vector2(6.98298, 0.394445)
 shape = SubResource("RectangleShape2D_6kwhl")
 
 [node name="Sprite2D" type="Sprite2D" parent="Environment/box/collision"]
-rotation = 1.5708
+rotation = -1.5708
 scale = Vector2(3.939, 515.065)
 texture = SubResource("GradientTexture1D_w2wgu")
 

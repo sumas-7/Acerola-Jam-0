@@ -24,7 +24,7 @@ public partial class GameManager : Node2D
 
 	public void LoadLevel(bool loadNext)
 	{
-		GetChild(0).QueueFree();
+		GetChild(1).QueueFree();
 
 		if(loadNext) // if true, loads the next level in order
 			level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level" + ++levelIndex + ".tscn");
@@ -37,7 +37,7 @@ public partial class GameManager : Node2D
 		levelControls = level.GetChild(1);
 		
 		if(loadNext)
-			// AberrateInput();
+			AberrateInput();
 
 		// add the tutorial scene to the level
 		tutorial = (Control)tutorial_scene.Instantiate();

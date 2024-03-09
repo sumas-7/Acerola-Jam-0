@@ -37,7 +37,7 @@ public partial class MovingSaw : Prop
 		direction = (GlobalPosition - lastPos).Normalized();
 
 		if(direction != Vector2.Zero) // if moving, change direction based on the dir 
-			if(Mathf.Abs(direction.X) > Mathf.Abs(direction.Y)) // if is moving more in the x axis rotate based on the x axis
+			if(Mathf.Abs(direction.X) > Mathf.Abs(direction.Y)) // if is moving more horizontally rotate based on the x velocity
 				sprite.Rotate(ROTATION_SPEED * direction.X * (float)delta);
 			else // else do otherwise
 				sprite.Rotate(ROTATION_SPEED * direction.Y * (float)delta);

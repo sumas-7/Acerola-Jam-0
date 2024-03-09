@@ -18,13 +18,17 @@ public partial class Dash : State
     public override void StatePhysicsProcess(double delta)
 	{
 		// movement
-        machine.velocity = (machine.lastDir).Normalized() * machine.DASH_SPEED;
+        machine.velocity = machine.lastDir.Normalized() * machine.DASH_SPEED;
 		
 		// transitions
+		if(machine.player.IsOnFloor())
+            EmitSignal(machine.TRANSITION_STRING, this, "air"); // stop dashing
+
+
 		if(timer <= 0)
 		{
 			timer = machine.DASH_DURATION; // resets timer
-            EmitSignal(machine.TRANSITION_STRING, this, "air"); // return to idle
+            EmitSignal(machine.TRANSITION_STRING, this, "air"); // stop dashing
 		}
 		else
 			timer -= (float)delta;
