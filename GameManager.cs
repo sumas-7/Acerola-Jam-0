@@ -37,7 +37,7 @@ public partial class GameManager : Node2D
 		levelControls = level.GetChild(1);
 		
 		if(loadNext)
-			// AberrateInput();
+			AberrateInput();
 
 		// add the tutorial scene to the level
 		tutorial = (Control)tutorial_scene.Instantiate();

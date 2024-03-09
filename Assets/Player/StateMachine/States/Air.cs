@@ -1,7 +1,7 @@
 using Godot;
 
 [GlobalClass]
-public partial class Move : State
+public partial class Air : State
 {
 	public override void StatePhysicsProcess(double delta)
 	{
@@ -9,12 +9,12 @@ public partial class Move : State
 		machine.ApplyVerticalMovement(delta);
 		machine.ApplyGravity(delta);
 
-		// transitions
-		JumpTransition();
-		// idle tran
-        if(machine.inputDir.Length() == 0)
-            EmitSignal(machine.TRANSITION_STRING, this, "idle");
-		if(Input.IsActionJustPressed("dash"))
+		// ground tran
+		if(machine.player.IsOnFloor())
+			EmitSignal(machine.TRANSITION_STRING, this, "ground");
+		
+		// dash tran
+		if(Input.IsActionJustPressed("dash") && machine.canDash)
 			EmitSignal(machine.TRANSITION_STRING, this, "dash");
 	}
 }

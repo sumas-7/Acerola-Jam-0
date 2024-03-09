@@ -8,6 +8,7 @@ public partial class Dash : State
 	public override void StateEnter()
 	{
 		timer = machine.DASH_DURATION;
+		machine.canDash = false;
 	}
 
     public override void StateExit()
@@ -23,10 +24,9 @@ public partial class Dash : State
 		if(timer <= 0)
 		{
 			timer = machine.DASH_DURATION; // resets timer
-            EmitSignal(machine.TRANSITION_STRING, this, "idle"); // return to idle
+            EmitSignal(machine.TRANSITION_STRING, this, "air"); // return to idle
 		}
 		else
 			timer -= (float)delta;
-			
 	}
 }

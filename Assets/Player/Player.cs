@@ -37,7 +37,7 @@ public partial class Player : CharacterBody2D
 		{
 			velocity = lastDir.Normalized() * DASH_SPEED; // dashes in the last direction
 			
-			if(dashTimer <= 0) // if ifnisched dashing
+			if(dashTimer <= 0) // if finished dashing
 			{
 				dashing = false; // exit dashing state
 				velocity.Y = 0; // reset vertical velocity

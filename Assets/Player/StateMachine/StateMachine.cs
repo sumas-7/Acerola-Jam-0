@@ -16,6 +16,8 @@ public partial class StateMachine : Node
 	[Export] public float DASH_SPEED = 2200;
 	[Export] public float DASH_DURATION = 0.12f;
     public float gravity = 2500;
+    public float jumpBuffer = 0;
+    public bool canDash = true;
     public Vector2 velocity;
     public Vector2 lastDir = Vector2.Right;
     public CharacterBody2D player;
@@ -43,8 +45,8 @@ public partial class StateMachine : Node
 			}
 		}
 
-        foreach(var state in states)
-            GD.Print(state.Key);
+        // foreach(var state in states)
+        //     GD.Print(state.Key);
 
         if(initialState != null) // if there is an initial state set in the editor, use it as the current state
         {
