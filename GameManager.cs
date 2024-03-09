@@ -5,7 +5,7 @@ public partial class GameManager : Node2D
 {
 	public static GameManager Instance;
 
-	private int levelIndex = 0;
+	private int levelIndex = -1;
 	private int lastLevelIndex = 2;
 	private Node2D level;
 	private Control tutorial;
@@ -35,7 +35,9 @@ public partial class GameManager : Node2D
 
 		// get the controls of the level and change the InputMap
 		levelControls = level.GetChild(1);
-		AberrateInput();
+		
+		if(loadNext)
+			AberrateInput();
 
 		// add the tutorial scene to the level
 		tutorial = (Control)tutorial_scene.Instantiate();

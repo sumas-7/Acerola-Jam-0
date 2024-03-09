@@ -63,6 +63,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 23
 text = "Play"
 script = ExtResource("2_tu0q2")
+loadNext = true
 
 [node name="QuitButton" type="Button" parent="MainMenu/Panel"]
 layout_mode = 1
