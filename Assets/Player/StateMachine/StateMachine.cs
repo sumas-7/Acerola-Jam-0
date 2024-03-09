@@ -9,10 +9,15 @@ public partial class StateMachine : Node
 	public Dictionary<string, State> states = new Dictionary<string, State>(); // a dictionary of states as child of the machine
     
     // player variables
-    [Export] public float speed = 0;
-    [Export] public float JumpStrength = 0;
-    public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+    [Export] public float ACCELERATION = 150;
+	[Export] public float DECELERATION = 0.78f;
+	[Export] public float MAX_SPEED = 700;
+	[Export] public float JUMP_STRENGTH = 1000;
+	[Export] public float DASH_SPEED = 2200;
+	[Export] public float DASH_DURATION = 0.12f;
+    public float gravity = 2500;
     public Vector2 velocity;
+    public Vector2 lastDir = Vector2.Right;
     public CharacterBody2D player;
     
     // input variables
@@ -88,5 +93,24 @@ public partial class StateMachine : Node
                 currentState = newState; // set the new state as the current one
             }
         }
+    }
+
+    // function to call when the state includes moving
+	public void ApplyVerticalMovement(double delta)
+    {
+		velocity.X += inputDir.X * ACCELERATION; // accelerate
+        velocity.X = Mathf.Clamp(velocity.X, -MAX_SPEED, MAX_SPEED); // stop at max speed
+        
+        if(inputDir.X == 0)// if not moving horizontally decelerate
+            velocity.X *= DECELERATION;
+
+        if(inputDir != Vector2.Zero) // if moving change last dir
+            lastDir = inputDir;
+    }
+	// function to call when the state includes gravity
+    public void ApplyGravity(double delta)
+    {
+        if(!player.IsOnFloor())
+			velocity.Y += gravity * (float)delta;
     }
 }

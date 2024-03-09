@@ -6,8 +6,8 @@ public partial class Move : State
 	public override void StatePhysicsProcess(double delta)
 	{
 		// movement
-		ApplyVerticalMovement(delta);
-		ApplyGravity(delta);
+		machine.ApplyVerticalMovement(delta);
+		machine.ApplyGravity(delta);
 
 		// transitions
 		JumpTransition();

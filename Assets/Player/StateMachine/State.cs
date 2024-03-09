@@ -17,23 +17,11 @@ public partial class State : Node
 	public virtual void StateProcess(double delta){} // the state's process function
 	public virtual void StatePhysicsProcess(double delta){} // the state's PhysicsProcess function
 
-	// function to call when the state includes moving
-	public void ApplyVerticalMovement(double delta)
-    {
-		machine.velocity.X = machine.inputDir.X * machine.speed;
-    }
-	// function to call when the state includes gravity
-    public void ApplyGravity(double delta)
-    {
-        if(!machine.player.IsOnFloor())
-			machine.velocity.Y += machine.gravity * (float)delta;
-    }
-
 	public virtual void JumpTransition()
     {
         if(Input.IsActionJustPressed("jump")) // if you press jump
         {
-			machine.velocity.Y = -machine.JumpStrength; // changes Y velocity making the player jump
+			machine.velocity.Y = -machine.JUMP_STRENGTH; // changes Y velocity making the player jump
 			EmitSignal(machine.TRANSITION_STRING, this, "jump"); // changes state to jump
         }
     }

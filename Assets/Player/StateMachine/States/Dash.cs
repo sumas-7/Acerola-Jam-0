@@ -3,7 +3,12 @@ using Godot;
 [GlobalClass]
 public partial class Dash : State
 {
-    private float timer = 0.1f;
+    private float timer = 0;
+
+	public override void StateEnter()
+	{
+		timer = machine.DASH_DURATION;
+	}
 
     public override void StateExit()
     {
@@ -12,12 +17,12 @@ public partial class Dash : State
     public override void StatePhysicsProcess(double delta)
 	{
 		// movement
-        machine.velocity = (machine.inputDir).Normalized() * 1200;
+        machine.velocity = (machine.lastDir).Normalized() * machine.DASH_SPEED;
 		
 		// transitions
 		if(timer <= 0)
 		{
-			timer = 0.1f; // resets timer
+			timer = machine.DASH_DURATION; // resets timer
             EmitSignal(machine.TRANSITION_STRING, this, "idle"); // return to idle
 		}
 		else

@@ -6,8 +6,8 @@ public partial class Jump : State
 	public override void StatePhysicsProcess(double delta)
 	{
 		// movement
-		ApplyVerticalMovement(delta);
-		ApplyGravity(delta);
+		machine.ApplyVerticalMovement(delta);
+		machine.ApplyGravity(delta);
 
 		// idle tran
         if(machine.player.IsOnFloor())

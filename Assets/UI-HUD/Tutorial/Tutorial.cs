@@ -2,12 +2,12 @@ using Godot;
 
 public partial class Tutorial : Control
 {
-	private Player player;
+	private CharacterBody2D player;
 	private Label moveLabel, jumpLabel, dashLabel;
 
 	public override void _Ready()
 	{
-		player = GetParent().GetChildOrNull<Player>(3);
+		player = GetParent().GetChildOrNull<CharacterBody2D>(3);
 		Position = player.Position + new Vector2(400, -300); // position in front of the player
 
 		moveLabel = (Label)GetChild(0);
