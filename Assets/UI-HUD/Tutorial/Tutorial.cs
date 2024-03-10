@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class Tutorial : Control
+public partial class Tutorial : CanvasLayer
 {
 	private RichTextLabel moveLabel, jumpLabel, dashLabel;
 
@@ -18,9 +18,5 @@ public partial class Tutorial : Control
 			
 		jumpLabel.Text += GameManager.Instance.currentControls[4].ToString();
 		dashLabel.Text += GameManager.Instance.currentControls[5].ToString();
-	}
-
-	public override void _Process(double delta)
-	{
 	}
 }

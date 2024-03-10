@@ -10,11 +10,12 @@
 background_mode = 3
 tonemap_white = 0.55
 glow_enabled = true
-glow_strength = 0.8
-glow_mix = 0.164
-glow_bloom = 0.46
+glow_strength = 0.79
+glow_mix = 0.081
+glow_bloom = 0.32
 glow_blend_mode = 4
-glow_hdr_threshold = 0.7
+glow_hdr_threshold = 0.52
+glow_hdr_scale = 0.8
 
 [sub_resource type="Gradient" id="Gradient_rbwr0"]
 colors = PackedColorArray(0.0562916, 0.0562916, 0.0562916, 1, 0.654232, 0.654232, 0.654232, 1)
@@ -62,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
-text = "[wave amp=100 freq=2]TITLE"
+text = "[wave amp=80 freq=1.5]TITLE"
 
 [node name="StartGameButton" type="Button" parent="MainMenu/Panel"]
 layout_mode = 1

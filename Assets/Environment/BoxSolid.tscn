@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://csw44lowdgx"]
 
-[ext_resource type="Texture2D" uid="uid://b6d6feqwr06w2" path="res://Assets/Environment/Colors/SolidWhite.tres" id="1_res66"]
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
 size = Vector2(513.288, 491.507)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_a1hyl"]
 
 [node name="Box" type="StaticBody2D"]
 
@@ -11,7 +11,7 @@ size = Vector2(513.288, 491.507)
 shape = SubResource("RectangleShape2D_6kwhl")
 
 [node name="Sprite2D" type="Sprite2D" parent="collision"]
-modulate = Color(0.9, 0.9, 0.9, 1)
+modulate = Color(0.901961, 0.901961, 0.901961, 1)
 rotation = -1.5708
 scale = Vector2(521.767, 521.767)
-texture = ExtResource("1_res66")
+texture = SubResource("CanvasTexture_a1hyl")

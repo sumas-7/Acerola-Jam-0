@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dspec4e5gf1tn"]
-
-[ext_resource type="PackedScene" uid="uid://cqqvfua1gqjhq" path="res://Assets/UI-HUD/Tutorial/Tutorial.tscn" id="1_viqhh"]
-
-[node name="CanvasLayer" type="CanvasLayer"]
-follow_viewport_enabled = true
-
-[node name="Tutorial" parent="." instance=ExtResource("1_viqhh")]
-mouse_filter = 2

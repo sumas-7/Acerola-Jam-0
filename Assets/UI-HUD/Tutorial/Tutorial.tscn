@@ -3,18 +3,11 @@
 [ext_resource type="Script" path="res://Assets/UI-HUD/Tutorial/Tutorial.cs" id="1_562kg"]
 [ext_resource type="FontFile" uid="uid://b5urpv5q2883o" path="res://Assets/Fonts/PLAY-BOLD.ttf" id="2_4pofb"]
 
-[node name="Tutorial" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Tutorial" type="CanvasLayer"]
+follow_viewport_enabled = true
 script = ExtResource("1_562kg")
 
 [node name="Move" type="RichTextLabel" parent="."]
-layout_mode = 0
 offset_right = 1212.0
 offset_bottom = 213.0
 mouse_filter = 2
@@ -27,7 +20,6 @@ bbcode_enabled = true
 text = "[shake level=35 rate=3]Move[/shake] with  [color=lightgreen]"
 
 [node name="Jump" type="RichTextLabel" parent="."]
-layout_mode = 0
 offset_left = 1170.0
 offset_top = -64.0
 offset_right = 2278.0
@@ -42,11 +34,10 @@ bbcode_enabled = true
 text = "[wave amp=60 freq=3.5]Jump[/wave] with [color=lightgreen]"
 
 [node name="Dash" type="RichTextLabel" parent="."]
-layout_mode = 0
 offset_left = 2076.0
-offset_top = -476.0
+offset_top = -607.0
 offset_right = 4440.0
-offset_bottom = -166.0
+offset_bottom = -297.0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0.298039, 0.298039, 0.298039, 1)
 theme_override_constants/shadow_offset_x = 5
@@ -54,4 +45,4 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/normal_font = ExtResource("2_4pofb")
 theme_override_font_sizes/normal_font_size = 71
 bbcode_enabled = true
-text = "While mid air, you can [tornado radius=5 freq=3]dash[/tornado] in any direction with [color=lightgreen]"
+text = "While mid air, you can [tornado radius=5 freq=3]dash[/tornado] in [pulse freq=0.8 color=#FFFFFF3A]any direction[/pulse] with [color=lightgreen]"

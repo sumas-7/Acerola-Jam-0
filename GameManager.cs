@@ -13,7 +13,7 @@ public partial class GameManager : Node2D
 	private CanvasLayer tutorial;
 	private Control clearScreen, failScreen;
 	private PackedScene level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level0.tscn");
-	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/CanvasTutorial.tscn");
+	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/Tutorial.tscn");
 
 	private Node levelControls; // node in the level that contains control scheme
 	// create the objects of the InputEventKeys. Using only one object ended up assigning the same key to everything
@@ -85,32 +85,39 @@ public partial class GameManager : Node2D
 		// for each inputEventKey object, assign a keycode to it
 		if(levelControls.GetChildOrNull<Node>(5) != null) // if there are specific controls for the level use those
 		{
-			Key key; // needs to also add the key on the list
+			int keyNum;
+			string keyString; // needs to also add the key on the list
 
-			key = (Key)levelControls.GetChild(0).Name.ToString()[0];
-			currentControls.Add(key);
-			upKey.Keycode = key;
+			keyString = levelControls.GetChild(0).Name; // gets the name of the node
+			keyNum = keyString.ToInt(); // converts it to a int
+			currentControls.Add((Key)keyNum); // adds it to the current controls list as a key
+			upKey.Keycode = (Key)keyNum; // sets the key variable
 
-			key = (Key)levelControls.GetChild(1).Name.ToString()[0];
-			currentControls.Add(key);
-			downKey.Keycode = key;
+			keyString = levelControls.GetChild(1).Name;
+			keyNum = keyString.ToInt();
+			currentControls.Add((Key)keyNum);
+			downKey.Keycode = (Key)keyNum;
 
-			key = (Key)levelControls.GetChild(2).Name.ToString()[0];
-			currentControls.Add(key);
-			leftKey.Keycode = key;
+			keyString = levelControls.GetChild(2).Name;
+			keyNum = keyString.ToInt();
+			currentControls.Add((Key)keyNum);
+			leftKey.Keycode = (Key)keyNum;
 
-			key = (Key)levelControls.GetChild(3).Name.ToString()[0];
-			currentControls.Add(key);
-			rightKey.Keycode = key;
+			keyString = levelControls.GetChild(3).Name;
+			keyNum = keyString.ToInt();
+			currentControls.Add((Key)keyNum);
+			rightKey.Keycode = (Key)keyNum;
 			
 
-			key = (Key)levelControls.GetChild(4).Name.ToString()[0];
-			currentControls.Add(key);
-			jumpKey.Keycode = key;
+			keyString = levelControls.GetChild(4).Name;
+			keyNum = keyString.ToInt();
+			currentControls.Add((Key)keyNum);
+			jumpKey.Keycode = (Key)keyNum;
 
-			key = (Key)levelControls.GetChild(5).Name.ToString()[0];
-			currentControls.Add(key);
-			dashKey.Keycode = key;
+			keyString = levelControls.GetChild(5).Name;
+			keyNum = keyString.ToInt();
+			currentControls.Add((Key)keyNum);
+			dashKey.Keycode = (Key)keyNum;
 		}
 		else // else just get random ones
 		{

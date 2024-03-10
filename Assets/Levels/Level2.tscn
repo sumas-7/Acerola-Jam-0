@@ -1,24 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3jy3b0bjtj2y"]
+[gd_scene load_steps=8 format=3 uid="uid://b3jy3b0bjtj2y"]
 
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="2_2s2mc"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_lo1e4"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_fikqq"]
+[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/BoxGradient.tscn" id="3_yvyjh"]
+[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/BoxSolid.tscn" id="4_qch80"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="5_w3xl3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bgsua"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
-size = Vector2(522.5, 523)
-
-[sub_resource type="Gradient" id="Gradient_fnv23"]
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w2wgu"]
-gradient = SubResource("Gradient_fnv23")
-width = 131
-
 [node name="2" type="Node2D"]
 
 [node name="ControlScheme" type="Node" parent="."]
+
+[node name="71" type="Node" parent="ControlScheme"]
+
+[node name="70" type="Node" parent="ControlScheme"]
+
+[node name="82" type="Node" parent="ControlScheme"]
+
+[node name="86" type="Node" parent="ControlScheme"]
+
+[node name="4194325" type="Node" parent="ControlScheme"]
+
+[node name="32" type="Node" parent="ControlScheme"]
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -30,46 +35,29 @@ script = ExtResource("2_2s2mc")
 shape = SubResource("WorldBoundaryShape2D_bgsua")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_lo1e4")]
-position = Vector2(-479, -273)
+position = Vector2(7198, -576)
 
-[node name="box" type="StaticBody2D" parent="Environment"]
-position = Vector2(337, 642)
-scale = Vector2(2.94289, 0.419561)
+[node name="Boxes" type="Node" parent="Environment"]
 
-[node name="collision" type="CollisionShape2D" parent="Environment/box"]
-shape = SubResource("RectangleShape2D_6kwhl")
+[node name="Box" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+position = Vector2(976, 544)
+scale = Vector2(6.72, 0.6)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/box/collision"]
-rotation = 1.5708
-scale = Vector2(3.939, 515.065)
-texture = SubResource("GradientTexture1D_w2wgu")
+[node name="Box1" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+position = Vector2(2594, 280)
+scale = Vector2(0.43114, 0.43114)
 
-[node name="box2" type="StaticBody2D" parent="Environment"]
-position = Vector2(421, 389)
-scale = Vector2(0.385601, -0.35587)
+[node name="Box2" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+position = Vector2(5264, -122)
+scale = Vector2(8.27639, 0.436387)
 
-[node name="collision" type="CollisionShape2D" parent="Environment/box2"]
-shape = SubResource("RectangleShape2D_6kwhl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/box2/collision"]
-rotation = -1.5708
-scale = Vector2(3.939, 515.065)
-texture = SubResource("GradientTexture1D_w2wgu")
-
-[node name="box3" type="StaticBody2D" parent="Environment"]
-position = Vector2(-152, 105)
-scale = Vector2(0.203495, 0.226716)
-
-[node name="collision" type="CollisionShape2D" parent="Environment/box3"]
-shape = SubResource("RectangleShape2D_6kwhl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/box3/collision"]
-rotation = 1.5708
-scale = Vector2(3.939, 515.065)
-texture = SubResource("GradientTexture1D_w2wgu")
+[node name="Box3" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+position = Vector2(5264, -984)
+rotation = -3.14159
+scale = Vector2(8.27639, 0.436387)
 
 [node name="Player" parent="." instance=ExtResource("3_fikqq")]
-position = Vector2(-308, 433)
+position = Vector2(-617, 310)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_w3xl3")]
 target = NodePath("../Player")
