@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3jy3b0bjtj2y"]
+[gd_scene load_steps=11 format=3 uid="uid://b3jy3b0bjtj2y"]
 
+[ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_lcuct"]
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="2_2s2mc"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_lo1e4"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_fikqq"]
@@ -18,6 +19,8 @@ gradient = SubResource("Gradient_fnv23")
 width = 131
 
 [node name="2" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_lcuct")]
 
 [node name="ControlScheme" type="Node" parent="."]
 

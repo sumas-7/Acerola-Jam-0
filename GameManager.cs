@@ -8,6 +8,7 @@ public partial class GameManager : Node2D
 	private int levelIndex = -1;
 	private int lastLevelIndex = 2;
 	private Node2D level;
+	private CharacterBody2D player;
 	private CanvasLayer tutorial;
 	private PackedScene level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level0.tscn");
 	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/CanvasTutorial.tscn");
@@ -33,6 +34,9 @@ public partial class GameManager : Node2D
 		level = (Node2D)level_scene.Instantiate();
 		AddChild(level);
 
+		player = (CharacterBody2D)level.GetChild(3);
+		GD.Print(player.Name);
+
 		// get the controls of the level and change the InputMap
 		levelControls = level.GetChild(1);
 		
@@ -44,6 +48,11 @@ public partial class GameManager : Node2D
 		level.AddChild(tutorial);	
 
 		GetTree().Paused = false; // resume the game
+	}
+
+	public void Lose()
+	{
+		player.QueueFree();
 	}
 
 	public void AberrateInput()
@@ -109,21 +118,21 @@ public partial class GameManager : Node2D
 		InputMap.ActionAddEvent("jump", jumpKey);
 		InputMap.ActionAddEvent("dash", dashKey);
 
-		// prints current control scheme
-		GD.Print
-		(
-			InputMap.ActionGetEvents("up") + "\n" +
-			InputMap.ActionGetEvents("down") + "\n" +
-			InputMap.ActionGetEvents("left") + "\n" +
-			InputMap.ActionGetEvents("right") + "\n" +
-			InputMap.ActionGetEvents("jump") + "\n" +
-			InputMap.ActionGetEvents("dash") + "\n"
-		);
+		// // prints current control scheme
+		// GD.Print
+		// (
+		// 	InputMap.ActionGetEvents("up") + "\n" +
+		// 	InputMap.ActionGetEvents("down") + "\n" +
+		// 	InputMap.ActionGetEvents("left") + "\n" +
+		// 	InputMap.ActionGetEvents("right") + "\n" +
+		// 	InputMap.ActionGetEvents("jump") + "\n" +
+		// 	InputMap.ActionGetEvents("dash") + "\n"
+		// );
 		
-		foreach(int key in currentControls)
-		{
-			GD.Print((Key)key);
-		}
+		// foreach(int key in currentControls)
+		// {
+		// 	GD.Print((Key)key);
+		// }
 	}
 	private Key GetRandomKeyCode()
 	{
