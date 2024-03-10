@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpbi7ekmubbp6"]
+[gd_scene load_steps=11 format=3 uid="uid://bpbi7ekmubbp6"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_h8dx1"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_obbpf"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b6d6feqwr06w2" path="res://Assets/Environment/Colors/SolidWhite.tres" id="5_lqyfk"]
 [ext_resource type="Gradient" uid="uid://b8qcmiuj8tyo" path="res://Assets/Environment/Colors/BlackWhiteGradient.tres" id="5_rajui"]
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="6_kuou0"]
-[ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="7_70pwa"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8vu3d"]
 
@@ -42,7 +41,6 @@ position = Vector2(1832, -144)
 [node name="YLimit" type="Area2D" parent="Environment"]
 position = Vector2(0, 1174)
 script = ExtResource("6_kuou0")
-spawnatedScreen_scene = ExtResource("7_70pwa")
 
 [node name="WorldBoundary" type="CollisionShape2D" parent="Environment/YLimit"]
 shape = SubResource("WorldBoundaryShape2D_8vu3d")

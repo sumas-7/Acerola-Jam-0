@@ -2,7 +2,7 @@ using Godot;
 
 public partial class Prop : Area2D
 {
-	[Export] private PackedScene spawnatedScreen_scene;
+	[Export] private bool areYaWinningSon;
 
 	public override void _Ready()
 	{
@@ -13,11 +13,10 @@ public partial class Prop : Area2D
 	{
 		if(body.Name == "Player") // if collides with the player
 		{
-			GetTree().Paused = true; // stops the game
-
-			// spawns the selected screen
-			Control spawnatedScreen = (Control)spawnatedScreen_scene.Instantiate();
-			GetOwner<Node2D>().GetChild(0).AddChild(spawnatedScreen);
+			if(areYaWinningSon)
+				GameManager.Instance.Win();
+			else
+				GameManager.Instance.Lose();
 		}
 	}
 }

@@ -2,13 +2,13 @@ using Godot;
 
 public partial class Tutorial : Control
 {
-	private Label moveLabel, jumpLabel, dashLabel;
+	private RichTextLabel moveLabel, jumpLabel, dashLabel;
 
 	public override void _Ready()
 	{
-		moveLabel = (Label)GetChild(0);
-		jumpLabel = (Label)GetChild(1);
-		dashLabel = (Label)GetChild(2);
+		moveLabel = (RichTextLabel)GetChild(0);
+		jumpLabel = (RichTextLabel)GetChild(1);
+		dashLabel = (RichTextLabel)GetChild(2);
 
 		moveLabel.Text += 
 			GameManager.Instance.currentControls[0].ToString() + " " +

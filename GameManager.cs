@@ -9,7 +9,9 @@ public partial class GameManager : Node2D
 	private int lastLevelIndex = 2;
 	private Node2D level;
 	private CharacterBody2D player;
+	private CanvasLayer hud;
 	private CanvasLayer tutorial;
+	private Control clearScreen, failScreen;
 	private PackedScene level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level0.tscn");
 	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/CanvasTutorial.tscn");
 
@@ -21,6 +23,9 @@ public partial class GameManager : Node2D
 	public override void _Ready()
 	{
 		Instance = this;
+		hud = (CanvasLayer)GetChild(0).GetChild(0);
+		clearScreen = (Control)hud.GetChild(0);
+		failScreen = (Control)hud.GetChild(1);
 	}
 
 	public void LoadLevel(bool loadNext)
@@ -35,7 +40,6 @@ public partial class GameManager : Node2D
 		AddChild(level);
 
 		player = (CharacterBody2D)level.GetChild(3);
-		GD.Print(player.Name);
 
 		// get the controls of the level and change the InputMap
 		levelControls = level.GetChild(1);
@@ -50,9 +54,19 @@ public partial class GameManager : Node2D
 		GetTree().Paused = false; // resume the game
 	}
 
+	public void Win()
+	{
+		player.Visible = false;
+		player.GetChild(1).QueueFree(); // destroys the StateMachine
+
+		clearScreen.Visible = true;
+	}
 	public void Lose()
 	{
-		player.QueueFree();
+		player.Visible = false;
+		player.GetChild(1).QueueFree(); // destroys the StateMachine
+
+		failScreen.Visible = true;
 	}
 
 	public void AberrateInput()

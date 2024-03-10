@@ -6,7 +6,6 @@ public partial class MovingSaw : Prop
 	[Export] private float ROTATION_SPEED = 12;
 	[Export] private float PATH_FOLLOW_START;
 
-
 	private Vector2 lastPos;
 	private Vector2 direction;
 	private Sprite2D sprite;
@@ -15,8 +14,6 @@ public partial class MovingSaw : Prop
 
 	public override void _Ready()
 	{
-		base._Ready();
-
 		path = GetParentOrNull<Path2D>();
 		sprite = GetChild(0).GetChildOrNull<Sprite2D>(0);
 
@@ -25,7 +22,6 @@ public partial class MovingSaw : Prop
 
 		pathFollow.Ready += () => {pathFollow.ProgressRatio = PATH_FOLLOW_START;}; // changes the progressRatio in the pathFollow's ready
 	}
-
 	public override void _Process(double delta)
 	{
 		if(path != null) // if there's a path move with it

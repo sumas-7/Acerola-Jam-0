@@ -6,3 +6,4 @@
 follow_viewport_enabled = true
 
 [node name="Tutorial" parent="." instance=ExtResource("1_viqhh")]
+mouse_filter = 2

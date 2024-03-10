@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=10 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
+[ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/EndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/QuitButton.cs" id="2_nfe7g"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="2_tu0q2"]
+[ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="3_lipvg"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
@@ -31,6 +33,14 @@ script = ExtResource("1_pvv0a")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_8joup")
+
+[node name="HUD" type="CanvasLayer" parent="WorldEnvironment"]
+
+[node name="LevelClearScreen" parent="WorldEnvironment/HUD" instance=ExtResource("2_esdh3")]
+visible = false
+
+[node name="LevelFailScreen" parent="WorldEnvironment/HUD" instance=ExtResource("3_lipvg")]
+visible = false
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 3

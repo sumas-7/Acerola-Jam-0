@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b3jy3b0bjtj2y"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_lcuct"]
-[ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="2_2s2mc"]
+[ext_resource type="Script" path="res://Assets/Environment/EndGoal/EndGoal.cs" id="2_2s2mc"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_lo1e4"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_fikqq"]
 [ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="3_vif4r"]
