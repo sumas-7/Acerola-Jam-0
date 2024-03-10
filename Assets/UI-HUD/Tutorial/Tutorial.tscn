@@ -9,18 +9,20 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_562kg")
 
 [node name="Move" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_right = 1212.0
 offset_bottom = 213.0
+mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0.721569, 0.721569, 0.721569, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 3
 theme_override_font_sizes/normal_font_size = 71
 bbcode_enabled = true
-text = "[shake level=30 rate=6]Move[/shake] with  "
+text = "[shake level=35 rate=5]Move[/shake] with  "
 
 [node name="Jump" type="RichTextLabel" parent="."]
 layout_mode = 0
@@ -28,6 +30,7 @@ offset_left = 1170.0
 offset_top = -64.0
 offset_right = 2278.0
 offset_bottom = 74.0
+mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0.721569, 0.721569, 0.721569, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 3
@@ -41,6 +44,7 @@ offset_left = 2076.0
 offset_top = -476.0
 offset_right = 4440.0
 offset_bottom = -166.0
+mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0.721569, 0.721569, 0.721569, 1)
 theme_override_constants/shadow_offset_x = 5
 theme_override_constants/shadow_offset_y = 3

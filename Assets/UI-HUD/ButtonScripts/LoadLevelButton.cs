@@ -10,7 +10,7 @@ public partial class LoadLevelButton : Button
     }
     private void OnPress()
 	{
-		GameManager.Instance.LoadLevel(loadNext);
         GetParentOrNull<Control>().Visible = false; // sets the screen to invisible again
+		GameManager.Instance.LoadLevel(loadNext);
 	}
 }

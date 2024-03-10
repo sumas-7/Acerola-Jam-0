@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://telhv4ci8xk3"]
+
+[ext_resource type="Texture2D" uid="uid://b8qcmiuj8tyo" path="res://Assets/Environment/Colors/BlackWhiteGradient.tres" id="1_m30l4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
+size = Vector2(508, 491.507)
+
+[node name="Box" type="StaticBody2D"]
+
+[node name="collision" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6kwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="collision"]
+rotation = -1.5708
+scale = Vector2(3.939, 515.065)
+texture = ExtResource("1_m30l4")

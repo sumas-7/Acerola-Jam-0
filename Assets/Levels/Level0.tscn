@@ -1,26 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://bpbi7ekmubbp6"]
+[gd_scene load_steps=8 format=3 uid="uid://bpbi7ekmubbp6"]
 
-[ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_h8dx1"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_obbpf"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_gjpj7"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="4_c7xp7"]
-[ext_resource type="Texture2D" uid="uid://b6d6feqwr06w2" path="res://Assets/Environment/Colors/SolidWhite.tres" id="5_lqyfk"]
-[ext_resource type="Gradient" uid="uid://b8qcmiuj8tyo" path="res://Assets/Environment/Colors/BlackWhiteGradient.tres" id="5_rajui"]
+[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/BoxGradient.tscn" id="4_rpkb0"]
+[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/BoxSolid.tscn" id="5_ht3qs"]
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="6_kuou0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8vu3d"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
-size = Vector2(516.934, 493.432)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_w2wgu"]
-gradient = ExtResource("5_rajui")
-width = 131
-
 [node name="0" type="Node2D"]
 position = Vector2(1832, -144)
-
-[node name="CanvasLayer" parent="." instance=ExtResource("1_h8dx1")]
 
 [node name="ControlScheme" type="Node" parent="."]
 
@@ -50,56 +40,17 @@ position = Vector2(1808, -501)
 
 [node name="Boxes" type="Node" parent="Environment"]
 
-[node name="Floor" type="StaticBody2D" parent="Environment/Boxes"]
-position = Vector2(735, 506)
-scale = Vector2(5.08097, 0.402843)
+[node name="Box" parent="Environment/Boxes" instance=ExtResource("4_rpkb0")]
+position = Vector2(976, 544)
+scale = Vector2(6.72, 0.6)
 
-[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Floor"]
-shape = SubResource("RectangleShape2D_6kwhl")
+[node name="Box1" parent="Environment/Boxes" instance=ExtResource("5_ht3qs")]
+position = Vector2(2594, 280)
+scale = Vector2(0.43114, 0.43114)
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Floor/collision"]
-rotation = -1.5708
-scale = Vector2(3.939, 515.065)
-texture = SubResource("GradientTexture1D_w2wgu")
-
-[node name="Box" type="StaticBody2D" parent="Environment/Boxes"]
-position = Vector2(1894, 280)
-scale = Vector2(0.560432, 0.470176)
-
-[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Box"]
-shape = SubResource("RectangleShape2D_6kwhl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Box/collision"]
-modulate = Color(0.9, 0.9, 0.9, 1)
-rotation = -1.5708
-scale = Vector2(521.767, 521.767)
-texture = ExtResource("5_lqyfk")
-
-[node name="Box2" type="StaticBody2D" parent="Environment/Boxes"]
-position = Vector2(2597, 280)
-scale = Vector2(0.560432, 0.470176)
-
-[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Box2"]
-shape = SubResource("RectangleShape2D_6kwhl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Box2/collision"]
-modulate = Color(0.9, 0.9, 0.9, 1)
-rotation = -1.5708
-scale = Vector2(521.767, 521.767)
-texture = ExtResource("5_lqyfk")
-
-[node name="Box3" type="StaticBody2D" parent="Environment/Boxes"]
-position = Vector2(3218, -147)
-scale = Vector2(0.560432, 0.470176)
-
-[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Box3"]
-shape = SubResource("RectangleShape2D_6kwhl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Box3/collision"]
-modulate = Color(0.9, 0.9, 0.9, 1)
-rotation = -1.5708
-scale = Vector2(521.767, 521.767)
-texture = ExtResource("5_lqyfk")
+[node name="Box2" parent="Environment/Boxes" instance=ExtResource("4_rpkb0")]
+position = Vector2(3187, -122)
+scale = Vector2(0.436387, 0.436387)
 
 [node name="Player" parent="." instance=ExtResource("3_gjpj7")]
 position = Vector2(-2314, 455)

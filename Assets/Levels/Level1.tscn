@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://dikr7tmc1a6os"]
+[gd_scene load_steps=9 format=3 uid="uid://dikr7tmc1a6os"]
 
-[ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_425vu"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_ofa4n"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_mquhf"]
-[ext_resource type="Script" path="res://Assets/Environment/EndGoal/EndGoal.cs" id="3_pkog4"]
-[ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="4_2bgf1"]
+[ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="3_pkog4"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="5_0bf5s"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lqx0p"]
@@ -19,8 +17,6 @@ gradient = SubResource("Gradient_fnv23")
 width = 131
 
 [node name="1" type="Node2D"]
-
-[node name="CanvasLayer" parent="." instance=ExtResource("1_425vu")]
 
 [node name="ControlScheme" type="Node" parent="."]
 
@@ -41,7 +37,6 @@ width = 131
 [node name="YLimit" type="Area2D" parent="Environment"]
 position = Vector2(0, 1174)
 script = ExtResource("3_pkog4")
-spawnatedScreen_scene = ExtResource("4_2bgf1")
 
 [node name="WorldBoundary" type="CollisionShape2D" parent="Environment/YLimit"]
 shape = SubResource("WorldBoundaryShape2D_lqx0p")

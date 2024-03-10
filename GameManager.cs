@@ -39,10 +39,10 @@ public partial class GameManager : Node2D
 		level = (Node2D)level_scene.Instantiate();
 		AddChild(level);
 
-		player = (CharacterBody2D)level.GetChild(3);
+		player = (CharacterBody2D)level.GetChild(2);
 
 		// get the controls of the level and change the InputMap
-		levelControls = level.GetChild(1);
+		levelControls = level.GetChild(0);
 		
 		if(loadNext)
 			AberrateInput();

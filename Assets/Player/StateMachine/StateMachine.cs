@@ -91,8 +91,6 @@ public partial class StateMachine : Node
         if(currentState != null) // if there's a current state, call its physics process function
 			currentState.StatePhysicsProcess(delta);
 
-        DebugHUD.Instance.Text = currentState.Name;
-
         player.Velocity = velocity;
         player.MoveAndSlide();
     }
