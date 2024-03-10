@@ -8,9 +8,9 @@ public partial class GameManager : Node2D
 	private int levelIndex = -1;
 	private int lastLevelIndex = 2;
 	private Node2D level;
-	private Control tutorial;
+	private CanvasLayer tutorial;
 	private PackedScene level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level0.tscn");
-	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/Tutorial.tscn");
+	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/CanvasTutorial.tscn");
 
 	private Node levelControls; // node in the level that contains control scheme
 	// create the objects of the InputEventKeys. Using only one object ended up assigning the same key to everything
@@ -40,7 +40,7 @@ public partial class GameManager : Node2D
 			AberrateInput();
 
 		// add the tutorial scene to the level
-		tutorial = (Control)tutorial_scene.Instantiate();
+		tutorial = (CanvasLayer)tutorial_scene.Instantiate();
 		level.AddChild(tutorial);	
 
 		GetTree().Paused = false; // resume the game

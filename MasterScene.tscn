@@ -6,8 +6,9 @@
 
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
+tonemap_white = 0.55
 glow_enabled = true
-glow_strength = 0.94
+glow_strength = 0.8
 glow_mix = 0.164
 glow_bloom = 0.46
 glow_blend_mode = 4
