@@ -3,7 +3,7 @@ using Godot;
 public partial class Saw : Prop
 {
 	[Export] private float SPEED = 0.5f;
-	[Export] private float ROTATION_SPEED = 10;
+	[Export] private float ROTATION_SPEED = 7;
 	[Export] private float PATH_FOLLOW_START;
 	[Export] private bool ROTATION_BASED_ON_DIR = true;
 	[Export] private bool PATH_LOOP = false;

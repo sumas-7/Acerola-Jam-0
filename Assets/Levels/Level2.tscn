@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b3jy3b0bjtj2y"]
+[gd_scene load_steps=9 format=3 uid="uid://b3jy3b0bjtj2y"]
 
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="2_2s2mc"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_lo1e4"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_fikqq"]
 [ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/BoxGradient.tscn" id="3_yvyjh"]
 [ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/BoxSolid.tscn" id="4_qch80"]
+[ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/Saw.tscn" id="5_slay1"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="5_w3xl3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bgsua"]
@@ -35,7 +36,7 @@ script = ExtResource("2_2s2mc")
 shape = SubResource("WorldBoundaryShape2D_bgsua")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_lo1e4")]
-position = Vector2(7198, -576)
+position = Vector2(6064, -557)
 
 [node name="Boxes" type="Node" parent="Environment"]
 
@@ -48,13 +49,35 @@ position = Vector2(2594, 280)
 scale = Vector2(0.43114, 0.43114)
 
 [node name="Box2" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
-position = Vector2(5264, -122)
-scale = Vector2(8.27639, 0.436387)
+position = Vector2(4613, -122)
+scale = Vector2(5.541, 0.436387)
 
 [node name="Box3" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
-position = Vector2(5264, -984)
+position = Vector2(4613, -984)
 rotation = -3.14159
-scale = Vector2(8.27639, 0.436387)
+scale = Vector2(5.541, 0.436387)
+
+[node name="Saws" type="Node" parent="Environment"]
+
+[node name="Saw" parent="Environment/Saws" instance=ExtResource("5_slay1")]
+position = Vector2(4090, -238)
+scale = Vector2(2.54014, 2.54014)
+
+[node name="Saw2" parent="Environment/Saws" instance=ExtResource("5_slay1")]
+position = Vector2(4491, -873)
+scale = Vector2(2.54014, 2.54014)
+
+[node name="Saw3" parent="Environment/Saws" instance=ExtResource("5_slay1")]
+position = Vector2(5298, -238)
+scale = Vector2(2.54014, 2.54014)
+
+[node name="Saw4" parent="Environment/Saws" instance=ExtResource("5_slay1")]
+position = Vector2(4894, -238)
+scale = Vector2(2.54014, 2.54014)
+
+[node name="Saw5" parent="Environment/Saws" instance=ExtResource("5_slay1")]
+position = Vector2(5093, -873)
+scale = Vector2(2.54014, 2.54014)
 
 [node name="Player" parent="." instance=ExtResource("3_fikqq")]
 position = Vector2(-617, 310)
