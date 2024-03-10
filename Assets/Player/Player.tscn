@@ -14,11 +14,13 @@ position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_5yh1g")
 
 [node name="Sprite" type="Sprite2D" parent="Collision"]
-modulate = Color(0, 0.870588, 0.184314, 1)
+modulate = Color(0.439216, 1, 0.4, 1)
 scale = Vector2(124, 124)
 texture = SubResource("CanvasTexture_jpeme")
 
 [node name="StateMachine" parent="." instance=ExtResource("2_yn78o")]
-MAX_SPEED = 750.0
-DASH_SPEED = 2300.0
-DASH_DURATION = 0.13
+MAX_SPEED = 800.0
+JUMP_STRENGTH = 1250.0
+DASH_SPEED = 2500.0
+DASH_DURATION = 0.14
+gravity = 3000.0

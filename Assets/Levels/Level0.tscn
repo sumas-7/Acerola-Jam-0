@@ -1,29 +1,23 @@
 [gd_scene load_steps=13 format=3 uid="uid://bpbi7ekmubbp6"]
 
 [ext_resource type="PackedScene" uid="uid://ddfugaqmvqea" path="res://Assets/UI-HUD/DebugHUD.tscn" id="1_h8dx1"]
-[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal.tscn" id="2_obbpf"]
+[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_obbpf"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_gjpj7"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="4_c7xp7"]
-[ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/MovingSaw.tscn" id="5_u3fti"]
+[ext_resource type="Texture2D" uid="uid://b6d6feqwr06w2" path="res://Assets/Environment/Colors/SolidWhite.tres" id="5_lqyfk"]
+[ext_resource type="Gradient" uid="uid://b8qcmiuj8tyo" path="res://Assets/Environment/Colors/BlackWhiteGradient.tres" id="5_rajui"]
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="6_kuou0"]
 [ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="7_70pwa"]
+[ext_resource type="PackedScene" uid="uid://cqqvfua1gqjhq" path="res://Assets/UI-HUD/Tutorial/Tutorial.tscn" id="7_e5bl3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8vu3d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
-size = Vector2(522.5, 523)
-
-[sub_resource type="Gradient" id="Gradient_fnv23"]
+size = Vector2(516.934, 493.432)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_w2wgu"]
-gradient = SubResource("Gradient_fnv23")
+gradient = ExtResource("5_rajui")
 width = 131
-
-[sub_resource type="Curve2D" id="Curve2D_afrbh"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 136, 498, 0, 0, 0, 0, 555, 498, 0, 0, 0, 0, 136, 498)
-}
-point_count = 3
 
 [node name="0" type="Node2D"]
 
@@ -55,48 +49,73 @@ spawnatedScreen_scene = ExtResource("7_70pwa")
 shape = SubResource("WorldBoundaryShape2D_8vu3d")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_obbpf")]
-position = Vector2(1452, 450)
+position = Vector2(1840, -613)
 
-[node name="box" type="StaticBody2D" parent="Environment"]
-position = Vector2(-223, 648)
-scale = Vector2(6.98298, 0.394445)
+[node name="Boxes" type="Node" parent="Environment"]
 
-[node name="collision" type="CollisionShape2D" parent="Environment/box"]
+[node name="Floor" type="StaticBody2D" parent="Environment/Boxes"]
+position = Vector2(-1027, 650)
+scale = Vector2(4.80097, 0.402843)
+
+[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Floor"]
 shape = SubResource("RectangleShape2D_6kwhl")
 
-[node name="Sprite2D" type="Sprite2D" parent="Environment/box/collision"]
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Floor/collision"]
 rotation = -1.5708
 scale = Vector2(3.939, 515.065)
 texture = SubResource("GradientTexture1D_w2wgu")
 
-[node name="Saw0" type="Path2D" parent="Environment"]
-position = Vector2(-30, 36)
-curve = SubResource("Curve2D_afrbh")
+[node name="Box" type="StaticBody2D" parent="Environment/Boxes"]
+position = Vector2(62, 424)
+scale = Vector2(0.560432, 0.470176)
 
-[node name="MovingSaw" parent="Environment/Saw0" instance=ExtResource("5_u3fti")]
-position = Vector2(313, 494)
-scale = Vector2(1.10389, 1.10389)
-PATH_FOLLOW_START = 0.5
+[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Box"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6kwhl")
 
-[node name="Saw1" type="Path2D" parent="Environment"]
-position = Vector2(-514, 25)
-curve = SubResource("Curve2D_afrbh")
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Box/collision"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+rotation = -1.5708
+scale = Vector2(521.767, 521.767)
+texture = ExtResource("5_lqyfk")
 
-[node name="MovingSaw" parent="Environment/Saw1" instance=ExtResource("5_u3fti")]
-position = Vector2(313, 494)
-scale = Vector2(1.10389, 1.10389)
+[node name="Box2" type="StaticBody2D" parent="Environment/Boxes"]
+position = Vector2(765, 424)
+scale = Vector2(0.560432, 0.470176)
 
-[node name="Saw2" type="Path2D" parent="Environment"]
-position = Vector2(408, 34)
-curve = SubResource("Curve2D_afrbh")
+[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Box2"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6kwhl")
 
-[node name="MovingSaw" parent="Environment/Saw2" instance=ExtResource("5_u3fti")]
-position = Vector2(313, 494)
-scale = Vector2(1.10389, 1.10389)
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Box2/collision"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+rotation = -1.5708
+scale = Vector2(521.767, 521.767)
+texture = ExtResource("5_lqyfk")
+
+[node name="Box3" type="StaticBody2D" parent="Environment/Boxes"]
+position = Vector2(1386, -3)
+scale = Vector2(0.560432, 0.470176)
+
+[node name="collision" type="CollisionShape2D" parent="Environment/Boxes/Box3"]
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_6kwhl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Environment/Boxes/Box3/collision"]
+modulate = Color(0.9, 0.9, 0.9, 1)
+rotation = -1.5708
+scale = Vector2(521.767, 521.767)
+texture = ExtResource("5_lqyfk")
 
 [node name="Player" parent="." instance=ExtResource("3_gjpj7")]
-position = Vector2(-1910, 447)
+position = Vector2(-2031, 407)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("4_c7xp7")]
 position = Vector2(-1775, 405)
 target = NodePath("../Player")
+
+[node name="Tutorial" parent="." instance=ExtResource("7_e5bl3")]
+offset_left = -1880.0
+offset_top = 207.0
+offset_right = -1880.0
+offset_bottom = 207.0

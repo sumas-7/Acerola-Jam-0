@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bh44gnef0f3ey"]
+
+[ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="1_eq2ov"]
+[ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/EndingScreens/LevelClearScreen.tscn" id="2_gunma"]
+[ext_resource type="Texture2D" uid="uid://cvcym7uhbxbf1" path="res://Assets/Environment/EndGoal/End goal.svg" id="3_mcwn4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fieq5"]
+size = Vector2(46.1034, 47.2348)
+
+[node name="EndGoal" type="Area2D"]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_eq2ov")
+spawnatedScreen_scene = ExtResource("2_gunma")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0.4, -0.599998)
+rotation = 0.785398
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_fieq5")
+
+[node name="Sprite" type="Sprite2D" parent="Collision"]
+modulate = Color(0.980392, 0.980392, 0.490196, 1)
+position = Vector2(-0.565687, -1.2517e-06)
+rotation = -0.785398
+scale = Vector2(0.124651, 0.130959)
+texture = ExtResource("3_mcwn4")

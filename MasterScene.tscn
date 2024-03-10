@@ -7,11 +7,11 @@
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
 glow_enabled = true
-glow_strength = 1.15
-glow_bloom = 0.54
+glow_strength = 0.94
+glow_mix = 0.164
+glow_bloom = 0.46
 glow_blend_mode = 4
-glow_hdr_threshold = 0.42
-adjustment_enabled = true
+glow_hdr_threshold = 0.7
 
 [sub_resource type="Gradient" id="Gradient_m6hbu"]
 offsets = PackedFloat32Array(0.167421, 0.823529)

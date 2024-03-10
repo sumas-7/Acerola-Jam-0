@@ -11,13 +11,13 @@ public partial class StateMachine : Node
     // player variables
     [Export] public float ACCELERATION = 150;
 	[Export] public float DECELERATION = 0.78f;
-	[Export] public float MAX_SPEED = 700;
+	[Export] public float MAX_SPEED = 750;
 	[Export] public float JUMP_STRENGTH = 1000;
-	[Export] public float JUMP_BUFFER_TIME = 0.14f;
+	[Export] public float JUMP_BUFFER_TIME = 0.18f;
 	[Export] public float COYOTE_TIME = 0.1f;
-	[Export] public float DASH_SPEED = 2200;
-	[Export] public float DASH_DURATION = 0.12f;
-    public float gravity = 2500;
+	[Export] public float DASH_SPEED = 2300;
+	[Export] public float DASH_DURATION = 0.13f;
+    [Export] public float gravity = 3500;
     public float jumpBuffer = 0;
     public float coyoteTime = 0;
     public bool canJump = true;
