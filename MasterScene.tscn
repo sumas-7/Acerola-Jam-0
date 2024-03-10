@@ -16,17 +16,15 @@ glow_bloom = 0.46
 glow_blend_mode = 4
 glow_hdr_threshold = 0.7
 
-[sub_resource type="Gradient" id="Gradient_m6hbu"]
-offsets = PackedFloat32Array(0.167421, 0.823529)
-colors = PackedColorArray(0, 0.0705882, 1, 1, 0.00925489, 0.0762928, 0.223154, 1)
+[sub_resource type="Gradient" id="Gradient_rbwr0"]
+colors = PackedColorArray(0.0562916, 0.0562916, 0.0562916, 1, 0.654232, 0.654232, 0.654232, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_33xho"]
-gradient = SubResource("Gradient_m6hbu")
-fill_from = Vector2(0.333333, 1)
-fill_to = Vector2(0.888889, 0)
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_w1cqb"]
+gradient = SubResource("Gradient_rbwr0")
+fill_from = Vector2(0, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0co26"]
-texture = SubResource("GradientTexture2D_33xho")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lr435"]
+texture = SubResource("GradientTexture2D_w1cqb")
 
 [node name="MasterNode" type="Node2D"]
 script = ExtResource("1_pvv0a")
@@ -42,33 +40,29 @@ visible = false
 [node name="LevelFailScreen" parent="WorldEnvironment/HUD" instance=ExtResource("3_lipvg")]
 visible = false
 
-[node name="MainMenu" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1280.0
-offset_bottom = 720.0
+[node name="MainMenu" type="CanvasLayer" parent="."]
 
 [node name="Panel" type="Panel" parent="MainMenu"]
-layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-theme_override_styles/panel = SubResource("StyleBoxTexture_0co26")
+theme_override_styles/panel = SubResource("StyleBoxTexture_lr435")
 
-[node name="Label" type="Label" parent="MainMenu/Panel"]
+[node name="Label" type="RichTextLabel" parent="MainMenu/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -151.0
-offset_right = 116.0
-offset_bottom = -26.0
+offset_left = -129.0
+offset_top = -162.0
+offset_right = 132.0
+offset_bottom = -37.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 91
-text = "TITLE"
+theme_override_font_sizes/normal_font_size = 91
+bbcode_enabled = true
+text = "[wave amp=100 freq=2]TITLE"
 
 [node name="StartGameButton" type="Button" parent="MainMenu/Panel"]
 layout_mode = 1
