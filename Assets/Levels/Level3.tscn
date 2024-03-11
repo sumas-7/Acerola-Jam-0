@@ -192,7 +192,7 @@ ROTATION_SPEED = 10.0
 PATH_FOLLOW_START = 1.0
 
 [node name="Player" parent="." instance=ExtResource("6_886i0")]
-position = Vector2(9776, 375)
+position = Vector2(-650, 286)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_2cc3j")]
 target = NodePath("../Player")
