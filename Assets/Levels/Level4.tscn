@@ -163,8 +163,8 @@ scale = Vector2(0.662756, 0.422751)
 [node name="Saws" type="Node" parent="Environment"]
 
 [node name="Saw" parent="Environment/Saws" instance=ExtResource("5_wavcl")]
-position = Vector2(5743, 1032)
-scale = Vector2(2.29, 1.83)
+position = Vector2(5702, 1082)
+scale = Vector2(1.24004, 0.990947)
 ROTATION_SPEED = 8.0
 
 [node name="Path" type="Path2D" parent="Environment/Saws"]
@@ -178,7 +178,7 @@ SPEED = 0.8
 ROTATION_SPEED = 6.0
 
 [node name="Player" parent="." instance=ExtResource("6_lebho")]
-position = Vector2(5462, -324)
+position = Vector2(-552, 304)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_em7ks")]
 position = Vector2(-23, 194)

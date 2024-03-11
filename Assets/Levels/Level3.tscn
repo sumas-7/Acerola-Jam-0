@@ -16,9 +16,9 @@ _data = {
 }
 point_count = 6
 
-[sub_resource type="Curve2D" id="Curve2D_irbls"]
+[sub_resource type="Curve2D" id="Curve2D_05pks"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 0, -261.551, 0, 0, 0, 0, -261.551, -259.796, 0, 0, 0, 0, -259.795, 261.551, 0, 0, 0, 0, 259.797, 263.307, 0, 0, 0, 0, 261.551, -261.551, 0, 0, 0, 0, 0, -261.551)
+"points": PackedVector2Array(0, 0, 0, 0, 7.02148, -259.796, 0, 0, 0, 0, -261.551, -261.551, 0, 0, 0, 0, -259.797, 261.551, 0, 0, 0, 0, 261.551, 261.551, 0, 0, 0, 0, 261.551, -261.551, 0, 0, 0, 0, 7.02148, -259.796)
 }
 point_count = 6
 
@@ -127,21 +127,23 @@ scale = Vector2(2.137, 0.465962)
 position = Vector2(10308, 401)
 scale = Vector2(0.569678, 0.569678)
 
-[node name="Path2D" type="Path2D" parent="Environment/Boxes/Box7"]
+[node name="Path" type="Path2D" parent="Environment/Boxes/Box7"]
 curve = SubResource("Curve2D_8137p")
 
-[node name="Saw" parent="Environment/Boxes/Box7/Path2D" instance=ExtResource("5_h2um2")]
+[node name="Saw" parent="Environment/Boxes/Box7/Path" instance=ExtResource("5_h2um2")]
 position = Vector2(7.02148, -259.796)
 scale = Vector2(1.45, 1.45)
+ROTATION_SPEED = 9.0
 ROTATION_BASED_ON_DIR = false
 PATH_LOOP = true
 
-[node name="Path2DReverse" type="Path2D" parent="Environment/Boxes/Box7"]
-curve = SubResource("Curve2D_irbls")
+[node name="PathReverse" type="Path2D" parent="Environment/Boxes/Box7"]
+curve = SubResource("Curve2D_05pks")
 
-[node name="Saw" parent="Environment/Boxes/Box7/Path2DReverse" instance=ExtResource("5_h2um2")]
+[node name="Saw" parent="Environment/Boxes/Box7/PathReverse" instance=ExtResource("5_h2um2")]
 position = Vector2(7.02148, -259.796)
 scale = Vector2(1.45, 1.45)
+ROTATION_SPEED = 9.0
 ROTATION_BASED_ON_DIR = false
 PATH_LOOP = true
 
@@ -165,6 +167,7 @@ curve = SubResource("Curve2D_qxwjr")
 position = Vector2(-17, -124)
 scale = Vector2(1.68041, 1.68041)
 SPEED = 1.0
+ROTATION_SPEED = 8.0
 
 [node name="Path2" type="Path2D" parent="Environment/Saws"]
 position = Vector2(7471, -129)
@@ -174,6 +177,7 @@ curve = SubResource("Curve2D_qxwjr")
 position = Vector2(1, -124)
 scale = Vector2(1.68041, 1.68041)
 SPEED = 1.0
+ROTATION_SPEED = 8.0
 PATH_FOLLOW_START = 1.0
 
 [node name="Path3" type="Path2D" parent="Environment/Saws"]
@@ -184,11 +188,11 @@ curve = SubResource("Curve2D_xgdmc")
 position = Vector2(31, -103)
 scale = Vector2(1.68041, 1.68041)
 SPEED = 1.0
-ROTATION_SPEED = 8.0
+ROTATION_SPEED = 10.0
 PATH_FOLLOW_START = 1.0
 
 [node name="Player" parent="." instance=ExtResource("6_886i0")]
-position = Vector2(-566, 319)
+position = Vector2(9776, 375)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_2cc3j")]
 target = NodePath("../Player")
