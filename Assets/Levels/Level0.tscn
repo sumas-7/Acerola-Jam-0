@@ -37,7 +37,7 @@ script = ExtResource("6_kuou0")
 shape = SubResource("WorldBoundaryShape2D_8vu3d")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_obbpf")]
-position = Vector2(4844, 41.0001)
+position = Vector2(5164, 41.0001)
 
 [node name="Boxes" type="Node" parent="Environment"]
 
@@ -54,7 +54,7 @@ position = Vector2(4246, -122)
 scale = Vector2(4.27639, 0.436387)
 
 [node name="Box3" parent="Environment/Boxes" instance=ExtResource("4_rpkb0")]
-position = Vector2(5977, 178)
+position = Vector2(6297, 178)
 scale = Vector2(0.881086, 0.481086)
 
 [node name="MovingSaw" parent="Environment" instance=ExtResource("5_fcx0p")]

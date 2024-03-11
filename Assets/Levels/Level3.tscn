@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdj7a3de6fvxr"]
+
+[ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="1_1a7ti"]
+[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_1crsg"]
+[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/BoxGradient.tscn" id="3_pui5s"]
+[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/BoxSolid.tscn" id="4_nabcd"]
+[ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/Saw.tscn" id="5_h2um2"]
+[ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="6_886i0"]
+[ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="7_2cc3j"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8vu3d"]
+
+[node name="0" type="Node2D"]
+position = Vector2(1832, -144)
+
+[node name="ControlScheme" type="Node" parent="."]
+
+[node name="71" type="Node" parent="ControlScheme"]
+
+[node name="70" type="Node" parent="ControlScheme"]
+
+[node name="82" type="Node" parent="ControlScheme"]
+
+[node name="86" type="Node" parent="ControlScheme"]
+
+[node name="4194325" type="Node" parent="ControlScheme"]
+
+[node name="32" type="Node" parent="ControlScheme"]
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="YLimit" type="Area2D" parent="Environment"]
+position = Vector2(0, 1174)
+script = ExtResource("1_1a7ti")
+
+[node name="WorldBoundary" type="CollisionShape2D" parent="Environment/YLimit"]
+shape = SubResource("WorldBoundaryShape2D_8vu3d")
+
+[node name="EndGoal" parent="Environment" instance=ExtResource("2_1crsg")]
+position = Vector2(5164, 41.0001)
+
+[node name="Boxes" type="Node" parent="Environment"]
+
+[node name="Box" parent="Environment/Boxes" instance=ExtResource("3_pui5s")]
+position = Vector2(976, 544)
+scale = Vector2(6.72, 0.6)
+
+[node name="Box1" parent="Environment/Boxes" instance=ExtResource("4_nabcd")]
+position = Vector2(2594, 280)
+scale = Vector2(0.43114, 0.43114)
+
+[node name="Box2" parent="Environment/Boxes" instance=ExtResource("3_pui5s")]
+position = Vector2(4246, -122)
+scale = Vector2(4.27639, 0.436387)
+
+[node name="Box3" parent="Environment/Boxes" instance=ExtResource("3_pui5s")]
+position = Vector2(6297, 178)
+scale = Vector2(0.881086, 0.481086)
+
+[node name="MovingSaw" parent="Environment" instance=ExtResource("5_h2um2")]
+position = Vector2(1926, -90)
+scale = Vector2(1.95246, 1.95246)
+
+[node name="MovingSaw2" parent="Environment" instance=ExtResource("5_h2um2")]
+position = Vector2(2806, -90)
+scale = Vector2(1.95246, 1.95246)
+
+[node name="Player" parent="." instance=ExtResource("6_886i0")]
+position = Vector2(-2314, 455)
+
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_2cc3j")]
+position = Vector2(-1775, 405)
+target = NodePath("../Player")

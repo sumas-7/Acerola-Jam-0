@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b3jy3b0bjtj2y"]
+[gd_scene load_steps=13 format=3 uid="uid://b3jy3b0bjtj2y"]
 
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="2_2s2mc"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_lo1e4"]
@@ -10,21 +10,45 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bgsua"]
 
+[sub_resource type="Curve2D" id="Curve2D_8137p"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 1.75586, -259.796, 0, 0, 0, 0, 259.797, -261.551, 0, 0, 0, 0, 261.551, 259.796, 0, 0, 0, 0, -261.551, 259.796, 0, 0, 0, 0, -261.551, -261.551, 0, 0, 0, 0, 1.75586, -259.796)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_irbls"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -261.551, 0, 0, 0, 0, -261.551, -259.796, 0, 0, 0, 0, -259.795, 261.551, 0, 0, 0, 0, 259.797, 263.307, 0, 0, 0, 0, 261.551, -261.551, 0, 0, 0, 0, 0, -261.551)
+}
+point_count = 6
+
+[sub_resource type="Curve2D" id="Curve2D_qxwjr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -16, -422, 0, 0, 0, 0, -16, 196)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_xgdmc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 31, -553, 0, 0, 0, 0, 31, 360)
+}
+point_count = 2
+
 [node name="2" type="Node2D"]
 
 [node name="ControlScheme" type="Node" parent="."]
 
+[node name="89" type="Node" parent="ControlScheme"]
+
+[node name="72" type="Node" parent="ControlScheme"]
+
 [node name="71" type="Node" parent="ControlScheme"]
 
-[node name="70" type="Node" parent="ControlScheme"]
+[node name="74" type="Node" parent="ControlScheme"]
 
-[node name="82" type="Node" parent="ControlScheme"]
+[node name="83" type="Node" parent="ControlScheme"]
 
-[node name="86" type="Node" parent="ControlScheme"]
-
-[node name="4194325" type="Node" parent="ControlScheme"]
-
-[node name="32" type="Node" parent="ControlScheme"]
+[node name="68" type="Node" parent="ControlScheme"]
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -36,7 +60,7 @@ script = ExtResource("2_2s2mc")
 shape = SubResource("WorldBoundaryShape2D_bgsua")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_lo1e4")]
-position = Vector2(6064, -557)
+position = Vector2(10796, -157)
 
 [node name="Boxes" type="Node" parent="Environment"]
 
@@ -52,35 +76,99 @@ scale = Vector2(0.43114, 0.43114)
 position = Vector2(4613, -122)
 scale = Vector2(5.541, 0.436387)
 
+[node name="Saw" parent="Environment/Boxes/Box2" instance=ExtResource("5_slay1")]
+position = Vector2(-94.3873, -265.819)
+scale = Vector2(0.458426, 5.82084)
+
+[node name="Saw3" parent="Environment/Boxes/Box2" instance=ExtResource("5_slay1")]
+position = Vector2(122.722, -309.358)
+scale = Vector2(0.458426, 5.82084)
+
+[node name="Saw4" parent="Environment/Boxes/Box2" instance=ExtResource("5_slay1")]
+position = Vector2(49.8105, -309.358)
+scale = Vector2(0.458426, 5.82084)
+
 [node name="Box3" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
 position = Vector2(4613, -984)
 rotation = -3.14159
 scale = Vector2(5.541, 0.436387)
 
+[node name="Box4" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+position = Vector2(6933, 13)
+scale = Vector2(0.484977, 0.484977)
+
+[node name="Saw2" parent="Environment/Boxes/Box4" instance=ExtResource("5_slay1")]
+position = Vector2(-5181.69, -1826.89)
+scale = Vector2(5.23765, 5.23765)
+
+[node name="Saw5" parent="Environment/Boxes/Box4" instance=ExtResource("5_slay1")]
+position = Vector2(-3940.4, -1826.89)
+scale = Vector2(5.23765, 5.23765)
+
+[node name="Box5" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+position = Vector2(7895, 276)
+scale = Vector2(0.495658, 0.495658)
+
+[node name="Box6" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+position = Vector2(9419, 666)
+scale = Vector2(1.75506, 0.465962)
+
+[node name="Box7" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+position = Vector2(10324, 368)
+scale = Vector2(0.569678, 0.569678)
+
+[node name="Path2D" type="Path2D" parent="Environment/Boxes/Box7"]
+curve = SubResource("Curve2D_8137p")
+
+[node name="Saw" parent="Environment/Boxes/Box7/Path2D" instance=ExtResource("5_slay1")]
+position = Vector2(7.02148, -259.796)
+scale = Vector2(1.45, 1.45)
+ROTATION_BASED_ON_DIR = false
+PATH_LOOP = true
+
+[node name="Path2DReverse" type="Path2D" parent="Environment/Boxes/Box7"]
+curve = SubResource("Curve2D_irbls")
+
+[node name="Saw" parent="Environment/Boxes/Box7/Path2DReverse" instance=ExtResource("5_slay1")]
+position = Vector2(7.02148, -259.796)
+scale = Vector2(1.45, 1.45)
+ROTATION_BASED_ON_DIR = false
+PATH_LOOP = true
+
 [node name="Saws" type="Node" parent="Environment"]
 
-[node name="Saw" parent="Environment/Saws" instance=ExtResource("5_slay1")]
-position = Vector2(4090, -238)
-scale = Vector2(2.54014, 2.54014)
+[node name="Path" type="Path2D" parent="Environment/Saws"]
+position = Vector2(6482, -274)
+curve = SubResource("Curve2D_qxwjr")
 
-[node name="Saw2" parent="Environment/Saws" instance=ExtResource("5_slay1")]
-position = Vector2(4491, -873)
-scale = Vector2(2.54014, 2.54014)
+[node name="Saw" parent="Environment/Saws/Path" instance=ExtResource("5_slay1")]
+position = Vector2(-17, -124)
+scale = Vector2(1.68041, 1.68041)
+SPEED = 1.0
 
-[node name="Saw3" parent="Environment/Saws" instance=ExtResource("5_slay1")]
-position = Vector2(5298, -238)
-scale = Vector2(2.54014, 2.54014)
+[node name="Path1" type="Path2D" parent="Environment/Saws"]
+position = Vector2(7471, -129)
+curve = SubResource("Curve2D_qxwjr")
 
-[node name="Saw4" parent="Environment/Saws" instance=ExtResource("5_slay1")]
-position = Vector2(4894, -238)
-scale = Vector2(2.54014, 2.54014)
+[node name="Saw" parent="Environment/Saws/Path1" instance=ExtResource("5_slay1")]
+position = Vector2(1, -124)
+scale = Vector2(1.68041, 1.68041)
+SPEED = 1.0
+PATH_FOLLOW_START = 1.0
 
-[node name="Saw5" parent="Environment/Saws" instance=ExtResource("5_slay1")]
-position = Vector2(5093, -873)
-scale = Vector2(2.54014, 2.54014)
+[node name="Path2D" type="Path2D" parent="Environment/Saws"]
+position = Vector2(8433, 197)
+curve = SubResource("Curve2D_xgdmc")
+
+[node name="Saw" parent="Environment/Saws/Path2D" instance=ExtResource("5_slay1")]
+position = Vector2(31, -103)
+scale = Vector2(1.68041, 1.68041)
+SPEED = 1.0
+ROTATION_SPEED = 8.0
+PATH_FOLLOW_START = 1.0
 
 [node name="Player" parent="." instance=ExtResource("3_fikqq")]
-position = Vector2(-617, 310)
+position = Vector2(4469, -340)
 
 [node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_w3xl3")]
 target = NodePath("../Player")

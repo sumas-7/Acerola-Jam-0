@@ -20,17 +20,17 @@ point_count = 5
 
 [node name="ControlScheme" type="Node" parent="."]
 
-[node name="89" type="Node" parent="ControlScheme"]
+[node name="4194320" type="Node" parent="ControlScheme"]
 
-[node name="72" type="Node" parent="ControlScheme"]
+[node name="4194322" type="Node" parent="ControlScheme"]
 
-[node name="71" type="Node" parent="ControlScheme"]
+[node name="4194319" type="Node" parent="ControlScheme"]
 
-[node name="74" type="Node" parent="ControlScheme"]
+[node name="4194321" type="Node" parent="ControlScheme"]
 
-[node name="83" type="Node" parent="ControlScheme"]
+[node name="90" type="Node" parent="ControlScheme"]
 
-[node name="68" type="Node" parent="ControlScheme"]
+[node name="88" type="Node" parent="ControlScheme"]
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -132,20 +132,6 @@ position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
 SPEED = 0.3
 PATH_FOLLOW_START = 0.5
-ROTATION_BASED_ON_DIR = false
-PATH_LOOP = true
-
-[node name="Box9" parent="Environment/Boxes" instance=ExtResource("4_pbtfs")]
-position = Vector2(3466, -1953)
-scale = Vector2(0.481583, 0.481583)
-
-[node name="Path2D" type="Path2D" parent="Environment/Boxes/Box9"]
-curve = SubResource("Curve2D_osqlf")
-
-[node name="Saw" parent="Environment/Boxes/Box9/Path2D" instance=ExtResource("5_30ymf")]
-position = Vector2(262.207, -38.8454)
-scale = Vector2(1.846, 1.846)
-SPEED = 0.3
 ROTATION_BASED_ON_DIR = false
 PATH_LOOP = true
 

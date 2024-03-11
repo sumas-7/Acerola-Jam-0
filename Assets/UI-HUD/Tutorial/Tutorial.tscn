@@ -8,7 +8,8 @@ follow_viewport_enabled = true
 script = ExtResource("1_562kg")
 
 [node name="Move" type="RichTextLabel" parent="."]
-offset_right = 1212.0
+offset_left = -210.0
+offset_right = 1162.0
 offset_bottom = 213.0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0.298039, 0.298039, 0.298039, 1)
@@ -21,9 +22,8 @@ text = "[shake level=35 rate=3]Move[/shake] with  [color=lightgreen]"
 
 [node name="Jump" type="RichTextLabel" parent="."]
 offset_left = 1170.0
-offset_top = -64.0
 offset_right = 2278.0
-offset_bottom = 74.0
+offset_bottom = 138.0
 mouse_filter = 2
 theme_override_colors/font_shadow_color = Color(0.298039, 0.298039, 0.298039, 1)
 theme_override_constants/shadow_offset_x = 5
