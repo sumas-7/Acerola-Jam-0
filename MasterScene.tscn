@@ -12,16 +12,19 @@ tonemap_white = 0.55
 glow_enabled = true
 glow_strength = 0.79
 glow_mix = 0.081
-glow_bloom = 0.32
+glow_bloom = 0.28
 glow_blend_mode = 4
-glow_hdr_threshold = 0.52
+glow_hdr_threshold = 0.64
 glow_hdr_scale = 0.8
 
 [sub_resource type="Gradient" id="Gradient_rbwr0"]
-colors = PackedColorArray(0.0562916, 0.0562916, 0.0562916, 1, 0.654232, 0.654232, 0.654232, 1)
+offsets = PackedFloat32Array(0.15625, 0.857143)
+colors = PackedColorArray(0, 0, 0, 1, 0.0562916, 0.0562916, 0.0562916, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_w1cqb"]
 gradient = SubResource("Gradient_rbwr0")
+width = 1024
+height = 1024
 fill_from = Vector2(0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lr435"]
@@ -41,9 +44,12 @@ visible = false
 [node name="LevelFailScreen" parent="WorldEnvironment/HUD" instance=ExtResource("3_lipvg")]
 visible = false
 
-[node name="MainMenu" type="CanvasLayer" parent="."]
+[node name="MainMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 
 [node name="Panel" type="Panel" parent="MainMenu"]
+layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_lr435")
@@ -55,15 +61,15 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -129.0
-offset_top = -162.0
-offset_right = 132.0
-offset_bottom = -37.0
+offset_left = -148.0
+offset_top = -197.0
+offset_right = 433.0
+offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
-text = "[wave amp=80 freq=1.5]TITLE"
+text = "[wave amp=80 freq=1.5]!WASD"
 
 [node name="StartGameButton" type="Button" parent="MainMenu/Panel"]
 layout_mode = 1

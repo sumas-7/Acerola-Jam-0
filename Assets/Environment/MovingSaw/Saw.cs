@@ -31,7 +31,7 @@ public partial class Saw : Prop
 	{
 		if(path != null) // if there's a path move with it
 		{
-			if(!PATH_LOOP && (pathFollow.ProgressRatio < 0.01f || pathFollow.ProgressRatio > 0.99f)) // reverse the direction when reaching a dead end (only when not looping)
+			if(!PATH_LOOP && (pathFollow.ProgressRatio <= 0f || pathFollow.ProgressRatio >= 1f)) // reverse the direction when reaching a dead end (only when not looping)
 				SPEED *= -1;
 
 			pathFollow.ProgressRatio += SPEED * (float)delta;

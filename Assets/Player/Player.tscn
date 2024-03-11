@@ -20,7 +20,6 @@ texture = SubResource("CanvasTexture_jpeme")
 
 [node name="StateMachine" parent="." instance=ExtResource("2_yn78o")]
 MAX_SPEED = 800.0
-JUMP_STRENGTH = 1400.0
+JUMP_STRENGTH = 1500.0
 DASH_SPEED = 2500.0
 DASH_DURATION = 0.14
-gravity = 3000.0

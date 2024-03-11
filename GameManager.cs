@@ -5,7 +5,7 @@ public partial class GameManager : Node2D
 {
 	public static GameManager Instance;
 
-	private int levelIndex = -1;
+	private int levelIndex = 0;
 	private int lastLevelIndex = 2;
 	private Node2D level;
 	private CharacterBody2D player;

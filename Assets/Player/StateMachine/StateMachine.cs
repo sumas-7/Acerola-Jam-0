@@ -85,6 +85,7 @@ public partial class StateMachine : Node
         if(canJump && jumpBuffer > 0 && (coyoteTime >= 0 || player.IsOnFloor()))
         {
 			velocity.Y = -JUMP_STRENGTH; // changes Y velocity making the player jump
+            jumpBuffer = 0; // resets the jump buffer to avoid jumping as soon as you dash on the ground
             canJump = false; // remove the ability of jumping again
         }
 
