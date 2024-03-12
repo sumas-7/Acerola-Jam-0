@@ -64,6 +64,7 @@ public partial class StateMachine : Node
         }
 
         jumpSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(2);
+        dashSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(3);
     }
     public override void _Process(double delta)
     {

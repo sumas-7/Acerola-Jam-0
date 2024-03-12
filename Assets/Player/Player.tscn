@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj3a2qm8ovryu"]
+[gd_scene load_steps=6 format=3 uid="uid://cj3a2qm8ovryu"]
 
 [ext_resource type="AudioStream" uid="uid://b8yelr5jdvnu5" path="res://Assets/SFX/Jump.wav" id="2_m3831"]
 [ext_resource type="PackedScene" uid="uid://c1p52aekp13hl" path="res://Assets/Player/StateMachine/StateMachine.tscn" id="2_yn78o"]
+[ext_resource type="AudioStream" uid="uid://nw2ckmbcwtmg" path="res://Assets/SFX/Dash.wav" id="3_pr5gm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yh1g"]
 size = Vector2(126, 123)
@@ -25,5 +26,9 @@ JUMP_STRENGTH = 1500.0
 DASH_SPEED = 2500.0
 DASH_DURATION = 0.14
 
-[node name="JumpSoundPlayer" type="AudioStreamPlayer" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_m3831")
+
+[node name="DashSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_pr5gm")
+volume_db = -1.0

@@ -7,6 +7,7 @@ public partial class Dash : State
 
 	public override void StateEnter()
 	{
+		machine.dashSoundPlayer.Play();
 		timer = machine.DASH_DURATION;
 		machine.canDash = false;
 	}
