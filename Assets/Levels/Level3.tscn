@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="1_1a7ti"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_1crsg"]
-[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/BoxGradient.tscn" id="3_pui5s"]
-[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/BoxSolid.tscn" id="4_nabcd"]
+[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/Boxes/BoxGradient.tscn" id="3_pui5s"]
+[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/Boxes/BoxSolid.tscn" id="4_nabcd"]
 [ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/Saw.tscn" id="5_h2um2"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="6_886i0"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="7_2cc3j"]

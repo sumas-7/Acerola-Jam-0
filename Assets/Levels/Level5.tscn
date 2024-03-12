@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bl37ywxkj8kja"]
+[gd_scene load_steps=12 format=3 uid="uid://bl37ywxkj8kja"]
 
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="1_k7yed"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_e4xvo"]
-[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/BoxGradient.tscn" id="3_afsci"]
-[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/BoxSolid.tscn" id="4_8bn6v"]
+[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/Boxes/BoxGradient.tscn" id="3_afsci"]
+[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/Boxes/BoxSolid.tscn" id="4_8bn6v"]
 [ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/Saw.tscn" id="5_nirmr"]
+[ext_resource type="PackedScene" uid="uid://rgjgy1natkcv" path="res://Assets/Environment/AudioVisualAberrator/AudioVisualAberrator.tscn" id="6_nw82e"]
 [ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="6_vdcmp"]
 [ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="7_71wkw"]
 
@@ -163,6 +164,10 @@ position = Vector2(11612, -2379)
 scale = Vector2(1.48385, 0.28444)
 
 [node name="Saws" type="Node" parent="Environment"]
+
+[node name="AudioVisualAberrator" parent="Environment" instance=ExtResource("6_nw82e")]
+position = Vector2(4333, -672)
+scale = Vector2(1, 1.00527)
 
 [node name="Player" parent="." instance=ExtResource("6_vdcmp")]
 position = Vector2(-2139, 445)

@@ -23,6 +23,7 @@ glow_hdr_scale = 0.8
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uo4oc"]
 shader = ExtResource("4_re0fa")
+shader_parameter/invert = false
 
 [sub_resource type="Gradient" id="Gradient_rbwr0"]
 offsets = PackedFloat32Array(0.15625, 0.857143)
@@ -51,7 +52,7 @@ visible = false
 [node name="LevelFailScreen" parent="WorldEnvironment/HUD" instance=ExtResource("3_lipvg")]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="WorldEnvironment/HUD"]
+[node name="PostProcessing" type="ColorRect" parent="WorldEnvironment/HUD"]
 material = SubResource("ShaderMaterial_uo4oc")
 anchors_preset = 15
 anchor_right = 1.0

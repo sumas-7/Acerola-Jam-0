@@ -71,7 +71,7 @@ shape = SubResource("RectangleShape2D_5yh1g")
 [node name="Sprite" type="Sprite2D" parent="Collision"]
 modulate = Color(0.439216, 1, 0.4, 1)
 position = Vector2(0, 2.5)
-scale = Vector2(140.48, 118.12)
+scale = Vector2(124, 124)
 texture = SubResource("CanvasTexture_jpeme")
 
 [node name="StateMachine" parent="." instance=ExtResource("2_yn78o")]

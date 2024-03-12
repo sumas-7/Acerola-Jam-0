@@ -12,6 +12,7 @@ public partial class GameManager : Node2D
 	private CanvasLayer hud;
 	private CanvasLayer tutorial;
 	private Control clearScreen, failScreen;
+	private ShaderMaterial postProcessShader;
 	private WorldEnvironment worldEnvironment;
 	private Environment environment;
 	private PackedScene level_scene;
@@ -27,9 +28,13 @@ public partial class GameManager : Node2D
 		Instance = this;
 		worldEnvironment = (WorldEnvironment)GetChild(0);
 		environment = worldEnvironment.Environment;
+
 		hud = (CanvasLayer)worldEnvironment.GetChild(0);
 		clearScreen = (Control)hud.GetChild(0);
 		failScreen = (Control)hud.GetChild(1);
+
+		ColorRect PostProcessRect = (ColorRect)hud.GetChild(2);
+		postProcessShader = (ShaderMaterial)PostProcessRect.Material;
 	}
 
 	public void LoadLevel(bool loadNext)
@@ -55,6 +60,7 @@ public partial class GameManager : Node2D
 		tutorial = (CanvasLayer)tutorial_scene.Instantiate();
 		level.AddChild(tutorial);	
 
+		postProcessShader.SetShaderParameter("invert", false); // return to normal colors
 		GetTree().Paused = false; // resume the game
 	}
 
@@ -83,6 +89,10 @@ public partial class GameManager : Node2D
 	public void ToggleBloom()
 	{
 		environment.GlowEnabled = !environment.GlowEnabled;
+	}
+	public void InvertColors()
+	{
+		postProcessShader.SetShaderParameter("invert", true);
 	}
 
 	public void AberrateInput()
