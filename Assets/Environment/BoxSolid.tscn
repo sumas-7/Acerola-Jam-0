@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://csw44lowdgx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6kwhl"]
-size = Vector2(513.288, 491.507)
+size = Vector2(513.288, 518)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_a1hyl"]
 

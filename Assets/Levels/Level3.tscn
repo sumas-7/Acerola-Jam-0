@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b3jy3b0bjtj2y"]
+[gd_scene load_steps=13 format=3 uid="uid://b3jy3b0bjtj2y"]
 
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="1_1a7ti"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_1crsg"]
@@ -13,12 +13,6 @@
 [sub_resource type="Curve2D" id="Curve2D_8137p"]
 _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 1.75586, -259.796, 0, 0, 0, 0, 259.797, -261.551, 0, 0, 0, 0, 261.551, 259.796, 0, 0, 0, 0, -261.551, 259.796, 0, 0, 0, 0, -261.551, -261.551, 0, 0, 0, 0, 1.75586, -259.796)
-}
-point_count = 6
-
-[sub_resource type="Curve2D" id="Curve2D_05pks"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 7.02148, -259.796, 0, 0, 0, 0, -261.551, -261.551, 0, 0, 0, 0, -259.797, 261.551, 0, 0, 0, 0, 261.551, 261.551, 0, 0, 0, 0, 261.551, -261.551, 0, 0, 0, 0, 7.02148, -259.796)
 }
 point_count = 6
 
@@ -133,18 +127,14 @@ curve = SubResource("Curve2D_8137p")
 [node name="Saw" parent="Environment/Boxes/Box7/Path" instance=ExtResource("5_h2um2")]
 position = Vector2(7.02148, -259.796)
 scale = Vector2(1.45, 1.45)
-ROTATION_SPEED = 9.0
-ROTATION_BASED_ON_DIR = false
+ROTATION_SPEED = -9.0
 PATH_LOOP = true
 
-[node name="PathReverse" type="Path2D" parent="Environment/Boxes/Box7"]
-curve = SubResource("Curve2D_05pks")
-
-[node name="Saw" parent="Environment/Boxes/Box7/PathReverse" instance=ExtResource("5_h2um2")]
+[node name="Saw2" parent="Environment/Boxes/Box7/Path" instance=ExtResource("5_h2um2")]
 position = Vector2(7.02148, -259.796)
 scale = Vector2(1.45, 1.45)
+SPEED = -0.5
 ROTATION_SPEED = 9.0
-ROTATION_BASED_ON_DIR = false
 PATH_LOOP = true
 
 [node name="Saws" type="Node" parent="Environment"]

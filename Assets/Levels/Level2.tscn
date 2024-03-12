@@ -72,9 +72,8 @@ curve = SubResource("Curve2D_osqlf")
 [node name="Saw" parent="Environment/Boxes/Box4/Path2D" instance=ExtResource("5_slay1")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
-SPEED = 0.3
+SPEED = -0.3
 PATH_FOLLOW_START = 0.5
-ROTATION_BASED_ON_DIR = false
 PATH_LOOP = true
 
 [node name="Box5" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
@@ -87,8 +86,7 @@ curve = SubResource("Curve2D_osqlf")
 [node name="Saw" parent="Environment/Boxes/Box5/Path2D" instance=ExtResource("5_slay1")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
-SPEED = 0.3
-ROTATION_BASED_ON_DIR = false
+SPEED = -0.3
 PATH_LOOP = true
 
 [node name="Box6" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
@@ -101,9 +99,8 @@ curve = SubResource("Curve2D_osqlf")
 [node name="Saw" parent="Environment/Boxes/Box6/Path2D" instance=ExtResource("5_slay1")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
-SPEED = 0.3
+SPEED = -0.3
 PATH_FOLLOW_START = 0.5
-ROTATION_BASED_ON_DIR = false
 PATH_LOOP = true
 
 [node name="Box7" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
@@ -116,8 +113,7 @@ curve = SubResource("Curve2D_osqlf")
 [node name="Saw" parent="Environment/Boxes/Box7/Path2D" instance=ExtResource("5_slay1")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
-SPEED = 0.3
-ROTATION_BASED_ON_DIR = false
+SPEED = -0.3
 PATH_LOOP = true
 
 [node name="Box8" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
@@ -130,9 +126,8 @@ curve = SubResource("Curve2D_osqlf")
 [node name="Saw" parent="Environment/Boxes/Box8/Path2D" instance=ExtResource("5_slay1")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
-SPEED = 0.3
+SPEED = -0.3
 PATH_FOLLOW_START = 0.5
-ROTATION_BASED_ON_DIR = false
 PATH_LOOP = true
 
 [node name="Saw" parent="Environment" instance=ExtResource("5_slay1")]

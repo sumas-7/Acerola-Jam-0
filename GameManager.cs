@@ -12,7 +12,7 @@ public partial class GameManager : Node2D
 	private CanvasLayer hud;
 	private CanvasLayer tutorial;
 	private Control clearScreen, failScreen;
-	private PackedScene level_scene = (PackedScene)GD.Load("res://Assets/Levels/Level0.tscn");
+	private PackedScene level_scene;
 	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/Tutorial.tscn");
 
 	private Node levelControls; // node in the level that contains control scheme
@@ -64,7 +64,8 @@ public partial class GameManager : Node2D
 	public void Lose()
 	{
 		player.Visible = false;
-		player.GetChild(1).QueueFree(); // destroys the StateMachine
+		player.GetChildOrNull<CollisionShape2D>(0).QueueFree(); // destroys the Collision to avoid colliding again
+		player.GetChildOrNull<StateMachine>(1).QueueFree(); // destroys the StateMachine
 
 		failScreen.Visible = true;
 	}

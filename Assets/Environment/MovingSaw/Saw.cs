@@ -5,7 +5,6 @@ public partial class Saw : Prop
 	[Export] private float SPEED = 0.5f;
 	[Export] private float ROTATION_SPEED = 7;
 	[Export] private float PATH_FOLLOW_START;
-	[Export] private bool ROTATION_BASED_ON_DIR = true;
 	[Export] private bool PATH_LOOP = false;
 
 	private Vector2 lastPos;
@@ -41,7 +40,7 @@ public partial class Saw : Prop
 
 		direction = (GlobalPosition - lastPos).Normalized();
 
-		if(direction != Vector2.Zero && ROTATION_BASED_ON_DIR) // if moving, change direction based on the dir 
+		if(direction != Vector2.Zero && !PATH_LOOP) // if moving, change direction based on the dir 
 			if(Mathf.Abs(direction.X) > Mathf.Abs(direction.Y)) // if is moving more horizontally rotate based on the x velocity
 				sprite.Rotate(ROTATION_SPEED * direction.X * (float)delta);
 			else // else do otherwise
