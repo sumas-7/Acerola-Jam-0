@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=13 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/EndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="2_tu0q2"]
 [ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="3_lipvg"]
 [ext_resource type="Shader" path="res://PostProcessing.gdshader" id="4_re0fa"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/BloomButton.cs" id="7_8et4y"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
@@ -118,3 +119,20 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 23
 text = "Quit"
 script = ExtResource("2_nfe7g")
+
+[node name="BloomButton" type="Button" parent="MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -96.0
+offset_right = -58.0
+offset_bottom = -51.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 17
+text = "Toggle Bloom"
+script = ExtResource("7_8et4y")

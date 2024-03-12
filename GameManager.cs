@@ -12,6 +12,8 @@ public partial class GameManager : Node2D
 	private CanvasLayer hud;
 	private CanvasLayer tutorial;
 	private Control clearScreen, failScreen;
+	private WorldEnvironment worldEnvironment;
+	private Environment environment;
 	private PackedScene level_scene;
 	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/Tutorial.tscn");
 
@@ -23,7 +25,9 @@ public partial class GameManager : Node2D
 	public override void _Ready()
 	{
 		Instance = this;
-		hud = (CanvasLayer)GetChild(0).GetChild(0);
+		worldEnvironment = (WorldEnvironment)GetChild(0);
+		environment = worldEnvironment.Environment;
+		hud = (CanvasLayer)worldEnvironment.GetChild(0);
 		clearScreen = (Control)hud.GetChild(0);
 		failScreen = (Control)hud.GetChild(1);
 	}
@@ -68,6 +72,11 @@ public partial class GameManager : Node2D
 		player.GetChildOrNull<StateMachine>(1).QueueFree(); // destroys the StateMachine
 
 		failScreen.Visible = true;
+	}
+
+	public void ToggleBloom()
+	{
+		environment.GlowEnabled = !environment.GlowEnabled;
 	}
 
 	public void AberrateInput()

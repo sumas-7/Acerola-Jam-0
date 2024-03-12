@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://cdj7a3de6fvxr"]
+[gd_scene load_steps=13 format=3 uid="uid://cdj7a3de6fvxr"]
 
 [ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="1_qckc4"]
+[ext_resource type="Texture2D" uid="uid://gf8k5csmbm3k" path="res://Assets/Environment/arrow.png" id="2_1hlhx"]
 [ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_mpmiq"]
 [ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/BoxGradient.tscn" id="3_vb40k"]
 [ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/BoxSolid.tscn" id="4_kc184"]
@@ -52,6 +53,11 @@ script = ExtResource("1_qckc4")
 
 [node name="WorldBoundary" type="CollisionShape2D" parent="Environment/YLimit"]
 shape = SubResource("WorldBoundaryShape2D_8vu3d")
+
+[node name="Arrow" type="Sprite2D" parent="Environment"]
+position = Vector2(5984, 339)
+rotation = 0.677685
+texture = ExtResource("2_1hlhx")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_mpmiq")]
 position = Vector2(5384, 728)
