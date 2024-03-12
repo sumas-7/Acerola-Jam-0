@@ -1,0 +1,74 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnn8uiuh5nb58"]
+
+[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/QuitButton.cs" id="2_ktchj"]
+
+[sub_resource type="Gradient" id="Gradient_j7jhy"]
+offsets = PackedFloat32Array(0.15625, 0.857143)
+colors = PackedColorArray(0, 0, 0, 1, 0.0562916, 0.0562916, 0.0562916, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e6sk6"]
+gradient = SubResource("Gradient_j7jhy")
+width = 1024
+height = 1024
+fill_from = Vector2(0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fi3jq"]
+texture = SubResource("GradientTexture2D_e6sk6")
+
+[node name="Level" type="Node2D"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_fi3jq")
+
+[node name="Label" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -365.0
+offset_top = -249.0
+offset_right = 391.0
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 91
+bbcode_enabled = true
+text = "[wave amp=80 freq=1.5]Congratulations!"
+
+[node name="Label2" type="RichTextLabel" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -282.0
+offset_top = -108.0
+offset_right = 307.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[wave amp=80 freq=1.5]You have completed the game!"
+
+[node name="QuitButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.5
+offset_top = 89.0
+offset_right = 54.5
+offset_bottom = 149.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 23
+text = "Quit"
+script = ExtResource("2_ktchj")

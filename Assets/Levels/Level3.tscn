@@ -34,7 +34,7 @@ _data = {
 }
 point_count = 2
 
-[node name="2" type="Node2D"]
+[node name="Level" type="Node2D"]
 
 [node name="ControlScheme" type="Node" parent="."]
 

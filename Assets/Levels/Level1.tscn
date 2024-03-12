@@ -11,7 +11,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8vu3d"]
 
-[node name="0" type="Node2D"]
+[node name="Level" type="Node2D"]
 position = Vector2(1832, -144)
 
 [node name="ControlScheme" type="Node" parent="."]

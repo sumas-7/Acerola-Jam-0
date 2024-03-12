@@ -23,10 +23,22 @@ _data = {
 }
 point_count = 2
 
-[node name="0" type="Node2D"]
+[node name="Level" type="Node2D"]
 position = Vector2(1832, -144)
 
 [node name="ControlScheme" type="Node" parent="."]
+
+[node name="87" type="Node" parent="ControlScheme"]
+
+[node name="83" type="Node" parent="ControlScheme"]
+
+[node name="65" type="Node" parent="ControlScheme"]
+
+[node name="68" type="Node" parent="ControlScheme"]
+
+[node name="75" type="Node" parent="ControlScheme"]
+
+[node name="74" type="Node" parent="ControlScheme"]
 
 [node name="Environment" type="Node2D" parent="."]
 
