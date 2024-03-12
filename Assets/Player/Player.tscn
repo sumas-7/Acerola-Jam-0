@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cj3a2qm8ovryu"]
+[gd_scene load_steps=10 format=3 uid="uid://cj3a2qm8ovryu"]
 
 [ext_resource type="AudioStream" uid="uid://b8yelr5jdvnu5" path="res://Assets/SFX/Jump.wav" id="2_m3831"]
 [ext_resource type="PackedScene" uid="uid://c1p52aekp13hl" path="res://Assets/Player/StateMachine/StateMachine.tscn" id="2_yn78o"]
@@ -10,6 +10,58 @@ size = Vector2(126, 123)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jpeme"]
 
+[sub_resource type="Animation" id="Animation_nw0mt"]
+resource_name = "Jump"
+length = 0.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Collision/Sprite:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.5),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Vector2(124, 124), Vector2(107.546, 144.057), Vector2(124, 124)]
+}
+
+[sub_resource type="Animation" id="Animation_0oytb"]
+resource_name = "Land"
+length = 0.2
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Collision/Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2.5), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Collision/Sprite:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(124, 124), Vector2(140.48, 118.12), Vector2(124, 124)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7yoxr"]
+_data = {
+"Jump": SubResource("Animation_nw0mt"),
+"Land": SubResource("Animation_0oytb")
+}
+
 [node name="Player" type="CharacterBody2D"]
 
 [node name="Collision" type="CollisionShape2D" parent="."]
@@ -18,7 +70,8 @@ shape = SubResource("RectangleShape2D_5yh1g")
 
 [node name="Sprite" type="Sprite2D" parent="Collision"]
 modulate = Color(0.439216, 1, 0.4, 1)
-scale = Vector2(124, 124)
+position = Vector2(0, 2.5)
+scale = Vector2(140.48, 118.12)
 texture = SubResource("CanvasTexture_jpeme")
 
 [node name="StateMachine" parent="." instance=ExtResource("2_yn78o")]
@@ -32,7 +85,13 @@ stream = ExtResource("2_m3831")
 
 [node name="DashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pr5gm")
-volume_db = -1.0
+volume_db = -5.0
 
 [node name="LandSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_beumq")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../LandSound")
+libraries = {
+"": SubResource("AnimationLibrary_7yoxr")
+}

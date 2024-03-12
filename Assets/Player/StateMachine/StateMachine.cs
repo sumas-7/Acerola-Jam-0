@@ -31,6 +31,9 @@ public partial class StateMachine : Node
     public float inputY;
     public Vector2 inputDir;
 
+    // animation variables
+    public AnimationPlayer animPlayer;
+
     // audio variables
     public AudioStreamPlayer jumpSoundPlayer, dashSoundPlayer, landSoundPlayer;
     private AudioStream aberrantJump = (AudioStream)GD.Load("res://Assets/SFX/Jump0.wav");
@@ -56,6 +59,8 @@ public partial class StateMachine : Node
 
         // foreach(var state in states)
         //     GD.Print(state.Key);
+
+        animPlayer = (AnimationPlayer)GetParent().GetChild(5);
 
         jumpSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(2);
         dashSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(3);
@@ -95,6 +100,8 @@ public partial class StateMachine : Node
         if(canJump && jumpBuffer > 0 && (coyoteTime >= 0 || player.IsOnFloor()))
         {
 			velocity.Y = -JUMP_STRENGTH; // changes Y velocity making the player jump
+            animPlayer.Stop();
+            animPlayer.Play("Jump");
             jumpSoundPlayer.Play();
             jumpBuffer = 0; // resets the jump buffer to avoid jumping as soon as you dash on the ground
             canJump = false; // remove the ability of jumping again

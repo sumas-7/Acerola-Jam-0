@@ -6,6 +6,7 @@ public partial class Ground : State
 	public override void StateEnter()
 	{
 		machine.landSoundPlayer.Play(); // play landing sound
+		machine.animPlayer.Play("Land");
 
 		// after getting to the ground, recover the ability of jump and dash
 		machine.canJump = true;
