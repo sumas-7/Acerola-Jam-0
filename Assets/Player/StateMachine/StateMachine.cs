@@ -32,7 +32,7 @@ public partial class StateMachine : Node
     public Vector2 inputDir;
 
     // audio variables
-    public AudioStreamPlayer jumpSoundPlayer, dashSoundPlayer;
+    public AudioStreamPlayer jumpSoundPlayer, dashSoundPlayer, landSoundPlayer;
     private AudioStream aberrantJump = (AudioStream)GD.Load("res://Assets/SFX/Jump0.wav");
     private AudioStream aberrantDash;
 
@@ -57,14 +57,16 @@ public partial class StateMachine : Node
         // foreach(var state in states)
         //     GD.Print(state.Key);
 
+        jumpSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(2);
+        dashSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(3);
+        landSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(4);
+        
         if(initialState != null) // if there is an initial state set in the editor, use it as the current state
         {
             initialState.StateEnter();
             currentState = initialState;
         }
 
-        jumpSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(2);
-        dashSoundPlayer = (AudioStreamPlayer)GetParent().GetChild(3);
     }
     public override void _Process(double delta)
     {
