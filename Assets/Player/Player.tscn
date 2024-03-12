@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://b8yelr5jdvnu5" path="res://Assets/SFX/Jump.wav" id="2_m3831"]
 [ext_resource type="PackedScene" uid="uid://c1p52aekp13hl" path="res://Assets/Player/StateMachine/StateMachine.tscn" id="2_yn78o"]
-[ext_resource type="AudioStream" uid="uid://nw2ckmbcwtmg" path="res://Assets/SFX/Dash.wav" id="3_pr5gm"]
+[ext_resource type="AudioStream" uid="uid://drdmb7nfbserv" path="res://Assets/SFX/Dash.wav" id="3_pr5gm"]
 [ext_resource type="AudioStream" uid="uid://dp11o4064tiuh" path="res://Assets/SFX/Land.wav" id="4_beumq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5yh1g"]
