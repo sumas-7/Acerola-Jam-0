@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=15 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/EndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
@@ -6,6 +6,8 @@
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="2_tu0q2"]
 [ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="3_lipvg"]
 [ext_resource type="Shader" path="res://PostProcessing.gdshader" id="4_re0fa"]
+[ext_resource type="AudioStream" uid="uid://srr1h6u3th31" path="res://Assets/SFX/Lose.wav" id="5_5eno3"]
+[ext_resource type="AudioStream" uid="uid://ce2866pqidfeb" path="res://Assets/SFX/Win.wav" id="6_0npfo"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/BloomButton.cs" id="7_8et4y"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
@@ -57,6 +59,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="LoseSound" type="AudioStreamPlayer" parent="WorldEnvironment"]
+stream = ExtResource("5_5eno3")
+volume_db = -1.0
+
+[node name="WinSound" type="AudioStreamPlayer" parent="WorldEnvironment"]
+stream = ExtResource("6_0npfo")
 
 [node name="MainMenu" type="Control" parent="."]
 layout_mode = 3

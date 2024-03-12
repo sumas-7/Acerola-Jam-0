@@ -63,6 +63,9 @@ public partial class GameManager : Node2D
 		player.Visible = false;
 		player.GetChild(1).QueueFree(); // destroys the StateMachine
 
+		AudioStreamPlayer audioPlayer = (AudioStreamPlayer)worldEnvironment.GetChild(2); // play the WIN sound
+		audioPlayer.Play();
+
 		clearScreen.Visible = true;
 	}
 	public void Lose()
@@ -70,6 +73,9 @@ public partial class GameManager : Node2D
 		player.Visible = false;
 		player.GetChildOrNull<CollisionShape2D>(0).QueueFree(); // destroys the Collision to avoid colliding again
 		player.GetChildOrNull<StateMachine>(1).QueueFree(); // destroys the StateMachine
+
+		AudioStreamPlayer audioPlayer = (AudioStreamPlayer)worldEnvironment.GetChild(1); // play the LOSE sound
+		audioPlayer.Play();
 
 		failScreen.Visible = true;
 	}
