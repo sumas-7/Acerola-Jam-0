@@ -15,7 +15,7 @@ run/main_scene="res://MasterScene.tscn"
 config/features=PackedStringArray("4.2", "C#", "Forward Plus")
 run/max_fps=60
 boot_splash/image="res://Assets/Splash screen.png"
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [display]
 
