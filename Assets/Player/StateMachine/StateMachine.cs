@@ -86,6 +86,10 @@ public partial class StateMachine : Node
         jumpBuffer -= (float)delta;
         coyoteTime -= (float)delta;
 
+        // you can only reload the stage when the player exists to avoid reloading the main menu and the ending screen
+        if(Input.IsActionJustPressed("reload"))
+            GameManager.Instance.LoadLevel(false);
+
         if(currentState != null) // if there's a current state, call its process function
 			currentState.StateProcess(delta);
     }

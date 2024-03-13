@@ -7,10 +7,10 @@ public partial class MusicPlayer : AudioStreamPlayer
 
 	public override void _Ready()
 	{
-		start = (AudioStream)GD.Load("res://Assets/Music/Start.ogg");
-		initialLoop = (AudioStream)GD.Load("res://Assets/Music/InitialLoop.ogg");
-		drop = (AudioStream)GD.Load("res://Assets/Music/Drop.ogg");
-		mainLoop = (AudioStream)GD.Load("res://Assets/Music/MainLoop.ogg");
+		start = (AudioStream)GD.Load("res://Assets/Music/Start.wav");
+		initialLoop = (AudioStream)GD.Load("res://Assets/Music/InitialLoop.wav");
+		drop = (AudioStream)GD.Load("res://Assets/Music/Drop.wav");
+		mainLoop = (AudioStream)GD.Load("res://Assets/Music/MainLoop.wav");
 
 		Stream = start;
 		Play();
@@ -41,5 +41,6 @@ public partial class MusicPlayer : AudioStreamPlayer
 				break;
 			}
 		}
+		GD.Print(streamName);
 	}
 }
