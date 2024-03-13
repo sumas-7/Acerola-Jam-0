@@ -36,8 +36,8 @@ public partial class StateMachine : Node
 
     // audio variables
     public AudioStreamPlayer jumpSoundPlayer, dashSoundPlayer, landSoundPlayer;
-    private AudioStream aberrantJump = (AudioStream)GD.Load("res://Assets/SFX/Jump0.wav");
-    private AudioStream aberrantDash;
+    public AudioStream aberrantJump = (AudioStream)GD.Load("res://Assets/SFX/Dash0.wav");
+    public AudioStream aberrantDash = (AudioStream)GD.Load("res://Assets/SFX/Jump0.wav");
 
     // various variables
     public string TRANSITION_STRING { get; } = "Transition";

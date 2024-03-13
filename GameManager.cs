@@ -97,6 +97,15 @@ public partial class GameManager : Node2D
 		postProcessShader.SetShaderParameter("invert", true);
 	}
 
+	public void AberrateAudio()
+	{
+		// change the player's sfx
+		StateMachine playerMachine = player.GetChild<StateMachine>(1);
+
+		playerMachine.jumpSoundPlayer.Stream = playerMachine.aberrantJump;
+		playerMachine.dashSoundPlayer.Stream = playerMachine.aberrantDash;
+	}
+
 	public void AberrateInput()
 	{
 		// clears current control scheme list

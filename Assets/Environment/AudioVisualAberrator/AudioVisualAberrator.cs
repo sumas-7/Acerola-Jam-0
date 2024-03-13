@@ -12,7 +12,8 @@ public partial class AudioVisualAberrator : Area2D
 		if(body.Name == "Player")
 		{
 			GameManager.Instance.InvertColors();
-			this.QueueFree();
+			GameManager.Instance.AberrateAudio();
+			QueueFree();
 		}
 	}
 }
