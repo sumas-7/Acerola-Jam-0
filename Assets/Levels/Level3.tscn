@@ -42,9 +42,9 @@ point_count = 2
 
 [node name="72" type="Node" parent="ControlScheme"]
 
-[node name="71" type="Node" parent="ControlScheme"]
-
 [node name="74" type="Node" parent="ControlScheme"]
+
+[node name="71" type="Node" parent="ControlScheme"]
 
 [node name="83" type="Node" parent="ControlScheme"]
 

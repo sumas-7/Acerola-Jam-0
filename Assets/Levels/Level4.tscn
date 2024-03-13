@@ -37,9 +37,9 @@ point_count = 2
 
 [node name="70" type="Node" parent="ControlScheme"]
 
-[node name="86" type="Node" parent="ControlScheme"]
-
 [node name="82" type="Node" parent="ControlScheme"]
+
+[node name="86" type="Node" parent="ControlScheme"]
 
 [node name="4194325" type="Node" parent="ControlScheme"]
 
