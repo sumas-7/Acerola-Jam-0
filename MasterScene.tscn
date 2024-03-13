@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=18 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://ce2866pqidfeb" path="res://Assets/SFX/Win.wav" id="6_0npfo"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/BloomButton.cs" id="7_8et4y"]
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="8_ans87"]
+[ext_resource type="FontFile" uid="uid://berbkvoay1gi7" path="res://Assets/Fonts/sumas7.ttf" id="8_fhu5c"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/MusicButton.cs" id="11_umysl"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
@@ -102,6 +103,42 @@ theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
 text = "[wave amp=80 freq=1.5]!WASD"
 
+[node name="S" type="RichTextLabel" parent="MainMenu/Panel"]
+modulate = Color(0, 0.87451, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -590.0
+offset_top = 311.0
+offset_right = -567.0
+offset_bottom = 338.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("8_fhu5c")
+theme_override_font_sizes/normal_font_size = 19
+bbcode_enabled = true
+text = "S"
+
+[node name="credirs" type="RichTextLabel" parent="MainMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -617.0
+offset_top = 304.0
+offset_right = -311.0
+offset_bottom = 342.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "by    umas7"
+
 [node name="StartGameButton" type="Button" parent="MainMenu/Panel"]
 layout_mode = 1
 anchors_preset = 8
@@ -144,13 +181,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -352.0
-offset_top = -96.0
-offset_right = -210.0
-offset_bottom = -51.0
+offset_left = -230.0
+offset_top = -98.0
+offset_right = -68.0
+offset_bottom = -49.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 20
 text = "Toggle Bloom"
 script = ExtResource("7_8et4y")
 
@@ -161,12 +198,12 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -200.0
-offset_top = -96.0
-offset_right = -58.0
-offset_bottom = -51.0
+offset_left = -230.0
+offset_top = -160.0
+offset_right = -68.0
+offset_bottom = -107.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/font_size = 17
+theme_override_font_sizes/font_size = 20
 text = "Toggle Music"
 script = ExtResource("11_umysl")
