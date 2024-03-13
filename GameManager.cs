@@ -55,9 +55,12 @@ public partial class GameManager : Node2D
 		if(loadNext)
 			AberrateInput();
 
-		// add the tutorial scene to the level
-		tutorial = (CanvasLayer)tutorial_scene.Instantiate();
-		level.AddChild(tutorial);	
+		if(level.Name != "EndingScreen")
+		{
+			// add the tutorial scene to the level
+			tutorial = (CanvasLayer)tutorial_scene.Instantiate();
+			level.AddChild(tutorial);	
+		}
 
 		postProcessShader.SetShaderParameter("invert", false); // return to normal colors
 		GetTree().Paused = false; // resume the game

@@ -15,7 +15,7 @@ fill_from = Vector2(0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fi3jq"]
 texture = SubResource("GradientTexture2D_e6sk6")
 
-[node name="Level" type="Node2D"]
+[node name="EndingScreen" type="Node2D"]
 
 [node name="Panel" type="Panel" parent="."]
 offset_right = 1280.0
@@ -37,7 +37,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
-text = "[wave amp=80 freq=1.5]Congratulations!"
+text = "[wave amp=80 freq=1.5][rainbow freq=0.1]Congratulations!"
 
 [node name="Label2" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
@@ -64,9 +64,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -54.5
-offset_top = 89.0
+offset_top = 76.0
 offset_right = 54.5
-offset_bottom = 149.0
+offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 23

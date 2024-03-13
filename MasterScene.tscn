@@ -29,14 +29,14 @@ shader_parameter/invert = false
 offsets = PackedFloat32Array(0.15625, 0.857143)
 colors = PackedColorArray(0, 0, 0, 1, 0.0562916, 0.0562916, 0.0562916, 1)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_78y8v"]
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_njp78"]
 gradient = SubResource("Gradient_rbwr0")
 width = 1024
 height = 1024
 fill_from = Vector2(0, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lr435"]
-texture = SubResource("GradientTexture2D_78y8v")
+texture = SubResource("GradientTexture2D_njp78")
 
 [node name="MasterNode" type="Node2D"]
 script = ExtResource("1_pvv0a")
