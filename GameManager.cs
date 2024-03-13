@@ -5,7 +5,7 @@ public partial class GameManager : Node2D
 {
 	public static GameManager Instance;
 
-	private int levelIndex = 0;
+	public int levelIndex = 0;
 	private Node2D level;
 	private CharacterBody2D player;
 	private CanvasLayer hud;
@@ -97,6 +97,12 @@ public partial class GameManager : Node2D
 		postProcessShader.SetShaderParameter("invert", true);
 	}
 
+	public void ToggleMusic()
+	{
+		int musicBus = AudioServer.GetBusIndex("Music");
+
+		AudioServer.SetBusMute(musicBus, !AudioServer.IsBusMute(musicBus));
+	}
 	public void AberrateAudio()
 	{
 		// change the player's sfx
