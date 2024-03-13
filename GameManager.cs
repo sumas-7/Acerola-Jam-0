@@ -6,6 +6,7 @@ public partial class GameManager : Node2D
 	public static GameManager Instance;
 
 	public int levelIndex = 0;
+	public float speedrunTimer = 0;
 	private Node2D level;
 	private CharacterBody2D player;
 	private CanvasLayer hud;
@@ -35,8 +36,13 @@ public partial class GameManager : Node2D
 		ColorRect PostProcessRect = (ColorRect)hud.GetChild(2);
 		postProcessShader = (ShaderMaterial)PostProcessRect.Material;
 	}
+    public override void _Process(double delta)
+    {
+		if(levelIndex != 0 && player.GetChildOrNull<StateMachine>(1) != null)
+        	speedrunTimer += (float)delta;
+    }
 
-	public void LoadLevel(bool loadNext)
+    public void LoadLevel(bool loadNext)
 	{
 		GetChild(1).QueueFree();
 
@@ -47,7 +53,8 @@ public partial class GameManager : Node2D
 		level = (Node2D)level_scene.Instantiate();
 		AddChild(level);
 
-		player = (CharacterBody2D)level.GetChild(2);
+		if(levelIndex < 6)
+			player = (CharacterBody2D)level.GetChild(2);
 
 		// get the controls of the level and change the InputMap
 		levelControls = level.GetChild(0);
@@ -62,7 +69,14 @@ public partial class GameManager : Node2D
 			level.AddChild(tutorial);	
 		}
 
-		postProcessShader.SetShaderParameter("invert", false); // return to normal colors
+		if(levelIndex == 6)
+		{
+			MusicPlayer musicPlayer = (MusicPlayer)worldEnvironment.GetChild(3);
+			
+			postProcessShader.SetShaderParameter("invert", false); // return to normal colors
+			musicPlayer.PlayEnding();
+		}
+
 		GetTree().Paused = false; // resume the game
 	}
 
@@ -107,9 +121,12 @@ public partial class GameManager : Node2D
 	{
 		// change the player's sfx
 		StateMachine playerMachine = player.GetChild<StateMachine>(1);
+		MusicPlayer musicPlayer = (MusicPlayer)worldEnvironment.GetChild(3);
 
 		playerMachine.jumpSoundPlayer.Stream = playerMachine.aberrantJump;
 		playerMachine.dashSoundPlayer.Stream = playerMachine.aberrantDash;
+
+		musicPlayer.Aberrate();
 	}
 
 	public void AberrateInput()

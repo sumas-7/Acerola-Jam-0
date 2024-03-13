@@ -1,10 +1,10 @@
 [gd_scene load_steps=17 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
-[ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/EndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
+[ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/QuitButton.cs" id="2_nfe7g"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="2_tu0q2"]
-[ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/EndingScreens/LevelFailScreen.tscn" id="3_lipvg"]
+[ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/LevelEndingScreens/LevelFailScreen.tscn" id="3_lipvg"]
 [ext_resource type="Shader" path="res://PostProcessing.gdshader" id="4_re0fa"]
 [ext_resource type="AudioStream" uid="uid://srr1h6u3th31" path="res://Assets/SFX/Lose.wav" id="5_5eno3"]
 [ext_resource type="AudioStream" uid="uid://ce2866pqidfeb" path="res://Assets/SFX/Win.wav" id="6_0npfo"]
@@ -55,15 +55,6 @@ visible = false
 visible = false
 
 [node name="PostProcessing" type="ColorRect" parent="WorldEnvironment/HUD"]
-material = SubResource("ShaderMaterial_uo4oc")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="PostProcessing2" type="ColorRect" parent="WorldEnvironment/HUD"]
 material = SubResource("ShaderMaterial_uo4oc")
 anchors_preset = 15
 anchor_right = 1.0

@@ -67,15 +67,15 @@ position = Vector2(4673, -341)
 scale = Vector2(4.71639, 0.436387)
 
 [node name="Box7" parent="Environment/Boxes/Box2" instance=ExtResource("4_8bn6v")]
-position = Vector2(-150.963, -657.673)
-scale = Vector2(0.152663, 1.55824)
+position = Vector2(-48.342, -657.673)
+scale = Vector2(0.190589, 1.55824)
 
 [node name="Box8" parent="Environment/Boxes/Box2" instance=ExtResource("4_8bn6v")]
-position = Vector2(154.355, -579.761)
+position = Vector2(171.317, -579.761)
 scale = Vector2(0.152663, 1.28326)
 
 [node name="Box9" parent="Environment/Boxes/Box2" instance=ExtResource("4_8bn6v")]
-position = Vector2(4.02844, -1175.56)
+position = Vector2(40.0731, -1175.56)
 scale = Vector2(0.152663, 3.66647)
 
 [node name="Box3" parent="Environment/Boxes" instance=ExtResource("3_afsci")]

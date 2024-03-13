@@ -185,7 +185,6 @@ curve = SubResource("Curve2D_p1ceu")
 position = Vector2(4, -176)
 scale = Vector2(1.49825, 1.49825)
 SPEED = 0.8
-ROTATION_SPEED = 6.0
 
 [node name="Saw2" parent="Environment/Saws" instance=ExtResource("5_wavcl")]
 position = Vector2(5670, 1062)
