@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://cccah2q435md4"]
+[gd_scene load_steps=6 format=3 uid="uid://cccah2q435md4"]
 
-[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="1_cq75l"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/LevelEndingScreens/RestartBar.cs" id="1_n2uw1"]
+[ext_resource type="Shader" path="res://Assets/InverseBackgroundColor.gdshader" id="2_7ax6v"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwbwy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i6omm"]
+bg_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_83idm"]
+shader = ExtResource("2_7ax6v")
 
 [node name="LevelFailScreen" type="Control"]
 process_mode = 3
@@ -27,20 +37,35 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 76
 text = "Level Failed..."
 
-[node name="RestartLevelButton" type="Button" parent="."]
-process_mode = 3
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 462.0
+offset_top = 405.0
+offset_right = 798.0
+offset_bottom = 443.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uwbwy")
+theme_override_styles/fill = SubResource("StyleBoxFlat_i6omm")
+min_value = 0.01
+max_value = 0.6
+value = 0.01
+exp_edit = true
+show_percentage = false
+script = ExtResource("1_n2uw1")
+
+[node name="Label2" type="Label" parent="ProgressBar"]
+z_index = 1
+material = SubResource("ShaderMaterial_83idm")
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -87.0
-offset_top = 73.0
-offset_right = 77.0
-offset_bottom = 132.0
+offset_left = -167.0
+offset_top = -24.0
+offset_right = 172.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 23
-text = "Restart level"
-script = ExtResource("1_cq75l")
+theme_override_font_sizes/font_size = 30
+text = "Hold any key to restart"

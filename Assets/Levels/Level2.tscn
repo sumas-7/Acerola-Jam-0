@@ -42,7 +42,7 @@ script = ExtResource("2_2s2mc")
 shape = SubResource("WorldBoundaryShape2D_lqx0p")
 
 [node name="EndGoal" parent="Environment" instance=ExtResource("2_lo1e4")]
-position = Vector2(4159, -2366)
+position = Vector2(4159, -2606)
 
 [node name="Boxes" type="Node" parent="Environment"]
 
