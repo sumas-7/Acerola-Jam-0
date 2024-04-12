@@ -1,6 +1,6 @@
 using Godot;
 
-public partial class RestartBar : ProgressBar
+public partial class LevelFailRestartBar : ProgressBar
 {
 	private Control parent;
 

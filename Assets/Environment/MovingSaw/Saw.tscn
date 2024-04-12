@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bmjf2k7b3rjm2" path="res://Assets/Environment/MovingSaw/cirucular saw.svg" id="3_833iv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o0e0n"]
-radius = 64.0078
+radius = 58.0
 
 [node name="Saw" type="Area2D"]
 z_index = -1

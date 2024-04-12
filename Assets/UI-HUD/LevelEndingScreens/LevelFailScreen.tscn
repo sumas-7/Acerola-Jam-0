@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cccah2q435md4"]
 
-[ext_resource type="Script" path="res://Assets/UI-HUD/LevelEndingScreens/RestartBar.cs" id="1_n2uw1"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/LevelEndingScreens/LevelFailRestartBar.cs" id="1_n2uw1"]
 [ext_resource type="Shader" path="res://Assets/InverseBackgroundColor.gdshader" id="2_7ax6v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwbwy"]

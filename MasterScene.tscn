@@ -64,6 +64,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="BackBufferCopy" type="BackBufferCopy" parent="WorldEnvironment/HUD/PostProcessing"]
+copy_mode = 2
+
 [node name="LoseSound" type="AudioStreamPlayer" parent="WorldEnvironment"]
 stream = ExtResource("5_5eno3")
 volume_db = -1.0
