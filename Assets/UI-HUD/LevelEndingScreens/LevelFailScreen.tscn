@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cccah2q435md4"]
 
-[ext_resource type="Script" path="res://Assets/UI-HUD/LevelEndingScreens/LevelFailRestartBar.cs" id="1_n2uw1"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/LevelEndingScreens/LevelFailRestartBar.cs" id="1_qyhps"]
 [ext_resource type="Shader" path="res://Assets/InverseBackgroundColor.gdshader" id="2_7ax6v"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uwbwy"]
@@ -47,10 +47,11 @@ theme_override_styles/background = SubResource("StyleBoxFlat_uwbwy")
 theme_override_styles/fill = SubResource("StyleBoxFlat_i6omm")
 min_value = 0.01
 max_value = 0.6
+step = 0.0
 value = 0.01
 exp_edit = true
 show_percentage = false
-script = ExtResource("1_n2uw1")
+script = ExtResource("1_qyhps")
 
 [node name="Label2" type="Label" parent="ProgressBar"]
 z_index = 1

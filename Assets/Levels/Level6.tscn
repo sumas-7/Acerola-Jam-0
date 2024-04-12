@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnn8uiuh5nb58"]
+[gd_scene load_steps=7 format=3 uid="uid://cnn8uiuh5nb58"]
 
 [ext_resource type="Script" path="res://Assets/UI-HUD/TotalTime.cs" id="1_gtwdh"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/QuitButton.cs" id="2_ktchj"]
+[ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="2_fay8o"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/QuitButton.cs" id="2_ktchj"]
 
 [sub_resource type="Gradient" id="Gradient_j7jhy"]
 offsets = PackedFloat32Array(0.15625, 0.857143)
@@ -71,6 +72,7 @@ offset_right = 54.5
 offset_bottom = 199.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_fay8o")
 theme_override_font_sizes/font_size = 23
 text = "Quit"
 script = ExtResource("2_ktchj")

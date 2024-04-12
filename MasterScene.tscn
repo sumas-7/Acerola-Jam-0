@@ -1,17 +1,18 @@
-[gd_scene load_steps=18 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=19 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/QuitButton.cs" id="2_nfe7g"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/LoadLevelButton.cs" id="2_tu0q2"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/QuitButton.cs" id="2_nfe7g"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/LoadLevelButton.cs" id="2_tu0q2"]
 [ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/LevelEndingScreens/LevelFailScreen.tscn" id="3_lipvg"]
 [ext_resource type="Shader" path="res://PostProcessing.gdshader" id="4_re0fa"]
 [ext_resource type="AudioStream" uid="uid://srr1h6u3th31" path="res://Assets/SFX/Lose.wav" id="5_5eno3"]
 [ext_resource type="AudioStream" uid="uid://ce2866pqidfeb" path="res://Assets/SFX/Win.wav" id="6_0npfo"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/BloomButton.cs" id="7_8et4y"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/BloomButton.cs" id="7_8et4y"]
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="8_ans87"]
 [ext_resource type="FontFile" uid="uid://berbkvoay1gi7" path="res://Assets/Fonts/sumas7.ttf" id="8_fhu5c"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/ButtonScripts/MusicButton.cs" id="11_umysl"]
+[ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="9_stctc"]
+[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/MusicButton.cs" id="11_umysl"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
@@ -149,12 +150,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -72.0
-offset_top = -29.5
-offset_right = 72.0
-offset_bottom = 29.5
+offset_left = -72.5
+offset_top = -46.0
+offset_right = 72.5
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 23
 text = "Play"
 script = ExtResource("2_tu0q2")
@@ -167,12 +169,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -45.0
-offset_top = 54.0
-offset_right = 45.0
-offset_bottom = 104.0
+offset_left = -54.0
+offset_top = 72.0
+offset_right = 54.0
+offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 23
 text = "Quit"
 script = ExtResource("2_nfe7g")
@@ -184,12 +187,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -230.0
-offset_top = -98.0
+offset_left = -256.0
+offset_top = -137.0
 offset_right = -68.0
 offset_bottom = -49.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 20
 text = "Toggle Bloom"
 script = ExtResource("7_8et4y")
@@ -201,12 +205,13 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -230.0
-offset_top = -160.0
+offset_left = -256.0
+offset_top = -247.0
 offset_right = -68.0
-offset_bottom = -107.0
+offset_bottom = -159.0
 grow_horizontal = 0
 grow_vertical = 0
+theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 20
 text = "Toggle Music"
 script = ExtResource("11_umysl")
