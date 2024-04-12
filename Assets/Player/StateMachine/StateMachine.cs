@@ -17,6 +17,7 @@ public partial class StateMachine : Node
 	[Export] public float COYOTE_TIME = 0.1f;
 	[Export] public float DASH_SPEED = 2300;
 	[Export] public float DASH_DURATION = 0.13f;
+	public float DASH_DIR_CHANGE_TIME;
     [Export] public float gravity = 3500;
     public float jumpBuffer = 0;
     public float coyoteTime = 0;
@@ -45,6 +46,8 @@ public partial class StateMachine : Node
     public override void _Ready()
     {
         player = GetOwner<CharacterBody2D>();
+
+        DASH_DIR_CHANGE_TIME = DASH_DURATION * 0.01f;
 
 		for(int i = 0; i < GetChildCount(); i++) // for every child in the state machine
 		{
