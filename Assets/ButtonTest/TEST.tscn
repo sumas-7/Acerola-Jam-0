@@ -1,0 +1,98 @@
+[gd_scene load_steps=9 format=3 uid="uid://tv46krlisdv4"]
+
+[ext_resource type="Texture2D" uid="uid://dtasp7qjnvlie" path="res://Assets/ButtonTest/button test.png" id="1_40jgt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tvowg"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8nb4a"]
+texture = ExtResource("1_40jgt")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+expand_margin_left = 20.0
+expand_margin_top = 20.0
+expand_margin_right = 20.0
+expand_margin_bottom = 20.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8jrhl"]
+texture = ExtResource("1_40jgt")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+expand_margin_left = 15.0
+expand_margin_top = 15.0
+expand_margin_right = 15.0
+expand_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yn7e0"]
+texture = ExtResource("1_40jgt")
+texture_margin_left = 15.0
+texture_margin_top = 15.0
+texture_margin_right = 15.0
+texture_margin_bottom = 15.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vwbh3"]
+
+[sub_resource type="Theme" id="Theme_i5cfg"]
+Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/font_outline_color = Color(1, 1, 1, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(1, 1, 1, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_tvowg")
+Button/styles/focus = SubResource("StyleBoxTexture_8nb4a")
+Button/styles/hover = SubResource("StyleBoxTexture_8jrhl")
+Button/styles/normal = SubResource("StyleBoxTexture_yn7e0")
+Button/styles/pressed = SubResource("StyleBoxEmpty_vwbh3")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02xoc"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 280.0
+offset_right = 779.0
+offset_bottom = 420.0
+theme = SubResource("Theme_i5cfg")
+theme_override_font_sizes/font_size = 66
+theme_override_styles/focus = SubResource("StyleBoxEmpty_02xoc")
+text = "GIANNI"
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_40jgt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Button"]
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 539.0
+offset_right = 736.0
+offset_bottom = 587.0
+theme_override_font_sizes/font_size = 20
+text = "gianni ma piccolo"
