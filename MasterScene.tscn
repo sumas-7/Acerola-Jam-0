@@ -1,18 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=18 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/QuitButton.cs" id="2_nfe7g"]
 [ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/LoadLevelButton.cs" id="2_tu0q2"]
 [ext_resource type="PackedScene" uid="uid://cccah2q435md4" path="res://Assets/UI-HUD/LevelEndingScreens/LevelFailScreen.tscn" id="3_lipvg"]
 [ext_resource type="Shader" path="res://PostProcessing.gdshader" id="4_re0fa"]
 [ext_resource type="AudioStream" uid="uid://srr1h6u3th31" path="res://Assets/SFX/Lose.wav" id="5_5eno3"]
 [ext_resource type="AudioStream" uid="uid://ce2866pqidfeb" path="res://Assets/SFX/Win.wav" id="6_0npfo"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/BloomButton.cs" id="7_8et4y"]
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="8_ans87"]
 [ext_resource type="FontFile" uid="uid://berbkvoay1gi7" path="res://Assets/Fonts/sumas7.ttf" id="8_fhu5c"]
 [ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="9_stctc"]
-[ext_resource type="Script" path="res://Assets/UI-HUD/Button/Scripts/MusicButton.cs" id="11_umysl"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
@@ -24,6 +21,8 @@ glow_bloom = 0.28
 glow_blend_mode = 4
 glow_hdr_threshold = 0.64
 glow_hdr_scale = 0.8
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uo8p3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uo4oc"]
 shader = ExtResource("4_re0fa")
@@ -42,6 +41,8 @@ fill_from = Vector2(0, 1)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lr435"]
 texture = SubResource("GradientTexture2D_njp78")
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42yjw"]
+
 [node name="MasterNode" type="Node2D"]
 script = ExtResource("1_pvv0a")
 
@@ -55,6 +56,56 @@ visible = false
 
 [node name="LevelFailScreen" parent="WorldEnvironment/HUD" instance=ExtResource("3_lipvg")]
 visible = false
+
+[node name="SettingsMenu" type="Panel" parent="WorldEnvironment/HUD"]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uo8p3")
+
+[node name="BackButton" type="Button" parent="WorldEnvironment/HUD/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -611.0
+offset_top = 268.0
+offset_right = -483.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 23
+text = "Back"
+
+[node name="Settings" type="VBoxContainer" parent="WorldEnvironment/HUD/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -76.0
+offset_right = 92.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 35
+
+[node name="BloomButton" type="Button" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
+layout_mode = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 20
+text = "Toggle Bloom"
+
+[node name="MusicButton" type="Button" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
+layout_mode = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 20
+text = "Toggle Music"
 
 [node name="PostProcessing" type="ColorRect" parent="WorldEnvironment/HUD"]
 material = SubResource("ShaderMaterial_uo4oc")
@@ -80,17 +131,23 @@ volume_db = -10.5
 bus = &"Music"
 script = ExtResource("8_ans87")
 
-[node name="MainMenu" type="Control" parent="."]
+[node name="TitleScreen" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 
-[node name="Panel" type="Panel" parent="MainMenu"]
+[node name="Background" type="Panel" parent="TitleScreen"]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_lr435")
 
-[node name="Label" type="RichTextLabel" parent="MainMenu/Panel"]
+[node name="MainMenu" type="Panel" parent="TitleScreen"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_42yjw")
+
+[node name="Title" type="RichTextLabel" parent="TitleScreen/MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,7 +164,7 @@ theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
 text = "[wave amp=80 freq=1.5]!WASD"
 
-[node name="S" type="RichTextLabel" parent="MainMenu/Panel"]
+[node name="S" type="RichTextLabel" parent="TitleScreen/MainMenu"]
 modulate = Color(0, 0.87451, 0, 1)
 layout_mode = 1
 anchors_preset = 8
@@ -126,7 +183,7 @@ theme_override_font_sizes/normal_font_size = 19
 bbcode_enabled = true
 text = "S"
 
-[node name="credirs" type="RichTextLabel" parent="MainMenu/Panel"]
+[node name="credits" type="RichTextLabel" parent="TitleScreen/MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -143,17 +200,17 @@ theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
 text = "by    umas7"
 
-[node name="StartGameButton" type="Button" parent="MainMenu/Panel"]
+[node name="StartGameButton" type="Button" parent="TitleScreen/MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -28.0
-offset_right = 80.0
-offset_bottom = 40.0
+offset_left = -89.0
+offset_top = -29.0
+offset_right = 89.0
+offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_stctc")
@@ -162,75 +219,42 @@ text = "Play"
 script = ExtResource("2_tu0q2")
 loadNext = true
 
-[node name="SettingsButton" type="Button" parent="MainMenu/Panel"]
+[node name="SettingsButton" type="Button" parent="TitleScreen/MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -64.0
+offset_left = -69.0
 offset_top = 74.0
-offset_right = 64.0
+offset_right = 69.0
 offset_bottom = 136.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 23
 text = "Settings"
-script = ExtResource("2_tu0q2")
-loadNext = true
 
-[node name="QuitButton" type="Button" parent="MainMenu/Panel"]
+[node name="QuitButton" type="Button" parent="TitleScreen/MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -39.0
+offset_left = -48.0
 offset_top = 167.0
-offset_right = 39.0
+offset_right = 48.0
 offset_bottom = 229.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 23
 text = "Quit"
-script = ExtResource("2_nfe7g")
 
-[node name="BloomButton" type="Button" parent="MainMenu/Panel"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -203.0
-offset_top = -97.0
-offset_right = -45.0
-offset_bottom = -39.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("9_stctc")
-theme_override_font_sizes/font_size = 20
-text = "Toggle Bloom"
-script = ExtResource("7_8et4y")
-
-[node name="MusicButton" type="Button" parent="MainMenu/Panel"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -204.0
-offset_top = -188.0
-offset_right = -43.0
-offset_bottom = -130.0
-grow_horizontal = 0
-grow_vertical = 0
-theme = ExtResource("9_stctc")
-theme_override_font_sizes/font_size = 20
-text = "Toggle Music"
-script = ExtResource("11_umysl")
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/BackButton" to="." method="MainMenu_ToggleSettings"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/BloomButton" to="." method="ToggleBloom"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/MusicButton" to="." method="ToggleMusic"]
+[connection signal="pressed" from="TitleScreen/MainMenu/SettingsButton" to="." method="MainMenu_ToggleSettings"]
+[connection signal="pressed" from="TitleScreen/MainMenu/QuitButton" to="." method="Quit"]

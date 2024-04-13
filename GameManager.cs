@@ -12,6 +12,7 @@ public partial class GameManager : Node2D
 	private CanvasLayer hud;
 	private CanvasLayer tutorial;
 	private Control clearScreen, failScreen;
+	private Panel settingsMenu;
 	private ShaderMaterial postProcessShader;
 	private WorldEnvironment worldEnvironment;
 	private Environment environment;
@@ -32,8 +33,9 @@ public partial class GameManager : Node2D
 		hud = (CanvasLayer)worldEnvironment.GetChild(0);
 		clearScreen = (Control)hud.GetChild(0);
 		failScreen = (Control)hud.GetChild(1);
+		settingsMenu = (Panel)hud.GetChild(2);
 
-		ColorRect PostProcessRect = (ColorRect)hud.GetChild(2);
+		ColorRect PostProcessRect = (ColorRect)hud.GetChild(3);
 		postProcessShader = (ShaderMaterial)PostProcessRect.Material;
 	}
     public override void _Process(double delta)
@@ -101,21 +103,39 @@ public partial class GameManager : Node2D
 
 		failScreen.Visible = true;
 	}
+	public void Quit()
+	{
+		GetTree().Quit();
+	}
 
+	// settings
+	public void MainMenu_ToggleSettings()
+	{
+		Control titleScreen = GetChildOrNull<Control>(1);
+
+		if(titleScreen != null)
+		{
+			Panel mainMenu = titleScreen.GetChildOrNull<Panel>(1);
+
+			mainMenu.Visible = !mainMenu.Visible;
+			settingsMenu.Visible = !settingsMenu.Visible;
+		}
+	}
 	public void ToggleBloom()
 	{
 		environment.GlowEnabled = !environment.GlowEnabled;
 	}
-	public void InvertColors()
-	{
-		postProcessShader.SetShaderParameter("invert", true);
-	}
-
 	public void ToggleMusic()
 	{
 		int musicBus = AudioServer.GetBusIndex("Music");
 
 		AudioServer.SetBusMute(musicBus, !AudioServer.IsBusMute(musicBus));
+	}
+
+	// Aberrations
+	public void InvertColors()
+	{
+		postProcessShader.SetShaderParameter("invert", true);
 	}
 	public void AberrateAudio()
 	{

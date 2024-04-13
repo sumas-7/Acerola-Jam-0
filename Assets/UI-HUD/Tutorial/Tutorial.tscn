@@ -73,4 +73,4 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/normal_font = ExtResource("2_4pofb")
 theme_override_font_sizes/normal_font_size = 71
 bbcode_enabled = true
-text = "[shake level=25 rate=3][wave amp=30w freq=3.5][tornado radius=2 freq=3]Restart[/tornado][/wave][/shake] the level with [color=lightgreen]Shift + Esc"
+text = "[shake level=25 rate=3][wave amp=30w freq=3.5][tornado radius=2 freq=3]Restart[/tornado][/wave][/shake] the level with [color=lightgreen]Canc"
