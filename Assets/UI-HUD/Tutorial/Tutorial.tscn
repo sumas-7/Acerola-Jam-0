@@ -81,6 +81,7 @@ offset_left = 2076.0
 offset_top = -475.0
 offset_right = 2547.0
 offset_bottom = -208.0
+mouse_filter = 2
 stream = ExtResource("2_t4vvd")
 autoplay = true
 expand = true
