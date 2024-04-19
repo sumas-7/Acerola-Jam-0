@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cqqvfua1gqjhq"]
+[gd_scene load_steps=4 format=3 uid="uid://cqqvfua1gqjhq"]
 
 [ext_resource type="Script" path="res://Assets/UI-HUD/Tutorial/Tutorial.cs" id="1_562kg"]
 [ext_resource type="FontFile" uid="uid://b5urpv5q2883o" path="res://Assets/Fonts/PLAY-BOLD.ttf" id="2_4pofb"]
+[ext_resource type="VideoStream" path="res://Assets/UI-HUD/Tutorial/!WASD dash tutorial gif.ogv" id="2_t4vvd"]
 
 [node name="Tutorial" type="CanvasLayer"]
 follow_viewport_enabled = true
@@ -74,3 +75,13 @@ theme_override_fonts/normal_font = ExtResource("2_4pofb")
 theme_override_font_sizes/normal_font_size = 71
 bbcode_enabled = true
 text = "[shake level=25 rate=3][wave amp=30w freq=3.5][tornado radius=2 freq=3]Restart[/tornado][/wave][/shake] the level with [color=lightgreen]Canc"
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_left = 2076.0
+offset_top = -475.0
+offset_right = 2547.0
+offset_bottom = -208.0
+stream = ExtResource("2_t4vvd")
+autoplay = true
+expand = true
+loop = true
