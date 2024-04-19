@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=19 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Shader" path="res://PostProcessing.gdshader" id="4_re0fa"]
 [ext_resource type="AudioStream" uid="uid://srr1h6u3th31" path="res://Assets/SFX/Lose.wav" id="5_5eno3"]
 [ext_resource type="AudioStream" uid="uid://ce2866pqidfeb" path="res://Assets/SFX/Win.wav" id="6_0npfo"]
+[ext_resource type="Script" path="res://PauseManager.cs" id="7_jsd4d"]
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="8_ans87"]
 [ext_resource type="FontFile" uid="uid://berbkvoay1gi7" path="res://Assets/Fonts/sumas7.ttf" id="8_fhu5c"]
 [ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="9_stctc"]
@@ -22,11 +23,12 @@ glow_blend_mode = 4
 glow_hdr_threshold = 0.64
 glow_hdr_scale = 0.8
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uo8p3"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uo4oc"]
 shader = ExtResource("4_re0fa")
 shader_parameter/invert = false
+shader_parameter/darken = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uo8p3"]
 
 [sub_resource type="Gradient" id="Gradient_rbwr0"]
 offsets = PackedFloat32Array(0.15625, 0.857143)
@@ -50,12 +52,100 @@ script = ExtResource("1_pvv0a")
 environment = SubResource("Environment_8joup")
 
 [node name="HUD" type="CanvasLayer" parent="WorldEnvironment"]
+process_mode = 3
 
 [node name="LevelClearScreen" parent="WorldEnvironment/HUD" instance=ExtResource("2_esdh3")]
 visible = false
 
 [node name="LevelFailScreen" parent="WorldEnvironment/HUD" instance=ExtResource("3_lipvg")]
 visible = false
+
+[node name="PostProcessing" type="ColorRect" parent="WorldEnvironment/HUD"]
+material = SubResource("ShaderMaterial_uo4oc")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="WorldEnvironment/HUD/PostProcessing"]
+copy_mode = 2
+
+[node name="PauseMenu" type="Panel" parent="WorldEnvironment/HUD"]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uo8p3")
+
+[node name="Paused" type="RichTextLabel" parent="WorldEnvironment/HUD/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -211.0
+offset_right = 202.0
+offset_bottom = -60.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 91
+bbcode_enabled = true
+text = "[wave amp=40 freq=0.5]Paused"
+
+[node name="ResumeButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = -29.0
+offset_right = 89.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 23
+text = "Resume"
+
+[node name="SettingsButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = 74.0
+offset_right = 69.0
+offset_bottom = 136.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 23
+text = "Settings"
+
+[node name="QuitButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = 164.0
+offset_right = 48.0
+offset_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 23
+text = "Quit"
 
 [node name="SettingsMenu" type="Panel" parent="WorldEnvironment/HUD"]
 visible = false
@@ -99,25 +189,19 @@ theme_override_constants/separation = 35
 layout_mode = 2
 theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 20
+toggle_mode = true
 text = "Toggle Bloom"
 
 [node name="MusicButton" type="Button" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
 layout_mode = 2
 theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 20
+toggle_mode = true
 text = "Toggle Music"
 
-[node name="PostProcessing" type="ColorRect" parent="WorldEnvironment/HUD"]
-material = SubResource("ShaderMaterial_uo4oc")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="WorldEnvironment/HUD/PostProcessing"]
-copy_mode = 2
+[node name="PauseManager" type="Node" parent="WorldEnvironment/HUD"]
+process_mode = 3
+script = ExtResource("7_jsd4d")
 
 [node name="LoseSound" type="AudioStreamPlayer" parent="WorldEnvironment"]
 stream = ExtResource("5_5eno3")
@@ -127,11 +211,13 @@ volume_db = -1.0
 stream = ExtResource("6_0npfo")
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="WorldEnvironment"]
+process_mode = 3
 volume_db = -10.5
 bus = &"Music"
 script = ExtResource("8_ans87")
 
 [node name="TitleScreen" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 
@@ -253,8 +339,11 @@ theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 23
 text = "Quit"
 
-[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/BackButton" to="." method="MainMenu_ToggleSettings"]
+[connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/ResumeButton" to="." method="TogglePauseMenu"]
+[connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/SettingsButton" to="." method="ToggleSettings"]
+[connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/QuitButton" to="." method="Quit"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/BackButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/BloomButton" to="." method="ToggleBloom"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/MusicButton" to="." method="ToggleMusic"]
-[connection signal="pressed" from="TitleScreen/MainMenu/SettingsButton" to="." method="MainMenu_ToggleSettings"]
+[connection signal="pressed" from="TitleScreen/MainMenu/SettingsButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="TitleScreen/MainMenu/QuitButton" to="." method="Quit"]

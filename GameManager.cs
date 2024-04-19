@@ -7,12 +7,13 @@ public partial class GameManager : Node2D
 
 	public int levelIndex = 0;
 	public float speedrunTimer = 0;
+	public bool isPlayerActive = false;
 	private Node2D level;
 	private CharacterBody2D player;
 	private CanvasLayer hud;
 	private CanvasLayer tutorial;
 	private Control clearScreen, failScreen;
-	private Panel settingsMenu;
+	private Panel settingsMenu, pauseMenu;
 	private ShaderMaterial postProcessShader;
 	private WorldEnvironment worldEnvironment;
 	private Environment environment;
@@ -33,16 +34,17 @@ public partial class GameManager : Node2D
 		hud = (CanvasLayer)worldEnvironment.GetChild(0);
 		clearScreen = (Control)hud.GetChild(0);
 		failScreen = (Control)hud.GetChild(1);
-		settingsMenu = (Panel)hud.GetChild(2);
+		pauseMenu = (Panel)hud.GetChild(3);
+		settingsMenu = (Panel)hud.GetChild(4);
 
-		ColorRect PostProcessRect = (ColorRect)hud.GetChild(3);
+		ColorRect PostProcessRect = (ColorRect)hud.GetChild(2);
 		postProcessShader = (ShaderMaterial)PostProcessRect.Material;
 	}
     public override void _Process(double delta)
     {
-		if(levelIndex != 0 && player.GetChildOrNull<StateMachine>(1) != null)
+		if(levelIndex != 0 && isPlayerActive)
         	speedrunTimer += (float)delta;
-    }
+	}
 
     public void LoadLevel(bool loadNext)
 	{
@@ -64,20 +66,27 @@ public partial class GameManager : Node2D
 		if(loadNext)
 			AberrateInput();
 
-		if(level.Name != "EndingScreen")
+		if(level.Name != "EndingScreen") // if not the last level
 		{
 			// add the tutorial scene to the level
 			tutorial = (CanvasLayer)tutorial_scene.Instantiate();
-			level.AddChild(tutorial);	
-		}
+			level.AddChild(tutorial);
 
-		if(levelIndex == 6)
+			isPlayerActive = true;
+		}
+		else
 		{
 			MusicPlayer musicPlayer = (MusicPlayer)worldEnvironment.GetChild(3);
 			
 			postProcessShader.SetShaderParameter("invert", false); // return to normal colors
 			musicPlayer.PlayEnding();
+
+			// connects the quit button in the last level to the quit method
+			Button quitButton = (Button)level.GetChild(0).GetChild(2);
+
+			quitButton.Pressed += Quit;
 		}
+
 
 		GetTree().Paused = false; // resume the game
 	}
@@ -90,6 +99,7 @@ public partial class GameManager : Node2D
 		AudioStreamPlayer audioPlayer = (AudioStreamPlayer)worldEnvironment.GetChild(2); // play the WIN sound
 		audioPlayer.Play();
 
+		isPlayerActive = false;
 		clearScreen.Visible = true;
 	}
 	public void Lose()
@@ -101,6 +111,7 @@ public partial class GameManager : Node2D
 		AudioStreamPlayer audioPlayer = (AudioStreamPlayer)worldEnvironment.GetChild(1); // play the LOSE sound
 		audioPlayer.Play();
 
+		isPlayerActive = false;
 		failScreen.Visible = true;
 	}
 	public void Quit()
@@ -109,17 +120,38 @@ public partial class GameManager : Node2D
 	}
 
 	// settings
-	public void MainMenu_ToggleSettings()
+	public void TogglePauseMenu() // shitty code
+	{
+		if(settingsMenu.Visible)
+		{
+			ToggleSettings();
+		}
+		else
+		{
+			pauseMenu.Visible = !pauseMenu.Visible;
+			GetTree().Paused = !GetTree().Paused;
+		}
+
+		postProcessShader.SetShaderParameter("darken", GetTree().Paused);
+	}
+	public void ToggleSettings() // shitty code part 2
 	{
 		Control titleScreen = GetChildOrNull<Control>(1);
 
-		if(titleScreen != null)
+		if(titleScreen != null) // when on the title screen
 		{
 			Panel mainMenu = titleScreen.GetChildOrNull<Panel>(1);
 
 			mainMenu.Visible = !mainMenu.Visible;
 			settingsMenu.Visible = !settingsMenu.Visible;
 		}
+		else // when in game
+		{
+			settingsMenu.Visible = !settingsMenu.Visible;
+			pauseMenu.Visible = !pauseMenu.Visible;
+		}
+
+		postProcessShader.SetShaderParameter("darken", GetTree().Paused);
 	}
 	public void ToggleBloom()
 	{
