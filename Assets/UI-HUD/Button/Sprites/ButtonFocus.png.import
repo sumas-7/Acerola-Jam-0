@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://hp675452ee6v"
-path="res://.godot/imported/buttonFocus.png-91bcc8a0856fa027b75ff2cdf473070e.ctex"
+path="res://.godot/imported/ButtonFocus.png-696975f2dfda48b586f5b606239a058a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/UI-HUD/Button/Sprites/buttonFocus.png"
-dest_files=["res://.godot/imported/buttonFocus.png-91bcc8a0856fa027b75ff2cdf473070e.ctex"]
+source_file="res://Assets/UI-HUD/Button/Sprites/ButtonFocus.png"
+dest_files=["res://.godot/imported/ButtonFocus.png-696975f2dfda48b586f5b606239a058a.ctex"]
 
 [params]
 

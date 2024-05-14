@@ -21,4 +21,12 @@ public partial class Tutorial : CanvasLayer
 		jumpLabel.Text += GameManager.Instance.currentControls[4].ToString(); // jump
 		dashLabel.Text += GameManager.Instance.currentControls[5].ToString(); // dash
 	}
+
+	public override void _Process(double delta)
+	{
+		if(GetTree().Paused)
+			Visible = false;
+		else
+			Visible = true;
+	}
 }

@@ -5,6 +5,7 @@
 [ext_resource type="VideoStream" path="res://Assets/UI-HUD/Tutorial/!WASD dash tutorial gif.ogv" id="2_t4vvd"]
 
 [node name="Tutorial" type="CanvasLayer"]
+process_mode = 3
 follow_viewport_enabled = true
 script = ExtResource("1_562kg")
 
