@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cnn8uiuh5nb58"]
+[gd_scene load_steps=7 format=3 uid="uid://cnn8uiuh5nb58"]
 
 [ext_resource type="Script" path="res://Assets/UI-HUD/TotalTime.cs" id="1_gtwdh"]
 [ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="2_fay8o"]
+[ext_resource type="Script" path="res://credits.cs" id="3_t68bk"]
 
 [sub_resource type="Gradient" id="Gradient_j7jhy"]
 offsets = PackedFloat32Array(0.15625, 0.857143)
@@ -39,6 +40,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 110
 bbcode_enabled = true
 text = "[wave amp=80 freq=1.5][rainbow freq=0.1]Congratulations!"
+fit_content = true
 
 [node name="TotalTime" type="RichTextLabel" parent="Panel"]
 layout_mode = 1
@@ -56,6 +58,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 35
 bbcode_enabled = true
 text = "[wave amp=80 freq=1.5]You have completed the game in "
+fit_content = true
 script = ExtResource("1_gtwdh")
 
 [node name="QuitButton" type="Button" parent="Panel"]
@@ -74,3 +77,21 @@ grow_vertical = 2
 theme = ExtResource("2_fay8o")
 theme_override_font_sizes/font_size = 23
 text = "Quit"
+
+[node name="credits" type="RichTextLabel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = 660.0
+offset_right = 101.0
+offset_bottom = 690.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 21
+bbcode_enabled = true
+text = "[url]credits[/url]"
+fit_content = true
+script = ExtResource("3_t68bk")

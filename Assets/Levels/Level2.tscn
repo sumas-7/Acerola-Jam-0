@@ -1,12 +1,12 @@
 [gd_scene load_steps=10 format=3 uid="uid://dikr7tmc1a6os"]
 
-[ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="2_2s2mc"]
-[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_lo1e4"]
-[ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="3_fikqq"]
-[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/Boxes/BoxGradient.tscn" id="3_yvyjh"]
-[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/Boxes/BoxSolid.tscn" id="4_qch80"]
-[ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/Saw.tscn" id="5_slay1"]
-[ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="5_w3xl3"]
+[ext_resource type="Script" path="res://Assets/Environment/Prop.cs" id="1_b1tmw"]
+[ext_resource type="PackedScene" uid="uid://bh44gnef0f3ey" path="res://Assets/Environment/EndGoal/EndGoal.tscn" id="2_35ina"]
+[ext_resource type="PackedScene" uid="uid://telhv4ci8xk3" path="res://Assets/Environment/Boxes/BoxGradient.tscn" id="3_4hr4r"]
+[ext_resource type="PackedScene" uid="uid://csw44lowdgx" path="res://Assets/Environment/Boxes/BoxSolid.tscn" id="4_vy404"]
+[ext_resource type="PackedScene" uid="uid://u0axm6l3pb3d" path="res://Assets/Environment/MovingSaw/Saw.tscn" id="5_8fkkw"]
+[ext_resource type="PackedScene" uid="uid://cj3a2qm8ovryu" path="res://Assets/Player/Player.tscn" id="6_7kfb1"]
+[ext_resource type="PackedScene" uid="uid://yyuk7737ce0t" path="res://Assets/Player/Camera/Camera.tscn" id="7_g4prw"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lqx0p"]
 
@@ -36,107 +36,107 @@ point_count = 5
 
 [node name="YLimit" type="Area2D" parent="Environment"]
 position = Vector2(0, 1174)
-script = ExtResource("2_2s2mc")
+script = ExtResource("1_b1tmw")
 
 [node name="WorldBoundary" type="CollisionShape2D" parent="Environment/YLimit"]
 shape = SubResource("WorldBoundaryShape2D_lqx0p")
 
-[node name="EndGoal" parent="Environment" instance=ExtResource("2_lo1e4")]
+[node name="EndGoal" parent="Environment" instance=ExtResource("2_35ina")]
 position = Vector2(4159, -2606)
 
 [node name="Boxes" type="Node" parent="Environment"]
 
-[node name="Box" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+[node name="Box" parent="Environment/Boxes" instance=ExtResource("3_4hr4r")]
 position = Vector2(976, 544)
 scale = Vector2(6.72, 0.6)
 
-[node name="Box1" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+[node name="Box1" parent="Environment/Boxes" instance=ExtResource("4_vy404")]
 position = Vector2(2594, 286)
 scale = Vector2(0.43114, 0.43114)
 
-[node name="Box2" parent="Environment/Boxes" instance=ExtResource("3_yvyjh")]
+[node name="Box2" parent="Environment/Boxes" instance=ExtResource("3_4hr4r")]
 position = Vector2(3932, -119)
 scale = Vector2(3.39639, 0.436387)
 
-[node name="Box3" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+[node name="Box3" parent="Environment/Boxes" instance=ExtResource("4_vy404")]
 position = Vector2(4689, -347)
 scale = Vector2(0.451819, 0.451819)
 
-[node name="Box4" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+[node name="Box4" parent="Environment/Boxes" instance=ExtResource("4_vy404")]
 position = Vector2(4140, -590)
 scale = Vector2(0.481583, 0.481583)
 
 [node name="Path2D" type="Path2D" parent="Environment/Boxes/Box4"]
 curve = SubResource("Curve2D_osqlf")
 
-[node name="Saw" parent="Environment/Boxes/Box4/Path2D" instance=ExtResource("5_slay1")]
+[node name="Saw" parent="Environment/Boxes/Box4/Path2D" instance=ExtResource("5_8fkkw")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
 SPEED = -0.3
 PATH_FOLLOW_START = 0.5
 PATH_LOOP = true
 
-[node name="Box5" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+[node name="Box5" parent="Environment/Boxes" instance=ExtResource("4_vy404")]
 position = Vector2(3467, -844)
 scale = Vector2(0.481583, 0.481583)
 
 [node name="Path2D" type="Path2D" parent="Environment/Boxes/Box5"]
 curve = SubResource("Curve2D_osqlf")
 
-[node name="Saw" parent="Environment/Boxes/Box5/Path2D" instance=ExtResource("5_slay1")]
+[node name="Saw" parent="Environment/Boxes/Box5/Path2D" instance=ExtResource("5_8fkkw")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
 SPEED = -0.3
 PATH_LOOP = true
 
-[node name="Box6" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+[node name="Box6" parent="Environment/Boxes" instance=ExtResource("4_vy404")]
 position = Vector2(4140, -1147)
 scale = Vector2(0.481583, 0.481583)
 
 [node name="Path2D" type="Path2D" parent="Environment/Boxes/Box6"]
 curve = SubResource("Curve2D_osqlf")
 
-[node name="Saw" parent="Environment/Boxes/Box6/Path2D" instance=ExtResource("5_slay1")]
+[node name="Saw" parent="Environment/Boxes/Box6/Path2D" instance=ExtResource("5_8fkkw")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
 SPEED = -0.3
 PATH_FOLLOW_START = 0.5
 PATH_LOOP = true
 
-[node name="Box7" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+[node name="Box7" parent="Environment/Boxes" instance=ExtResource("4_vy404")]
 position = Vector2(3466, -1401)
 scale = Vector2(0.481583, 0.481583)
 
 [node name="Path2D" type="Path2D" parent="Environment/Boxes/Box7"]
 curve = SubResource("Curve2D_osqlf")
 
-[node name="Saw" parent="Environment/Boxes/Box7/Path2D" instance=ExtResource("5_slay1")]
+[node name="Saw" parent="Environment/Boxes/Box7/Path2D" instance=ExtResource("5_8fkkw")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
 SPEED = -0.3
 PATH_LOOP = true
 
-[node name="Box8" parent="Environment/Boxes" instance=ExtResource("4_qch80")]
+[node name="Box8" parent="Environment/Boxes" instance=ExtResource("4_vy404")]
 position = Vector2(4140, -1699)
 scale = Vector2(0.481583, 0.481583)
 
 [node name="Path2D" type="Path2D" parent="Environment/Boxes/Box8"]
 curve = SubResource("Curve2D_osqlf")
 
-[node name="Saw" parent="Environment/Boxes/Box8/Path2D" instance=ExtResource("5_slay1")]
+[node name="Saw" parent="Environment/Boxes/Box8/Path2D" instance=ExtResource("5_8fkkw")]
 position = Vector2(262.207, -38.8454)
 scale = Vector2(1.846, 1.846)
 SPEED = -0.3
 PATH_FOLLOW_START = 0.5
 PATH_LOOP = true
 
-[node name="Saw" parent="Environment" instance=ExtResource("5_slay1")]
+[node name="Saw" parent="Environment" instance=ExtResource("5_8fkkw")]
 position = Vector2(1681, 389)
 scale = Vector2(1.48257, 1.48257)
 SPEED = 1.0
 
-[node name="Player" parent="." instance=ExtResource("3_fikqq")]
+[node name="Player" parent="." instance=ExtResource("6_7kfb1")]
 position = Vector2(-656, 297)
 
-[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_w3xl3")]
+[node name="Camera" parent="." node_paths=PackedStringArray("target") instance=ExtResource("7_g4prw")]
 target = NodePath("../Player")

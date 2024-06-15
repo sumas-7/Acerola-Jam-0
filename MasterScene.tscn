@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=20 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="8_ans87"]
 [ext_resource type="FontFile" uid="uid://berbkvoay1gi7" path="res://Assets/Fonts/sumas7.ttf" id="8_fhu5c"]
 [ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="9_stctc"]
+[ext_resource type="Script" path="res://credits.cs" id="11_oscr3"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
@@ -94,6 +95,7 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
 text = "[wave amp=40 freq=0.5]Paused"
+fit_content = true
 
 [node name="ResumeButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
 layout_mode = 1
@@ -153,6 +155,12 @@ offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_uo8p3")
 
+[node name="Background" type="Panel" parent="WorldEnvironment/HUD/SettingsMenu"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lr435")
+
 [node name="BackButton" type="Button" parent="WorldEnvironment/HUD/SettingsMenu"]
 layout_mode = 1
 anchors_preset = 8
@@ -199,6 +207,97 @@ theme_override_font_sizes/font_size = 20
 toggle_mode = true
 text = "Toggle Music"
 
+[node name="CreditsScreen" type="Panel" parent="WorldEnvironment/HUD"]
+visible = false
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_uo8p3")
+
+[node name="Background" type="Panel" parent="WorldEnvironment/HUD/CreditsScreen"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_lr435")
+
+[node name="BackButton" type="Button" parent="WorldEnvironment/HUD/CreditsScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -611.0
+offset_top = 268.0
+offset_right = -483.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 23
+text = "Back"
+
+[node name="Credits" type="VBoxContainer" parent="WorldEnvironment/HUD/CreditsScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -432.0
+offset_top = -264.0
+offset_right = 432.0
+offset_bottom = 266.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WorldEnvironment/HUD/CreditsScreen/Credits"]
+layout_mode = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Designed and programmed by:
+sumas7[/center]"
+fit_content = true
+
+[node name="Misc" type="RichTextLabel" parent="WorldEnvironment/HUD/CreditsScreen/Credits"]
+layout_mode = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Font Play by:
+Jonas Hecksher[/center]"
+fit_content = true
+
+[node name="Misc2" type="RichTextLabel" parent="WorldEnvironment/HUD/CreditsScreen/Credits"]
+layout_mode = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Swoosh sound by:
+Timbre[/center]"
+fit_content = true
+
+[node name="Software" type="RichTextLabel" parent="WorldEnvironment/HUD/CreditsScreen/Credits"]
+layout_mode = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Sound effects made with jfxr by:
+Frozen Fractal[/center]"
+fit_content = true
+
+[node name="Music" type="RichTextLabel" parent="WorldEnvironment/HUD/CreditsScreen/Credits"]
+layout_mode = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]Music:
+Amaryllis - Reaching Out
+Sewerslvt - Luciferians (glitchtrode Remix)[/center]"
+fit_content = true
+
 [node name="PauseManager" type="Node" parent="WorldEnvironment/HUD"]
 process_mode = 3
 script = ExtResource("7_jsd4d")
@@ -242,13 +341,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -148.0
 offset_top = -197.0
-offset_right = 433.0
+offset_right = 291.0
 offset_bottom = -72.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 91
 bbcode_enabled = true
 text = "[wave amp=80 freq=1.5]!WASD"
+fit_content = true
 
 [node name="S" type="RichTextLabel" parent="TitleScreen/MainMenu"]
 modulate = Color(0, 0.87451, 0, 1)
@@ -259,9 +359,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -590.0
-offset_top = 311.0
+offset_top = 308.0
 offset_right = -567.0
-offset_bottom = 338.0
+offset_bottom = 335.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("8_fhu5c")
@@ -277,14 +377,16 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -617.0
-offset_top = 304.0
-offset_right = -311.0
-offset_bottom = 342.0
+offset_top = 301.0
+offset_right = -466.0
+offset_bottom = 331.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 21
 bbcode_enabled = true
-text = "by    umas7"
+text = "[url]by    umas7[/url]"
+fit_content = true
+script = ExtResource("11_oscr3")
 
 [node name="StartGameButton" type="Button" parent="TitleScreen/MainMenu"]
 layout_mode = 1
@@ -345,5 +447,6 @@ text = "Quit"
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/BackButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/BloomButton" to="." method="ToggleBloom"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/MusicButton" to="." method="ToggleMusic"]
+[connection signal="pressed" from="WorldEnvironment/HUD/CreditsScreen/BackButton" to="." method="ToggleCredits"]
 [connection signal="pressed" from="TitleScreen/MainMenu/SettingsButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="TitleScreen/MainMenu/QuitButton" to="." method="Quit"]

@@ -8,6 +8,7 @@ public partial class GameManager : Node2D
 	public int levelIndex = 0;
 	public float speedrunTimer = 0;
 	public bool isPlayerActive = false;
+	public Panel creditsScreen;
 	private Node2D level;
 	private CharacterBody2D player;
 	private CanvasLayer hud;
@@ -36,6 +37,7 @@ public partial class GameManager : Node2D
 		failScreen = (Control)hud.GetChild(1);
 		pauseMenu = (Panel)hud.GetChild(3);
 		settingsMenu = (Panel)hud.GetChild(4);
+		creditsScreen = (Panel)hud.GetChild(5);
 
 		ColorRect PostProcessRect = (ColorRect)hud.GetChild(2);
 		postProcessShader = (ShaderMaterial)PostProcessRect.Material;
@@ -134,24 +136,13 @@ public partial class GameManager : Node2D
 
 		postProcessShader.SetShaderParameter("darken", GetTree().Paused);
 	}
-	public void ToggleSettings() // shitty code part 2
+	public void ToggleSettings()
 	{
-		Control titleScreen = GetChildOrNull<Control>(1);
-
-		if(titleScreen != null) // when on the title screen
-		{
-			Panel mainMenu = titleScreen.GetChildOrNull<Panel>(1);
-
-			mainMenu.Visible = !mainMenu.Visible;
-			settingsMenu.Visible = !settingsMenu.Visible;
-		}
-		else // when in game
-		{
-			settingsMenu.Visible = !settingsMenu.Visible;
-			pauseMenu.Visible = !pauseMenu.Visible;
-		}
-
-		postProcessShader.SetShaderParameter("darken", GetTree().Paused);
+		settingsMenu.Visible = !settingsMenu.Visible;
+	}
+	public void ToggleCredits()
+	{
+		creditsScreen.Visible = !creditsScreen.Visible;
 	}
 	public void ToggleBloom()
 	{
