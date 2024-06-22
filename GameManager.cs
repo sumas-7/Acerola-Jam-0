@@ -85,8 +85,11 @@ public partial class GameManager : Node2D
 
 			// connects the quit button in the last level to the quit method
 			Button quitButton = (Button)level.GetChild(0).GetChild(2);
-
 			quitButton.Pressed += Quit;
+			
+			// connects the credits text in the last level to the ToggleCredits method
+			LinkButton creditsButton = (LinkButton)level.GetChild(1);
+			creditsButton.Pressed += ToggleCredits;
 		}
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=19 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="8_ans87"]
 [ext_resource type="FontFile" uid="uid://berbkvoay1gi7" path="res://Assets/Fonts/sumas7.ttf" id="8_fhu5c"]
 [ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="9_stctc"]
-[ext_resource type="Script" path="res://credits.cs" id="11_oscr3"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
 background_mode = 3
@@ -150,7 +149,6 @@ theme_override_font_sizes/font_size = 23
 text = "Quit"
 
 [node name="SettingsMenu" type="Panel" parent="WorldEnvironment/HUD"]
-visible = false
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_uo8p3")
@@ -359,9 +357,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -590.0
-offset_top = 308.0
+offset_top = 313.0
 offset_right = -567.0
-offset_bottom = 335.0
+offset_bottom = 340.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/normal_font = ExtResource("8_fhu5c")
@@ -369,7 +367,7 @@ theme_override_font_sizes/normal_font_size = 19
 bbcode_enabled = true
 text = "S"
 
-[node name="credits" type="RichTextLabel" parent="TitleScreen/MainMenu"]
+[node name="credits" type="LinkButton" parent="TitleScreen/MainMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -377,16 +375,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -617.0
-offset_top = 301.0
+offset_top = 306.0
 offset_right = -466.0
-offset_bottom = 331.0
+offset_bottom = 336.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/normal_font_size = 21
-bbcode_enabled = true
-text = "[url]by    umas7[/url]"
-fit_content = true
-script = ExtResource("11_oscr3")
+theme_override_font_sizes/font_size = 21
+text = "by    umas7"
+underline = 1
 
 [node name="StartGameButton" type="Button" parent="TitleScreen/MainMenu"]
 layout_mode = 1
@@ -448,5 +444,6 @@ text = "Quit"
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/BloomButton" to="." method="ToggleBloom"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/MusicButton" to="." method="ToggleMusic"]
 [connection signal="pressed" from="WorldEnvironment/HUD/CreditsScreen/BackButton" to="." method="ToggleCredits"]
+[connection signal="pressed" from="TitleScreen/MainMenu/credits" to="." method="ToggleCredits"]
 [connection signal="pressed" from="TitleScreen/MainMenu/SettingsButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="TitleScreen/MainMenu/QuitButton" to="." method="Quit"]
