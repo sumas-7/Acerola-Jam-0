@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bi7pf351iijfc"
-path="res://.godot/imported/checkboxFocus.png-9c71a2f699d79457ba1e5fb6a91c6d82.ctex"
+path="res://.godot/imported/checkboxFocus.png-2788d7a9d35eb48f90964fb807e1f12f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://checkboxFocus.png"
-dest_files=["res://.godot/imported/checkboxFocus.png-9c71a2f699d79457ba1e5fb6a91c6d82.ctex"]
+source_file="res://Assets/UI-HUD/Checkbox/Sprites/checkboxFocus.png"
+dest_files=["res://.godot/imported/checkboxFocus.png-2788d7a9d35eb48f90964fb807e1f12f.ctex"]
 
 [params]
 
