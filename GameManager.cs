@@ -143,19 +143,28 @@ public partial class GameManager : Node2D
 	{
 		settingsMenu.Visible = !settingsMenu.Visible;
 	}
+	public void ApplySettings()
+	{
+		CheckBox fullscreen = (CheckBox)settingsMenu.GetChild(2).GetChild(0);
+		CheckBox bloom = (CheckBox)settingsMenu.GetChild(2).GetChild(1);
+		CheckBox music = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
+
+		// fullscreen
+		if(fullscreen.ButtonPressed)
+			DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
+		else
+			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
+
+		// bloom
+		environment.GlowEnabled = bloom.ButtonPressed;
+
+		// music
+		int musicBus = AudioServer.GetBusIndex("Music");
+		AudioServer.SetBusMute(musicBus, !music.ButtonPressed);
+	}
 	public void ToggleCredits()
 	{
 		creditsScreen.Visible = !creditsScreen.Visible;
-	}
-	public void ToggleBloom()
-	{
-		environment.GlowEnabled = !environment.GlowEnabled;
-	}
-	public void ToggleMusic()
-	{
-		int musicBus = AudioServer.GetBusIndex("Music");
-
-		AudioServer.SetBusMute(musicBus, !AudioServer.IsBusMute(musicBus));
 	}
 
 	// Aberrations

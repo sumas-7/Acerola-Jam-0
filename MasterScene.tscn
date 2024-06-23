@@ -132,17 +132,16 @@ theme_override_font_sizes/font_size = 23
 text = "Settings"
 
 [node name="QuitButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = 164.0
-offset_right = 48.0
-offset_bottom = 226.0
+offset_left = -611.0
+offset_top = 268.0
+offset_right = -515.0
+offset_bottom = 330.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_stctc")
@@ -150,6 +149,7 @@ theme_override_font_sizes/font_size = 23
 text = "Quit"
 
 [node name="SettingsMenu" type="Panel" parent="WorldEnvironment/HUD"]
+visible = false
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_uo8p3")
@@ -192,6 +192,11 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 3
 
+[node name="Fullscreen" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
+layout_mode = 2
+theme = ExtResource("6_f5ic0")
+text = "Fullscreen"
+
 [node name="Bloom" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
 layout_mode = 2
 theme = ExtResource("6_f5ic0")
@@ -203,6 +208,23 @@ layout_mode = 2
 theme = ExtResource("6_f5ic0")
 button_pressed = true
 text = "Music"
+
+[node name="ApplySettings" type="Button" parent="WorldEnvironment/HUD/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 484.0
+offset_top = 268.0
+offset_right = 612.0
+offset_bottom = 330.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("9_stctc")
+theme_override_font_sizes/font_size = 23
+text = "Apply"
 
 [node name="CreditsScreen" type="Panel" parent="WorldEnvironment/HUD"]
 visible = false
@@ -314,7 +336,6 @@ script = ExtResource("8_ans87")
 
 [node name="TitleScreen" type="Control" parent="."]
 process_mode = 3
-visible = false
 layout_mode = 3
 anchors_preset = 0
 
@@ -441,8 +462,10 @@ text = "Quit"
 [connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/SettingsButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/QuitButton" to="." method="Quit"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/BackButton" to="." method="ToggleSettings"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/Fullscreen" to="." method="ToggleFullscreen"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/Bloom" to="." method="ToggleBloom"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/Music" to="." method="ToggleMusic"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/ApplySettings" to="." method="ApplySettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/CreditsScreen/BackButton" to="." method="ToggleCredits"]
 [connection signal="pressed" from="TitleScreen/MainMenu/credits" to="." method="ToggleCredits"]
 [connection signal="pressed" from="TitleScreen/MainMenu/SettingsButton" to="." method="ToggleSettings"]
