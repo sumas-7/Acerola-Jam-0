@@ -74,6 +74,7 @@ mouse_filter = 2
 copy_mode = 2
 
 [node name="PauseMenu" type="Panel" parent="WorldEnvironment/HUD"]
+visible = false
 offset_right = 1280.0
 offset_bottom = 720.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_uo8p3")
