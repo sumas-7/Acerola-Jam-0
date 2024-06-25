@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://clibqj16ptkcv"]
+[gd_scene load_steps=22 format=3 uid="uid://clibqj16ptkcv"]
 
 [ext_resource type="Script" path="res://GameManager.cs" id="1_pvv0a"]
 [ext_resource type="PackedScene" uid="uid://csw4e7c1f4ebt" path="res://Assets/UI-HUD/LevelEndingScreens/LevelClearScreen.tscn" id="2_esdh3"]
@@ -7,10 +7,12 @@
 [ext_resource type="Shader" path="res://PostProcessing.gdshader" id="4_re0fa"]
 [ext_resource type="AudioStream" uid="uid://srr1h6u3th31" path="res://Assets/SFX/Lose.wav" id="5_5eno3"]
 [ext_resource type="AudioStream" uid="uid://ce2866pqidfeb" path="res://Assets/SFX/Win.wav" id="6_0npfo"]
+[ext_resource type="FontFile" uid="uid://b5urpv5q2883o" path="res://Assets/Fonts/PLAY-BOLD.ttf" id="6_4x8ft"]
 [ext_resource type="Theme" uid="uid://c71p1yjymqty4" path="res://Assets/UI-HUD/Checkbox/CheckBox.theme" id="6_f5ic0"]
 [ext_resource type="Script" path="res://PauseManager.cs" id="7_jsd4d"]
 [ext_resource type="Script" path="res://MusicPlayer.cs" id="8_ans87"]
 [ext_resource type="FontFile" uid="uid://berbkvoay1gi7" path="res://Assets/Fonts/sumas7.ttf" id="8_fhu5c"]
+[ext_resource type="Theme" uid="uid://d2coydvdrgrhp" path="res://Assets/UI-HUD/Slider/Slider.theme" id="8_xynfm"]
 [ext_resource type="Theme" uid="uid://b608r6xiwi1il" path="res://Assets/UI-HUD/Button/Button.theme" id="9_stctc"]
 
 [sub_resource type="Environment" id="Environment_8joup"]
@@ -98,16 +100,11 @@ text = "[wave amp=40 freq=0.5]Paused"
 fit_content = true
 
 [node name="ResumeButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -103.0
-offset_top = -32.0
-offset_right = 103.0
-offset_bottom = 46.0
+layout_mode = 2
+offset_left = 533.0
+offset_top = 332.0
+offset_right = 747.0
+offset_bottom = 396.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_stctc")
@@ -115,16 +112,11 @@ theme_override_font_sizes/font_size = 23
 text = "Resume"
 
 [node name="RestartButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -89.0
-offset_top = 69.0
-offset_right = 89.0
-offset_bottom = 149.0
+layout_mode = 2
+offset_left = 548.0
+offset_top = 426.0
+offset_right = 732.0
+offset_bottom = 488.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_stctc")
@@ -132,16 +124,11 @@ theme_override_font_sizes/font_size = 23
 text = "Restart Level"
 
 [node name="SettingsButton" type="Button" parent="WorldEnvironment/HUD/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -68.0
-offset_top = 172.0
-offset_right = 68.0
-offset_bottom = 234.0
+layout_mode = 2
+offset_left = 572.0
+offset_top = 518.0
+offset_right = 708.0
+offset_bottom = 580.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("9_stctc")
@@ -194,37 +181,119 @@ theme = ExtResource("9_stctc")
 theme_override_font_sizes/font_size = 23
 text = "Back"
 
-[node name="Settings" type="VBoxContainer" parent="WorldEnvironment/HUD/SettingsMenu"]
+[node name="VisualSettings" type="VBoxContainer" parent="WorldEnvironment/HUD/SettingsMenu"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -92.0
-offset_top = -61.0
-offset_right = 92.0
-offset_bottom = 60.0
+offset_left = -375.5
+offset_top = -124.0
+offset_right = -24.5
+offset_bottom = 124.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 3
 
-[node name="Fullscreen" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
+[node name="Settings" type="RichTextLabel" parent="WorldEnvironment/HUD/SettingsMenu/VisualSettings"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_4x8ft")
+theme_override_font_sizes/normal_font_size = 35
+text = "Visual settings"
+fit_content = true
+
+[node name="Fullscreen" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/VisualSettings"]
 layout_mode = 2
 theme = ExtResource("6_f5ic0")
 text = "Fullscreen"
 
-[node name="Bloom" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
+[node name="Bloom" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/VisualSettings"]
 layout_mode = 2
 theme = ExtResource("6_f5ic0")
 button_pressed = true
 text = "Bloom"
 
-[node name="Music" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/Settings"]
+[node name="Music" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/VisualSettings"]
 layout_mode = 2
 theme = ExtResource("6_f5ic0")
-button_pressed = true
-text = "Music"
+text = "Vsync"
+
+[node name="AudioSettings" type="VBoxContainer" parent="WorldEnvironment/HUD/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -31.0
+offset_top = -155.0
+offset_right = 320.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 19
+
+[node name="Settings" type="RichTextLabel" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_4x8ft")
+theme_override_font_sizes/normal_font_size = 35
+text = "Audio settings"
+fit_content = true
+
+[node name="MasterVolume" type="VBoxContainer" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MasterVolLabel" type="RichTextLabel" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings/MasterVolume"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_4x8ft")
+theme_override_font_sizes/normal_font_size = 23
+text = "Master volume"
+fit_content = true
+
+[node name="MasterVolSlider" type="HSlider" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings/MasterVolume"]
+layout_mode = 2
+theme = ExtResource("8_xynfm")
+max_value = 1.0
+step = 0.02
+value = 0.74
+
+[node name="SFXVolume" type="VBoxContainer" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SFXVolLabel" type="RichTextLabel" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings/SFXVolume"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_4x8ft")
+theme_override_font_sizes/normal_font_size = 23
+text = "Effects volume"
+fit_content = true
+
+[node name="SFXVolSlider" type="HSlider" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings/SFXVolume"]
+layout_mode = 2
+theme = ExtResource("8_xynfm")
+max_value = 1.0
+step = 0.02
+value = 0.74
+
+[node name="MusicVolume" type="VBoxContainer" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MusicVolLabel" type="RichTextLabel" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings/MusicVolume"]
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("6_4x8ft")
+theme_override_font_sizes/normal_font_size = 23
+text = "Music volume"
+fit_content = true
+
+[node name="MusicVolSlider" type="HSlider" parent="WorldEnvironment/HUD/SettingsMenu/AudioSettings/MusicVolume"]
+layout_mode = 2
+theme = ExtResource("8_xynfm")
+max_value = 1.0
+step = 0.02
+value = 0.74
 
 [node name="ApplySettings" type="Button" parent="WorldEnvironment/HUD/SettingsMenu"]
 layout_mode = 1
@@ -341,13 +410,15 @@ script = ExtResource("7_jsd4d")
 [node name="LoseSound" type="AudioStreamPlayer" parent="WorldEnvironment"]
 stream = ExtResource("5_5eno3")
 volume_db = -1.0
+bus = &"SFX"
 
 [node name="WinSound" type="AudioStreamPlayer" parent="WorldEnvironment"]
 stream = ExtResource("6_0npfo")
+bus = &"SFX"
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="WorldEnvironment"]
 process_mode = 3
-volume_db = -10.5
+volume_db = -15.5
 bus = &"Music"
 script = ExtResource("8_ans87")
 
@@ -481,9 +552,9 @@ text = "Quit"
 [connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/SettingsButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/QuitButton" to="." method="Quit"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/BackButton" to="." method="ToggleSettings"]
-[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/Fullscreen" to="." method="ToggleFullscreen"]
-[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/Bloom" to="." method="ToggleBloom"]
-[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/Settings/Music" to="." method="ToggleMusic"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/VisualSettings/Fullscreen" to="." method="ToggleFullscreen"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/VisualSettings/Bloom" to="." method="ToggleBloom"]
+[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/VisualSettings/Music" to="." method="ToggleMusic"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/ApplySettings" to="." method="ApplySettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/CreditsScreen/BackButton" to="." method="ToggleCredits"]
 [connection signal="pressed" from="TitleScreen/MainMenu/credits" to="." method="ToggleCredits"]

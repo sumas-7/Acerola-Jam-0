@@ -14,12 +14,16 @@ public partial class GameManager : Node2D
 	private CanvasLayer hud;
 	private CanvasLayer tutorial;
 	private Control clearScreen, failScreen;
-	private Panel settingsMenu, pauseMenu;
+	private Panel pauseMenu;
 	private ShaderMaterial postProcessShader;
 	private WorldEnvironment worldEnvironment;
 	private Environment environment;
 	private PackedScene level_scene;
 	private PackedScene tutorial_scene = (PackedScene)GD.Load("res://Assets/UI-HUD/Tutorial/Tutorial.tscn");
+
+	// settings
+	private Panel settingsMenu;
+	CheckBox fullscreen_cfg, bloom_cfg, vsync_cfg;
 
 	private Node levelControls; // node in the level that contains control scheme
 	// create the objects of the InputEventKeys. Using only one object ended up assigning the same key to everything
@@ -36,9 +40,11 @@ public partial class GameManager : Node2D
 		clearScreen = (Control)hud.GetChild(0);
 		failScreen = (Control)hud.GetChild(1);
 		pauseMenu = (Panel)hud.GetChild(3);
-		settingsMenu = (Panel)hud.GetChild(4);
 		creditsScreen = (Panel)hud.GetChild(5);
 
+		GetSettingNodes();
+
+		// shader stuff
 		ColorRect PostProcessRect = (ColorRect)hud.GetChild(2);
 		postProcessShader = (ShaderMaterial)PostProcessRect.Material;
 	}
@@ -143,24 +149,43 @@ public partial class GameManager : Node2D
 	{
 		settingsMenu.Visible = !settingsMenu.Visible;
 	}
+	public void GetSettingNodes()
+	{
+		// config stuff
+		settingsMenu = (Panel)hud.GetChild(4);
+		// visual settings
+		fullscreen_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(1);
+		bloom_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
+		vsync_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(3);
+		// audio settings
+	}
 	public void ApplySettings()
 	{
-		CheckBox fullscreen = (CheckBox)settingsMenu.GetChild(2).GetChild(0);
-		CheckBox bloom = (CheckBox)settingsMenu.GetChild(2).GetChild(1);
-		CheckBox music = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
-
+		// display settings
 		// fullscreen
-		if(fullscreen.ButtonPressed)
+		if(fullscreen_cfg.ButtonPressed)
 			DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
 		else
 			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
 
 		// bloom
-		environment.GlowEnabled = bloom.ButtonPressed;
+		environment.GlowEnabled = bloom_cfg.ButtonPressed;
 
-		// music
-		int musicBus = AudioServer.GetBusIndex("Music");
-		AudioServer.SetBusMute(musicBus, !music.ButtonPressed);
+		// vsync
+		if(vsync_cfg.ButtonPressed)
+			DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Enabled);
+		else
+			DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled);
+		
+		// audio settings (gets the id of the bus, then tweaks the volume)
+		// master bus volume
+		// AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), Mathf.LinearToDb(0.5f));
+
+		// // sfx bus volume
+		// AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), Mathf.LinearToDb(0.5f));
+
+		// // music bus volume
+		// AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), Mathf.LinearToDb(0.5f));
 	}
 	public void ToggleCredits()
 	{

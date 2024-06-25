@@ -82,13 +82,16 @@ DASH_DURATION = 0.14
 
 [node name="JumpSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_m3831")
+bus = &"SFX"
 
 [node name="DashSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_pr5gm")
 volume_db = -5.0
+bus = &"SFX"
 
 [node name="LandSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_beumq")
+bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../LandSound")
