@@ -23,7 +23,9 @@ public partial class GameManager : Node2D
 
 	// settings
 	private Panel settingsMenu;
+	bool lastFullscreen_value, lastVsync_value; // used to avoid changing the settings when already as desired to prevent the flashing that occurs when they change
 	CheckBox fullscreen_cfg, bloom_cfg, vsync_cfg;
+	Slider masterVol_cfg, sfxVol_cfg, musicVol_cfg;
 
 	private Node levelControls; // node in the level that contains control scheme
 	// create the objects of the InputEventKeys. Using only one object ended up assigning the same key to everything
@@ -158,34 +160,41 @@ public partial class GameManager : Node2D
 		bloom_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
 		vsync_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(3);
 		// audio settings
+		masterVol_cfg = (Slider)settingsMenu.GetChild(3).GetChild(1).GetChild(1);
+		sfxVol_cfg = (Slider)settingsMenu.GetChild(3).GetChild(2).GetChild(1);
+		musicVol_cfg = (Slider)settingsMenu.GetChild(3).GetChild(3).GetChild(1);
 	}
 	public void ApplySettings()
 	{
 		// display settings
 		// fullscreen
-		if(fullscreen_cfg.ButtonPressed)
-			DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
-		else
-			DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
+		if(lastFullscreen_value != fullscreen_cfg.ButtonPressed)
+			if(!fullscreen_cfg.ButtonPressed)
+				DisplayServer.WindowSetMode(DisplayServer.WindowMode.Windowed);
+			else
+				DisplayServer.WindowSetMode(DisplayServer.WindowMode.ExclusiveFullscreen);
+		lastFullscreen_value = fullscreen_cfg.ButtonPressed;
 
 		// bloom
 		environment.GlowEnabled = bloom_cfg.ButtonPressed;
 
 		// vsync
-		if(vsync_cfg.ButtonPressed)
-			DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Enabled);
-		else
-			DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled);
+		if(lastVsync_value != vsync_cfg.ButtonPressed)
+			if(vsync_cfg.ButtonPressed)
+				DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Enabled);
+			else
+				DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled);
+		lastVsync_value = vsync_cfg.ButtonPressed;
 		
-		// audio settings (gets the id of the bus, then tweaks the volume)
+		// audio settings
 		// master bus volume
-		// AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), Mathf.LinearToDb(0.5f));
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Master"), Mathf.LinearToDb((float)masterVol_cfg.Value));
 
 		// // sfx bus volume
-		// AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), Mathf.LinearToDb(0.5f));
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("SFX"), Mathf.LinearToDb((float)sfxVol_cfg.Value));
 
 		// // music bus volume
-		// AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), Mathf.LinearToDb(0.5f));
+		AudioServer.SetBusVolumeDb(AudioServer.GetBusIndex("Music"), Mathf.LinearToDb((float)musicVol_cfg.Value));
 	}
 	public void ToggleCredits()
 	{
