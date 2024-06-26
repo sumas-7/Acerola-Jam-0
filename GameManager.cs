@@ -157,8 +157,8 @@ public partial class GameManager : Node2D
 		settingsMenu = (Panel)hud.GetChild(4);
 		// visual settings
 		fullscreen_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(1);
-		bloom_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
-		vsync_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(3);
+		vsync_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
+		bloom_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(3);
 		// audio settings
 		masterVol_cfg = (Slider)settingsMenu.GetChild(3).GetChild(1).GetChild(1);
 		sfxVol_cfg = (Slider)settingsMenu.GetChild(3).GetChild(2).GetChild(1);
