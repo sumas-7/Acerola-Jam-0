@@ -28,6 +28,10 @@ window/vsync/vsync_mode=0
 
 project/assembly_name="Acerola-Jam-0"
 
+[gui]
+
+timers/tooltip_delay_sec=0.2
+
 [input]
 
 up={
