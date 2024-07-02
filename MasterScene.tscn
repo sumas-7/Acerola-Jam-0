@@ -209,12 +209,6 @@ tooltip_text = "Increase the window size to cover the entire screen"
 theme = ExtResource("6_f5ic0")
 text = "Fullscreen"
 
-[node name="Vsync" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/VisualSettings"]
-layout_mode = 2
-tooltip_text = "Syncs the monitor's refresh rate with the frame rate of the game to avoid screen tearing, may increase input response time on low end machines"
-theme = ExtResource("6_f5ic0")
-text = "Vsync"
-
 [node name="Bloom" type="CheckBox" parent="WorldEnvironment/HUD/SettingsMenu/VisualSettings"]
 layout_mode = 2
 tooltip_text = "Subtle glow effect applied to almost everything in the game"
@@ -556,7 +550,6 @@ text = "Quit"
 [connection signal="pressed" from="WorldEnvironment/HUD/PauseMenu/QuitButton" to="." method="Quit"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/BackButton" to="." method="ToggleSettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/VisualSettings/Fullscreen" to="." method="ToggleFullscreen"]
-[connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/VisualSettings/Vsync" to="." method="ToggleMusic"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/VisualSettings/Bloom" to="." method="ToggleBloom"]
 [connection signal="pressed" from="WorldEnvironment/HUD/SettingsMenu/ApplySettings" to="." method="ApplySettings"]
 [connection signal="pressed" from="WorldEnvironment/HUD/CreditsScreen/BackButton" to="." method="ToggleCredits"]

@@ -23,8 +23,8 @@ public partial class GameManager : Node2D
 
 	// settings
 	private Panel settingsMenu;
-	bool lastFullscreen_value, lastVsync_value; // used to avoid changing the settings when already as desired to prevent the flashing that occurs when they change
-	CheckBox fullscreen_cfg, bloom_cfg, vsync_cfg;
+	bool lastFullscreen_value; // used to avoid changing the settings when already as desired to prevent the flashing that occurs when they change
+	CheckBox fullscreen_cfg, bloom_cfg;
 	Slider masterVol_cfg, sfxVol_cfg, musicVol_cfg;
 
 	private Node levelControls; // node in the level that contains control scheme
@@ -157,8 +157,7 @@ public partial class GameManager : Node2D
 		settingsMenu = (Panel)hud.GetChild(4);
 		// visual settings
 		fullscreen_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(1);
-		vsync_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
-		bloom_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(3);
+		bloom_cfg = (CheckBox)settingsMenu.GetChild(2).GetChild(2);
 		// audio settings
 		masterVol_cfg = (Slider)settingsMenu.GetChild(3).GetChild(1).GetChild(1);
 		sfxVol_cfg = (Slider)settingsMenu.GetChild(3).GetChild(2).GetChild(1);
@@ -177,14 +176,6 @@ public partial class GameManager : Node2D
 
 		// bloom
 		environment.GlowEnabled = bloom_cfg.ButtonPressed;
-
-		// vsync
-		if(lastVsync_value != vsync_cfg.ButtonPressed)
-			if(vsync_cfg.ButtonPressed)
-				DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Enabled);
-			else
-				DisplayServer.WindowSetVsyncMode(DisplayServer.VSyncMode.Disabled);
-		lastVsync_value = vsync_cfg.ButtonPressed;
 		
 		// audio settings
 		// master bus volume
