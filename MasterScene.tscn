@@ -360,7 +360,22 @@ theme = ExtResource("9_stctc")
 theme_override_font_sizes/normal_font_size = 22
 bbcode_enabled = true
 text = "[center]Designed and programmed by:
-sumas7[/center]"
+  umas7[/center]"
+fit_content = true
+
+[node name="S" type="RichTextLabel" parent="WorldEnvironment/HUD/CreditsScreen/Credits/RichTextLabel"]
+modulate = Color(0, 0.87451, 0, 1)
+layout_mode = 2
+offset_left = 383.0
+offset_top = 32.0
+offset_right = 409.0
+offset_bottom = 52.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/normal_font = ExtResource("8_fhu5c")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "S"
 fit_content = true
 
 [node name="Misc" type="RichTextLabel" parent="WorldEnvironment/HUD/CreditsScreen/Credits"]
@@ -454,25 +469,6 @@ bbcode_enabled = true
 text = "[wave amp=80 freq=1.5]!WASD"
 fit_content = true
 
-[node name="S" type="RichTextLabel" parent="TitleScreen/MainMenu"]
-modulate = Color(0, 0.87451, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -590.0
-offset_top = 313.0
-offset_right = -567.0
-offset_bottom = 340.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/normal_font = ExtResource("8_fhu5c")
-theme_override_font_sizes/normal_font_size = 19
-bbcode_enabled = true
-text = "S"
-
 [node name="credits" type="LinkButton" parent="TitleScreen/MainMenu"]
 layout_mode = 1
 anchors_preset = 8
@@ -489,6 +485,27 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 21
 text = "by    umas7"
 underline = 1
+
+[node name="S" type="RichTextLabel" parent="TitleScreen/MainMenu"]
+modulate = Color(0, 0.87451, 0, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -591.0
+offset_top = 312.5
+offset_right = -568.0
+offset_bottom = 332.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.0003, 1.0003)
+theme_override_fonts/normal_font = ExtResource("8_fhu5c")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "S"
+fit_content = true
 
 [node name="StartGameButton" type="Button" parent="TitleScreen/MainMenu"]
 layout_mode = 1
