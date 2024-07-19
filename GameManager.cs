@@ -70,15 +70,25 @@ public partial class GameManager : Node2D
 		if(levelIndex < 6)
 			player = (CharacterBody2D)level.GetChild(2);
 
-		// get the controls of the level and change the InputMap
+		// get the controls of the level
 		levelControls = level.GetChild(0);
-		
-		if(loadNext)
-			AberrateInput();
 
-		if(level.Name != "EndingScreen") // if not the last level
+		if(loadNext)
 		{
-			// add the tutorial scene to the level
+			// relase all actions before overwriting them
+			Input.ActionRelease("up");
+			Input.ActionRelease("down");
+			Input.ActionRelease("left");
+			Input.ActionRelease("right");
+			Input.ActionRelease("jump");
+			Input.ActionRelease("dash");
+			Input.ActionRelease("reload");
+			Input.ActionRelease("pause");
+			AberrateInput();
+		}
+
+		if(level.Name != "EndingScreen") // adds the tutorial to all levels except the last
+		{
 			tutorial = (CanvasLayer)tutorial_scene.Instantiate();
 			level.AddChild(tutorial);
 
@@ -209,7 +219,7 @@ public partial class GameManager : Node2D
 		musicPlayer.Aberrate();
 	}
 
-	public void AberrateInput()
+	public void AberrateInput() // changes the input map based on the level's control scheme or randomly
 	{
 		// clears current control scheme list
 		currentControls.Clear();

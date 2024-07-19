@@ -1,7 +1,8 @@
 using Godot;
 
-public partial class LevelFailRestartBar : ProgressBar
+public partial class LoadLevelProgressBar : ProgressBar
 {
+    [Export] private bool loadNext;
 	private Control parent;
 
     public override void _Ready()
@@ -13,16 +14,14 @@ public partial class LevelFailRestartBar : ProgressBar
 		if(GetTree().Paused == false)
 		{
 			if(Input.IsAnythingPressed() && parent.Visible == true)
-			{
 				Value += delta;
-			}
 			else
 				Value -= delta;
 
 			if(Value == MaxValue)
 			{
-				GetParentOrNull<Control>().Visible = false; // sets the screen to invisible again
-				GameManager.Instance.LoadLevel(false);
+				GetParentOrNull<Control>().Visible = false; // sets the level ending screen to invisible again
+				GameManager.Instance.LoadLevel(loadNext);
 			}
 		}
 	}
